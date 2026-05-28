@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎭 Aussie Money Survival — TEACHER EDITION (SECRET)</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .teacher-hero {
+    background: linear-gradient(135deg, rgba(139,92,246,.15), rgba(59,130,246,.08));
+    border-bottom: 1px solid rgba(139,92,246,.3);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .teacher-hero h1 { background: linear-gradient(135deg, #c4b5fd, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+  .role-card {
+    background: var(--surface);
+    border: 1px solid rgba(139,92,246,.3);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .role-header {
+    background: rgba(139,92,246,.1);
+    border-bottom: 1px solid rgba(139,92,246,.3);
+    padding: .9rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+  }
+  .role-emoji { font-size: 1.6rem; }
+  .role-title { font-size: 1.05rem; font-weight: 700; }
+  .role-subtitle { font-size: .8rem; color: var(--text3); }
+  .role-body { padding: 1.25rem; }
+
+  .trap-list { list-style: none; }
+  .trap-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    padding: .5rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: .875rem;
+    color: var(--text2);
+  }
+  .trap-list li:last-child { border-bottom: none; }
+  .trap-list .trap-icon { font-size: .9rem; flex-shrink: 0; margin-top: 2px; }
+
+  .speed-dial {
+    background: rgba(245,158,11,.08);
+    border: 1px solid rgba(245,158,11,.25);
+    border-radius: var(--radius-sm);
+    padding: .6rem .9rem;
+    font-size: .82rem;
+    color: var(--amber2);
+    margin: .4rem 0;
+    font-style: italic;
+  }
+
+  .hard-mode {
+    background: rgba(239,68,68,.08);
+    border: 1px solid rgba(239,68,68,.3);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-top: .75rem;
+  }
+  .hard-mode-title { color: var(--red2); font-weight: 700; font-size: .9rem; margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+
+  .fee-table th { background: rgba(139,92,246,.08); }
+  .fee-hidden { color: var(--red2); font-weight: 700; }
+
+  .acting-note {
+    background: rgba(59,130,246,.06);
+    border: 1px dashed rgba(59,130,246,.3);
+    border-radius: var(--radius-sm);
+    padding: .6rem .9rem;
+    font-size: .82rem;
+    color: var(--accent3);
+    margin: .4rem 0;
+  }
+
+  .upsell-box {
+    background: rgba(16,185,129,.06);
+    border: 1px solid rgba(16,185,129,.25);
+    border-radius: var(--radius-sm);
+    padding: .6rem .9rem;
+    margin: .4rem 0;
+  }
+  .upsell-box .upsell-title { font-size: .78rem; font-weight: 700; color: var(--green2); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .25rem; }
+  .upsell-box p { font-size: .82rem; color: var(--text2); margin: 0; }
+
+  .teacher-tabs { display: flex; gap: .4rem; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; overflow-x: auto; padding-bottom: 1px; }
+  .teacher-tab {
+    font-size: .82rem; font-weight: 600; padding: .5rem 1rem;
+    border: none; background: none; cursor: pointer; color: var(--text3);
+    border-bottom: 2px solid transparent; transition: var(--transition); white-space: nowrap;
+    font-family: var(--sans);
+  }
+  .teacher-tab.active { color: #c4b5fd; border-bottom-color: var(--purple); }
+  .teacher-tab:hover:not(.active) { color: var(--text2); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .difficulty-row { display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+
+  .interrupt-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--amber);
+    padding: .5rem .8rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: .82rem;
+    color: var(--amber2);
+    font-family: var(--mono);
+    margin: .3rem 0;
+  }
+
+  .scenario-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.25rem; }
+
+  @media (max-width: 600px) {
+    .scenario-grid { grid-template-columns: 1fr; }
+  }
+
+  .npc-name { font-weight: 700; color: var(--accent2); }
+  .npc-fast { color: var(--amber2); }
+  .npc-trap { color: var(--red2); }
+  .npc-normal { color: var(--text2); }
+
+  .timer-section {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="nav-logo">
+    <span class="flag">🇭🇫</span>
+    <span>Money Survival</span>
+    <span class="nav-badge badge-teacher">🎭 TEACHER</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#week1">Week 1</a></li>
+    <li><a href="#week2">Week 2</a></li>
+    <li><a href="#week3">Week 3</a></li>
+    <li><a href="#week4">Week 4</a></li>
+    <li><a href="#emergencies">Emergencies</a></li>
+    <li><a href="#scripts">Scripts</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:.75rem">
+    <button class="btn btn-warning btn-sm" onclick="triggerClassEmergency()">🎲 Trigger Emergency</button>
+    <button class="btn btn-secondary btn-sm" onclick="window.open('student.html','_blank')">👁 Student View</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="teacher-hero">
+  <h1>🎭 Teacher's Secret Edition</h1>
+  <p style="color:var(--text2);max-width:600px;margin:.5rem auto">This page contains everything your student does NOT know. Use the hidden fees, scam scripts, upselling traps, fast speech prompts, and emergency events to create an immersive, realistic Australian money roleplay experience.</p>
+  <div class="secret-badge" style="display:inline-block;margin-top:.75rem">⚠️ DO NOT SHARE THIS PAGE WITH STUDENTS — this is your GM screen</div>
+</div>
+
+<div class="container" style="padding-top:2rem">
+
+<!-- TEACHER TABS -->
+<div class="teacher-tabs">
+  <button class="teacher-tab active" data-tab="overview">📋 Overview</button>
+  <button class="teacher-tab" data-tab="bank">🏦 Bank Worker</button>
+  <button class="teacher-tab" data-tab="phone">📱 Phone Staff</button>
+  <button class="teacher-tab" data-tab="landlord">🏠 Landlord</button>
+  <button class="teacher-tab" data-tab="roommate">👥 Roommate</button>
+  <button class="teacher-tab" data-tab="cashier">🛒 Cashier</button>
+  <button class="teacher-tab" data-tab="transport">🚃 Transport</button>
+  <button class="teacher-tab" data-tab="scammer">☎️ Scam Caller</button>
+  <button class="teacher-tab" data-tab="week3ex">⚡ Week 3 Extra</button>
+  <button class="teacher-tab" data-tab="emergencies">🚨 Emergencies</button>
+  <button class="teacher-tab" data-tab="scripts">📜 Quick Scripts</button>
+</div>
+
+<!-- OVERVIEW TAB -->
+<div class="tab-panel active" id="tab-overview">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header"><h3>🎯 How to Run This Game</h3></div>
+      <ul class="trap-list">
+        <li><span class="trap-icon">1️⃣</span>Student opens student.html on their device. You use teacher.html only.</li>
+        <li><span class="trap-icon">2️⃣</span>Work through each week's scenarios. Student doesn't know hidden fees, traps, or scam info until they ask the right questions.</li>
+        <li><span class="trap-icon">3️⃣</span>Roleplay the character listed. Speak naturally — use Aussie accent, slang, and speed.</li>
+        <li><span class="trap-icon">4️⃣</span>Only reveal hidden info if the student asks directly and uses correct vocabulary.</li>
+        <li><span class="trap-icon">5️⃣</span>Trigger emergencies at any time using the button above to add realistic chaos.</li>
+        <li><span class="trap-icon">6️⃣</span>Grade student on: questions asked, decisions made, scams avoided, stress managed.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>⭐ Scoring Guide (Teacher Use)</h3></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Action</th><th>Points</th></tr></thead>
+          <tbody>
+            <tr><td>Asks about hidden fees unprompted</td><td style="color:var(--green2);font-family:var(--mono)">+15</td></tr>
+            <tr><td>Correctly identifies scam attempt</td><td style="color:var(--green2);font-family:var(--mono)">+25</td></tr>
+            <tr><td>Negotiates a better deal</td><td style="color:var(--green2);font-family:var(--mono)">+20</td></tr>
+            <tr><td>Uses correct banking vocabulary</td><td style="color:var(--green2);font-family:var(--mono)">+10</td></tr>
+            <tr><td>Falls for upsell without asking</td><td style="color:var(--red2);font-family:var(--mono)">-15</td></tr>
+            <tr><td>Gives personal info to scammer</td><td style="color:var(--red2);font-family:var(--mono)">-30</td></tr>
+            <tr><td>Pays without asking for receipt</td><td style="color:var(--red2);font-family:var(--mono)">-10</td></tr>
+            <tr><td>Goes over grocery budget</td><td style="color:var(--red2);font-family:var(--mono)">-10</td></tr>
+            <tr><td>Stays calm under pressure</td><td style="color:var(--amber2);font-family:var(--mono)">+10</td></tr>
+            <tr><td>Uses natural Australian English</td><td style="color:var(--amber2);font-family:var(--mono)">+5</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem">
+    <div class="alert alert-amber">
+      <span class="alert-icon">🎭</span>
+      <div><strong>Golden Rule:</strong> Only answer what the student explicitly asks. Don't volunteer hidden information. If they don't ask about fees — don't mention them. Real life doesn't warn you!</div>
+    </div>
+    <div class="alert alert-purple" style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.25);color:#c4b5fd">
+      <span class="alert-icon">⚡</span>
+      <div><strong>Difficulty modes:</strong> Easy = speak slowly, pause, repeat. Medium = normal speed, occasional slang. Hard = fast speech, interruptions, distractions, technical jargon, fake urgency.</div>
+    </div>
+  </div>
+
+  <!-- Difficulty Timer -->
+  <div class="timer-section" style="margin-top:1.5rem">
+    <h3 style="margin-bottom:.5rem">⏱ Roleplay Timer</h3>
+    <div class="timer-display" id="timer-display">02:00</div>
+    <p style="margin:.5rem 0">Set time pressure for each scenario</p>
+    <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:.75rem">
+      <button class="btn btn-secondary" onclick="startTimer(60)">1 min</button>
+      <button class="btn btn-secondary" onclick="startTimer(120)">2 min</button>
+      <button class="btn btn-secondary" onclick="startTimer(180)">3 min</button>
+      <button class="btn btn-warning" onclick="stopTimer()">Stop</button>
+      <button class="btn btn-secondary" onclick="resetTimer()">Reset</button>
+    </div>
+  </div>
+</div>
+
+<!-- BANK WORKER TAB -->
+<div class="tab-panel" id="tab-bank" data-anchor="week1">
+  <div class="role-card" style="margin-bottom:1.5rem">
+    <div class="role-header">
+      <span class="role-emoji">🏦</span>
+      <div>
+        <div class="role-title">CHARACTER: Bank Worker</div>
+        <div class="role-subtitle">NAB / CBA / Westpac branch — scenario: opening an account</div>
+      </div>
+      <div style="margin-left:auto">
+        <div class="difficulty-dots">
+          <div class="dot filled easy"></div>
+          <div class="dot filled easy"></div>
+          <div class="dot filled medium"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+    <div class="role-body">
+
+      <div class="section-head" style="margin-bottom:.75rem"><h3>💰 The Three Account Options (Secret Info)</h3></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Account</th><th>Monthly Fee</th><th>Hidden Conditions</th><th>Overdraft Fee</th><th>ATM Fee</th><th>Upsell</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Everyday Account</strong><br><span class="tag tag-blue">You push this one</span></td>
+              <td class="fee-hidden">$8/month</td>
+              <td>Waived if you deposit $2,000+/month (student probably can't)</td>
+              <td class="fee-hidden">$15/event</td>
+              <td>$0 own ATM, $2.50 foreign</td>
+              <td>Linked credit card offer</td>
+            </tr>
+            <tr>
+              <td><strong>Student Account</strong><br><span class="tag tag-green">Best for student</span></td>
+              <td style="color:var(--green2);font-weight:700">$0</td>
+              <td>Must prove student status. Requires student ID or enrolment letter.</td>
+              <td class="fee-hidden">$10/event</td>
+              <td>$0 own ATM, $0 partner ATMs</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><strong>Basic Account</strong></td>
+              <td>$0</td>
+              <td>No overdraft protection. No credit card. International fees high.</td>
+              <td>Card declined (no overdraft)</td>
+              <td>$2.00 all ATMs</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:1rem">
+        <div class="acting-note">🎭 <strong>Acting note:</strong> Lead with the Everyday Account first. Say it's "our most popular option." Only mention the Student Account if the student specifically asks about student options or says they're a student. Don't mention the fee waiver condition unless asked.</div>
+        <div class="upsell-box">
+          <div class="upsell-title">💳 Upsell Opportunity: Credit Card</div>
+          <p>After they open the account, say: <em>"Would you like me to pre-approve you for a credit card with $2,000 limit? Great for emergencies!"</em> — Push this gently. Don't mention interest rates (22.74% p.a.) unless asked.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem">
+        <h3 style="margin-bottom:.75rem">🎤 Fast English Lines (use in Hard Mode)</h3>
+        <div class="script-box">
+          <span class="speaker">You (fast): </span><span class="npc-fast">"Right so we've got the Everyday which is eight bucks a month waived if you're depositing two thou, orrr the Student but you need to prove enrolment, orr the Basic which is fee-free but no overdraft protection. Which one suits ya?"</span>
+        </div>
+        <div class="interrupt-box">💬 Interrupt move: Start talking about the credit card before they finish asking their question. See if they can redirect the conversation.</div>
+      </div>
+
+      <div class="hard-mode">
+        <div class="hard-mode-title">🔥 Hard Mode Situations</div>
+        <ul class="trap-list">
+          <li><span class="trap-icon">🪤</span><strong>Trap 1 — Jargon flood:</strong> Say "your BSB is six digits, account number eight digits, and we'll set you up with PayID, BPay, OSKO..." then wait. Do they ask what any of it means?</li>
+          <li><span class="trap-icon">🪤</span><strong>Trap 2 — Fake urgency:</strong> "This offer on the credit card is only available today." (It isn't — if they ask, admit it, but pressure them first.)</li>
+          <li><span class="trap-icon">🪤</span><strong>Trap 3 — Paperwork confusion:</strong> Hand them 3 forms. Tell them to "just sign where it says initial." Wait to see if they read it or ask what they're signing.</li>
+          <li><span class="trap-icon">🪤</span><strong>Trap 4 — Phone distraction:</strong> "Sorry, one sec..." [pretend to take a call] then come back and ask "where were we?" — did they remember their question?</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:1rem">
+        <h3 style="margin-bottom:.75rem">✅ What To Reveal (ONLY if asked directly)</h3>
+        <ul class="trap-list">
+          <li><span class="trap-icon">✓</span>Monthly fee exists: only if student asks "are there any fees?"</li>
+          <li><span class="trap-icon">✓</span>Student account free: only if student says "I'm a student" or asks "is there a student option?"</li>
+          <li><span class="trap-icon">✓</span>Overdraft fee: only if student asks "what happens if I spend too much?"</li>
+          <li><span class="trap-icon">✓</span>Credit card interest rate: only if student asks "what's the interest rate?"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHONE STAFF TAB -->
+<div class="tab-panel" id="tab-phone">
+  <div class="role-card" style="margin-bottom:1.5rem">
+    <div class="role-header">
+      <span class="role-emoji">📱</span>
+      <div>
+        <div class="role-title">CHARACTER: Phone Company Staff</div>
+        <div class="role-subtitle">Optus / Telstra / Aldi Mobile store — SIM / phone plan</div>
+      </div>
+    </div>
+    <div class="role-body">
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Plan</th><th>Price</th><th>Data</th><th>Calls</th><th>Hidden Trap</th><th>You Push</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Plan A — "Starter"</strong></td>
+              <td>$18/mo</td>
+              <td>8GB</td>
+              <td>Unlimited Aus</td>
+              <td class="fee-hidden">Data throttled to 1Mbps after 8GB (basically useless)</td>
+              <td>No</td>
+            </tr>
+            <tr>
+              <td><strong>Plan B — "Popular"</strong><br><span class="tag tag-amber">Push this one</span></td>
+              <td>$45/mo</td>
+              <td>30GB</td>
+              <td>Unlimited + Intl</td>
+              <td class="fee-hidden">$50 activation fee not mentioned. Auto-renews monthly but needs 30 days notice to cancel.</td>
+              <td>Yes — "best value!"</td>
+            </tr>
+            <tr>
+              <td><strong>Plan C — "Budget PAYG"</strong><br><span class="tag tag-green">Best for student</span></td>
+              <td>$30/mo</td>
+              <td>15GB</td>
+              <td>Unlimited Aus</td>
+              <td>No contract. No lock-in. Recharge manually.</td>
+              <td>No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:1rem">
+        <div class="acting-note">🎭 Always push Plan B. Say "most of our customers go with this one." Only mention Plan C if student asks about no-contract or cheap options. Never volunteer the activation fee.</div>
+        <div class="speed-dial">"So today we've got this amazing deal — Plan B, thirty gigs, unlimited everything, international calls included, super popular, most people go with it, great value, only $45 a month — want to set that up today?"</div>
+        <div class="upsell-box">
+          <div class="upsell-title">📦 Upsell: Phone Insurance</div>
+          <p>"For $9 a month I can add accidental damage cover — if you crack the screen you're covered." (Don't mention the $100 excess fee unless asked.)</p>
+        </div>
+        <div class="upsell-box">
+          <div class="upsell-title">📱 Upsell: Device Payment Plan</div>
+          <p>"We also have the iPhone 15 on a 24-month repayment — only $89/month!" (Total cost: $2,136. Student probably can't afford this.)</p>
+        </div>
+      </div>
+
+      <div class="hard-mode">
+        <div class="hard-mode-title">🔥 Hard Mode Traps</div>
+        <ul class="trap-list">
+          <li><span class="trap-icon">🪤</span><strong>Speed read T&Cs:</strong> "Just need you to confirm you've read the terms and conditions." Point vaguely at 8-page document.</li>
+          <li><span class="trap-icon">🪤</span><strong>Fake discount:</strong> "I can give you 20% off if you sign up today... but it's only the first month."</li>
+          <li><span class="trap-icon">🪤</span><strong>International confusion:</strong> Say "international calls included" (it's international to only 10 countries, not theirs).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LANDLORD TAB -->
+<div class="tab-panel" id="tab-landlord">
+  <div class="role-card" style="margin-bottom:1.5rem">
+    <div class="role-header">
+      <span class="role-emoji">🏠</span>
+      <div>
+        <div class="role-title">CHARACTER: Landlord / Property Agent</div>
+        <div class="role-subtitle">Share house lease signing — Week 1</div>
+      </div>
+    </div>
+    <div class="role-body">
+
+      <div class="section-head" style="margin-bottom:.75rem"><h3>🔐 Hidden Lease Conditions (Student Doesn't Know)</h3></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Condition</th><th>Impact</th><th>Reveal if...</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bond = 4 weeks rent ($1,060)</strong></td><td class="fee-hidden">Due upfront — before moving in</td><td>Asked "how much is the bond?"</td></tr>
+            <tr><td><strong>Rent increases 6 months in</strong></td><td class="fee-hidden">+$20/week (7% increase, legally allowed)</td><td>Asked about rent review or increase</td></tr>
+            <tr><td><strong>No pets clause</strong></td><td>Fine if broken: $200</td><td>If relevant</td></tr>
+            <tr><td><strong>Internet NOT included</strong></td><td class="fee-hidden">Tenant must organise — $75–$90/month extra</td><td>Asked "what's included?"</td></tr>
+            <tr><td><strong>Garden maintenance required</strong></td><td>Tenant must mow lawn or risk bond deduction</td><td>Asked about responsibilities</td></tr>
+            <tr><td><strong>2-week notice to vacate required</strong></td><td>If they leave early: forfeit 2 weeks rent</td><td>Asked about leaving</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:1rem">
+        <div class="acting-note">🎭 Be friendly but businesslike. Rush through the lease verbally. Point to pages quickly. Say "standard stuff, most people just sign." Never mention the bond amount first — wait for them to ask.</div>
+        <div class="speed-dial">"Yeah so it's standard 12-month lease, rent's $265 a week, bond's four weeks, inspection every 3 months, utilities not included, garden to be maintained, any questions?"</div>
+      </div>
+
+      <div class="hard-mode">
+        <div class="hard-mode-title">🔥 Difficult Landlord Scenarios</div>
+        <ul class="trap-list">
+          <li><span class="trap-icon">🪤</span><strong>Bond dispute:</strong> At end of game, say "I'm keeping part of the bond for cleaning." Does student know their rights? (RTBA holds bond in Victoria — landlord can't just keep it.)</li>
+          <li><span class="trap-icon">🪤</span><strong>Rent increase pressure:</strong> "Everyone else in the area is paying $300. You're getting a deal."</li>
+          <li><span class="trap-icon">🪤</span><strong>Repairs stall:</strong> "I'll get someone in to fix the heater next month." (It's winter. Student has rights to heating.)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ROOMMATE TAB -->
+<div class="tab-panel" id="tab-roommate">
+  <div class="role-card" style="margin-bottom:1.5rem">
+    <div class="role-header">
+      <span class="role-emoji">👥</span>
+      <div>
+        <div class="role-title">CHARACTER: Difficult Roommate</div>
+        <div class="role-subtitle">"Jordan" — bills avoider, socially awkward pressure</div>
+      </div>
+    </div>
+    <div class="role-body">
+
+      <div class="acting-note">🎭 Be friendly on the surface but evasive about money. Use casual Aussie English. Act like you "forgot" about bills. Create social pressure by guilt-tripping.</div>
+
+      <h3 style="margin-bottom:.75rem">🧾 Bills Jordan Refuses to Pay (Hidden)</h3>
+      <ul class="trap-list">
+        <li><span class="trap-icon">💡</span>Claims they "barely use" the electricity — but left the heater on all week</li>
+        <li><span class="trap-icon">🌐</span>Says they'll "pay for internet next month" — been saying this for 6 weeks</li>
+        <li><span class="trap-icon">🧹</span>Never bought cleaning supplies but uses them constantly</li>
+        <li><span class="trap-icon">🍳</span>Used student's groceries without asking — owes ~$15</li>
+      </ul>
+
+      <div style="margin-top:1rem">
+        <h3 style="margin-bottom:.75rem">💬 Roleplay Lines</h3>
+        <div class="script-box">
+          <div style="margin-bottom:.5rem"><span class="speaker">Jordan: </span><span class="npc-normal">"Oh hey, about that electricity bill — I've been SO flat out at work this week, can we sort it next arvo? I'll Venmo ya... wait, do you use Venmo here?"</span></div>
+          <div style="margin-bottom:.5rem"><span class="speaker">Jordan (if pushed): </span><span class="npc-fast">"Mate, I genuinely barely use electricity. I go to bed early. I feel like it's not really fair that we split it evenly, you know?"</span></div>
+          <div><span class="speaker">Jordan (if student is firm): </span><span class="npc-normal">"Yeah okay, fair enough. $90 each. I'll transfer it... probably by Thursday."</span></div>
+        </div>
+      </div>
+
+      <div class="hard-mode">
+        <div class="hard-mode-title">🔥 Escalation Options</div>
+        <ul class="trap-list">
+          <li><span class="trap-icon">🪤</span>Say you're thinking of moving out mid-lease (student would need to find replacement)</li>
+          <li><span class="trap-icon">🪤</span>Offer to split "mates rates" on internet but never actually pay</li>
+          <li><span class="trap-icon">🪤</span>Ask student to cover your rent "just this once" because you're "a bit short"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASHIER TAB -->
+<div class="tab-panel" id="tab-cashier">
+  <div class="role-card" style="margin-bottom:1.5rem">
+    <div class="role-header">
+      <span class="role-emoji">🛒</span>
+      <div>
+        <div class="role-title">CHARACTER: Supermarket Cashier</div>
+        <div class="role-subtitle">Woolworths / Coles checkout — Week 2</div>
+      </div>
+    </div>
+    <div class="role-body">
+
+      <div class="acting-note">🎭 Be friendly and fast. Use casual Aussie expressions. Scan items quickly. Cause a deliberate pricing error on one item to see if student notices.</div>
+
+      <h3 style="margin-bottom:.75rem">🔖 Secret Pricing Traps</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Item</th><th>Shelf Price</th><th>You Scan It As</th><th>Difference</th></tr></thead>
+          <tbody>
+            <tr><td>Bread (Wonder White)</td><td>$3.50</td><td class="fee-hidden">$4.20 (old price, special ended)</td><td class="fee-hidden">+$0.70</td></tr>
+            <tr><td>Chicken Breast 1kg</td><td>$10.00 (special)</td><td class="fee-hidden">$13.50 (special not applied)</td><td class="fee-hidden">+$3.50</td></tr>
+            <tr><td>Milk 2L</td><td>$3.00</td><td>$3.00</td><td>✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:1rem">
+        <div class="script-box">
+          <div><span class="speaker">You: </span><span class="npc-fast">"Alright that's $72.40 for ya. Cash or card? Everyday Rewards card? No worries. Just tap when you're ready. Do you want a bag?"</span></div>
+        </div>
+        <div class="acting-note">🎭 If student says nothing — charge the wrong price. If they question it: "Oh sorry, let me check that for ya — you're right, it should be [correct price]. Cheers for catching that!"</div>
+        <div class="upsell-box">
+          <div class="upsell-title">🎁 Upsell: Woolworths Rewards</div>
+          <p>"Did you want to sign up for Everyday Rewards today? You get points for every shop." (No immediate financial trap — but encourages data sharing)</p>
+        </div>
+      </div>
+
+      <div class="hard-mode">
+        <div class="hard-mode-title">🔥 Hard Mode</div>
+        <ul class="trap-list">
+          <li><span class="trap-icon">🪤</span>Speak very fast. Don't pause for the student to process the total.</li>
+          <li><span class="trap-icon">🪤</span>Ask multiple questions at once: "Cash or card? Got a Rewards card? Want bags? Any assistance with packing?"</li>
+          <li><span class="trap-icon">🪤</span>Other customers "in line" — create pressure to hurry up</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSPORT TAB -->
+<div class="tab-panel" id="tab-transport">
+  <div class="role-card" style="margin-bottom:1.5rem">
+    <div class="role-header">
+      <span class="role-emoji">🚃</span>
+      <div>
+        <div class="role-title">CHARACTER: Transport Officer / Myki Inspector</div>
+        <div class="role-subtitle">Public transport — ticket inspection scenario</div>
+      </div>
+    </div>
+    <div class="role-body">
+
+      <div class="table-wrap" style="margin-bottom:1rem">
+        <table>
+          <thead><tr><th>Situation</th><th>Fine Amount</th><th>Outcome if student responds correctly</th></tr></thead>
+          <tbody>
+            <tr><td>No Myki card at all</td><td class="fee-hidden">$97</td><td>No reduction possible — pay or appeal</td></tr>
+            <tr><td>Myki card, insufficient funds</td><td class="fee-hidden">$97</td><td>If student is polite + new, may get "warning" (your discretion)</td></tr>
+            <tr><td>Forgot to tap on tram</td><td class="fee-hidden">$97 (or $244 if repeat)</td><td>First offence: warning + request to tap now</td></tr>
+            <tr><td>Wrong zone travel</td><td class="fee-hidden">$97</td><td>No reduction</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="acting-note">🎭 Be official but not aggressive. Speak clearly but use authority. Don't immediately mention ways to avoid the fine — let student work it out. If they're polite and explain they're new, use your "discretion."</div>
+
+      <div class="script-box">
+        <div style="margin-bottom:.5rem"><span class="speaker">Inspector: </span><span class="npc-normal">"Excuse me, can I see your Myki card? ...Could you tap it on this reader please?"</span></div>
+        <div style="margin-bottom:.5rem"><span class="speaker">Inspector: </span><span class="npc-fast">"You haven't tapped on. I'll need to issue an infringement notice. Can I get your name and address?"</span></div>
+        <div><span class="speaker">If polite: </span><span class="npc-normal">"Look, I'll let you off with a warning this time since you're new. But next time, always tap on before boarding."</span></div>
+      </div>
+
+      <div class="hard-mode">
+        <div class="hard-mode-title">🔥 Hard Situations</div>
+        <ul class="trap-list">
+          <li><span class="trap-icon">🪤</span>Ask for photo ID — if student doesn't know what counts as ID in Australia</li>
+          <li><span class="trap-icon">🪤</span>Ask them to spell their address — listening/pronunciation pressure</li>
+          <li><span class="trap-icon">🪤</span>Say "you can appeal online within 21 days" — do they know what "appeal" means?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCAM CALLER TAB -->
+<div class="tab-panel" id="tab-scammer">
+  <div class="role-card" style="margin-bottom:1.5rem">
+    <div class="role-header">
+      <span class="role-emoji">☎️</span>
+      <div>
+        <div class="role-title">CHARACTER: Scam Caller</div>
+        <div class="role-subtitle">Fake ATO officer / Police / Bank fraud team</div>
+      </div>
+      <span class="trap-flag" style="margin-left:auto">⚠️ SCAM ROLEPLAY</span>
+    </div>
+    <div class="role-body">
+
+      <div class="alert alert-red" style="margin-bottom:1rem">
+        <span class="alert-icon">🎭</span>
+        <div><strong>Teacher note:</strong> This is an educational scam simulation. Your goal is to pressure the student into giving information. If they resist — congratulate them immediately and discuss the tactics used.</div>
+      </div>
+
+      <h3 style="margin-bottom:.75rem">📋 Three Scam Scripts</h3>
+
+      <details style="margin-bottom:.75rem">
+        <summary>☎️ Script 1: Fake ATO (Tax Office)</summary>
+        <div class="details-body">
+          <div class="script-box">
+            <div><span class="speaker">You: </span><span class="npc-trap">"Good afternoon, I'm calling from the Australian Taxation Office. My name is Officer Daniel Reid, badge number 4872. I'm calling because our system has flagged an unpaid tax liability of $842 in your name. If this is not resolved today, a warrant will be issued for your arrest. Are you aware of this matter?"</span></div>
+          </div>
+          <div style="margin-top:.5rem">
+            <strong style="font-size:.82rem;color:var(--red2)">Pressure tactics available:</strong>
+            <ul style="font-size:.82rem;color:var(--text2);padding-left:1.2rem;margin-top:.3rem">
+              <li>"I need your date of birth to verify your identity before we proceed."</li>
+              <li>"Payment must be made by iTunes gift cards or bank transfer today."</li>
+              <li>"If you hang up, the warrant will be processed automatically."</li>
+              <li>"This is a federal matter. Do not contact anyone about this call."</li>
+            </ul>
+          </div>
+          <div class="acting-note" style="margin-top:.5rem">🏆 WIN CONDITION: Student asks for badge number, says they'll call ATO back, or hangs up. Any of these = student passed!</div>
+        </div>
+      </details>
+
+      <details style="margin-bottom:.75rem">
+        <summary>📦 Script 2: Fake Parcel Delivery</summary>
+        <div class="details-body">
+          <div class="script-box">
+            <div><span class="speaker">You (as text message, read aloud): </span><span class="npc-trap">"Your parcel could not be delivered. A $3.95 redelivery fee is required. Please pay within 24 hours or your parcel will be returned: delivery-aus.com/pay"</span></div>
+          </div>
+          <div class="acting-note">🎭 If playing as text: show student a physical card or write on paper. Ask if they'd pay it. Did they notice the suspicious website?</div>
+        </div>
+      </details>
+
+      <details style="margin-bottom:.75rem">
+        <summary>🏦 Script 3: Fake Bank Fraud Team</summary>
+        <div class="details-body">
+          <div class="script-box">
+            <div><span class="speaker">You: </span><span class="npc-trap">"Hello, this is NAB Fraud Prevention. We've detected suspicious activity on your account — a $1,200 transfer to an unknown account. To secure your account we need to verify your identity. Can you please confirm your full name, date of birth, and the last 4 digits of your card?"</span></div>
+          </div>
+          <div style="margin-top:.5rem">
+            <strong style="font-size:.82rem;color:var(--red2)">If student gives info → STOP immediately:</strong>
+            <p style="font-size:.82rem;color:var(--text2)">Break character. Say: "I'm going to stop there — that was a scam roleplay. Real banks NEVER ask for your full card details over an inbound call. Let's talk about what happened there."</p>
+          </div>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</div>
+
+<!-- WEEK 3 EXTRA TAB -->
+<div class="tab-panel" id="tab-week3ex">
+  <div class="role-card" style="margin-bottom:1.5rem">
+    <div class="role-header">
+      <span class="role-emoji">⚡</span>
+      <div>
+        <div class="role-title">Week 3 Extra Scenarios</div>
+        <div class="role-subtitle">Electricity bill + customer service calls + coworker pressure</div>
+      </div>
+    </div>
+    <div class="role-body">
+
+      <h3 style="margin-bottom:.75rem">⚡ Electricity Company Customer Service</h3>
+      <div class="acting-note">🎭 Student has received a $360 electricity bill. They call to query it. You are the energy company's customer service team.</div>
+      <div class="script-box">
+        <div style="margin-bottom:.5rem"><span class="speaker">You: </span><span class="npc-fast">"AGL, you're speaking with Brent, how can I help ya today?"</span></div>
+        <div style="margin-bottom:.5rem"><span class="speaker">After student explains: </span><span class="npc-normal">"Yeah look, that bill's based on the last 90 days — quarterly billing. Is this your first bill with us?"</span></div>
+        <div><span class="speaker">Upsell: </span><span class="npc-normal">"Have you looked at our Green Energy plan? It's slightly more per month but you're reducing your carbon footprint."</span></div>
+      </div>
+      <div class="upsell-box">
+        <div class="upsell-title">💡 Hidden: Payment Plan</div>
+        <p>If student can't pay $360 at once — there IS a payment plan option but only offer it if they say they can't afford it. Don't volunteer this information!</p>
+      </div>
+
+      <div style="margin-top:1.25rem">
+        <h3 style="margin-bottom:.75rem">👔 Coworker Pressure Scenario</h3>
+        <div class="acting-note">🎭 Play as a coworker pressuring the student to join a "work lunch" that costs $45/person.</div>
+        <div class="script-box">
+          <div style="margin-bottom:.5rem"><span class="speaker">Coworker: </span><span class="npc-fast">"Hey, we're all going to that Thai place for lunch — you're coming right? It's $45 each but it's worth it, really good. The whole team's going. It'll be good for ya to get to know everyone."</span></div>
+          <div><span class="speaker">If student says they can't afford it: </span><span class="npc-normal">"Oh come on, it's fine — you only live once! Just this once."</span></div>
+        </div>
+        <div class="hard-mode">
+          <div class="hard-mode-title">Goal: Can student politely decline and set financial boundaries in English?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EMERGENCIES TAB -->
+<div class="tab-panel" id="tab-emergencies" data-anchor="emergencies">
+  <div class="section-head"><h2>🚨 Emergency Event Cards</h2><span class="section-num">Trigger anytime</span></div>
+
+  <div class="scenario-grid" id="emergency-cards">
+    <!-- Cards injected by JS -->
+  </div>
+
+  <div style="margin-top:1.5rem">
+    <div class="alert alert-amber">
+      <span class="alert-icon">🎲</span>
+      <div><strong>When to trigger emergencies:</strong> After the student seems too comfortable. During a transaction. Mid-conversation. Right after they've made a decision. Real life doesn't wait for convenient timing!</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPTS TAB -->
+<div class="tab-panel" id="tab-scripts" data-anchor="scripts">
+  <div class="section-head"><h2>📜 Quick Reference Scripts</h2></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header"><h3>🗣 Fast Australian English Bank Lines</h3></div>
+      <div class="speed-dial">"Yeah so what we'd normally do is set ya up with the everyday then maybe look at adding the savings in a coupla weeks once you're sorted, yeah?"</div>
+      <div class="speed-dial">"Look the fee's only eight bucks which honestly most customers don't even notice it's coming out."</div>
+      <div class="speed-dial">"We can waive that today if you sign up for the credit card — totally up to you, no pressure."</div>
+      <div class="speed-dial">"Right, just gonna need your passport, proof of address — like a bill in your name — and TFN if you've got it."</div>
+      <div class="acting-note">🎭 TFN = Tax File Number. If student doesn't know this: pause. Do they ask? Or do they say "yes" and pretend they know?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h3>🔥 Pressure Tactics Toolkit</h3></div>
+      <ul class="trap-list">
+        <li><span class="trap-icon">⏰</span><strong>Fake time limit:</strong> "This rate's only available till end of today."</li>
+        <li><span class="trap-icon">👥</span><strong>Social proof:</strong> "Everyone who comes in here gets this one."</li>
+        <li><span class="trap-icon">😳</span><strong>Confusion:</strong> Throw in 3 options at once, wait for them to process.</li>
+        <li><span class="trap-icon">📋</span><strong>Paperwork rush:</strong> "Just sign here, here, and initial there — standard stuff."</li>
+        <li><span class="trap-icon">📞</span><strong>Fake interruption:</strong> Pretend to take a call mid-explanation.</li>
+        <li><span class="trap-icon">🤝</span><strong>Guilt trip:</strong> "I went out of my way for you here."</li>
+        <li><span class="trap-icon">🏃</span><strong>Rushing:</strong> "I've got someone waiting — shall we just go with this one?"</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h3>🇦🇺 Fast Aussie Slang to Use</h3></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Slang</th><th>Meaning</th><th>Use it when...</th></tr></thead>
+          <tbody>
+            <tr><td><code>arvo</code></td><td>afternoon</td><td>Scheduling anything</td></tr>
+            <tr><td><code>heaps</code></td><td>a lot / very</td><td>"It's heaps cheaper."</td></tr>
+            <tr><td><code>reckon</code></td><td>think</td><td>"I reckon you'd suit this one."</td></tr>
+            <tr><td><code>no dramas</code></td><td>no problem</td><td>After student agrees to something</td></tr>
+            <tr><td><code>keen</code></td><td>interested/eager</td><td>"Are you keen on the card?"</td></tr>
+            <tr><td><code>sorted</code></td><td>done/organised</td><td>"We'll have that sorted in two minutes."</td></tr>
+            <tr><td><code>chuck in</code></td><td>include</td><td>"We'll chuck in the first month free."</td></tr>
+            <tr><td><code>ta</code></td><td>thanks</td><td>After getting ID</td></tr>
+            <tr><td><code>flat out</code></td><td>very busy</td><td>"We've been flat out today."</td></tr>
+            <tr><td><code>fair enough</code></td><td>okay/understood</td><td>Accepting student's decision</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><h3>📊 Debrief Questions (End of Session)</h3></div>
+      <ul class="trap-list">
+        <li><span class="trap-icon">❓</span>What questions did you ask that saved you money?</li>
+        <li><span class="trap-icon">❓</span>What did you miss? What should you have asked?</li>
+        <li><span class="trap-icon">❓</span>Which scam tactics did you notice? Which ones almost worked?</li>
+        <li><span class="trap-icon">❓</span>What Aussie slang did you understand? What confused you?</li>
+        <li><span class="trap-icon">❓</span>What would you do differently next time?</li>
+        <li><span class="trap-icon">❓</span>How did it feel to be rushed or pressured in English?</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div id="toast-container"></div>
+
+<footer style="text-align:center;padding:2.5rem 1rem;color:var(--text3);font-size:.8rem;border-top:1px solid var(--border);margin-top:3rem">
+  🎭 Aussie Money Survival — Teacher Edition &nbsp;|&nbsp; Do not share with students &nbsp;|&nbsp;
+  <a href="student.html" style="color:var(--accent2)">Student Page →</a>
+</footer>
+
+<script src="script.js"></script>
+<script>
+// ── TABS ──
+document.querySelectorAll('.teacher-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.teacher-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// ── TIMER ──
+let timerInterval = null, timerSec = 120;
+function startTimer(sec) {
+  clearInterval(timerInterval);
+  timerSec = sec;
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timerSec--;
+    updateTimerDisplay();
+    if (timerSec <= 15) document.getElementById('timer-display').classList.add('urgent');
+    if (timerSec <= 0) {
+      clearInterval(timerInterval);
+      toast("⏱ Time's up!", "Move to next scenario or trigger an emergency.", "red", 5000);
+    }
+  }, 1000);
+}
+function stopTimer() { clearInterval(timerInterval); document.getElementById('timer-display').classList.remove('urgent'); }
+function resetTimer() { stopTimer(); timerSec = 120; updateTimerDisplay(); }
+function updateTimerDisplay() {
+  const m = Math.floor(Math.max(0,timerSec)/60).toString().padStart(2,'0');
+  const s = (Math.max(0,timerSec)%60).toString().padStart(2,'0');
+  const el = document.getElementById('timer-display');
+  if (el) { el.textContent = `${m}:${s}`; if (timerSec > 15) el.classList.remove('urgent'); }
+}
+
+// ── EMERGENCY CARDS ──
+const teacherEmergencies = [
+  { icon:'📱', title:'Cracked Phone Screen', cost:'$180–$260', desc:'Student just dropped their phone. Screen is shattered. They need to find a repair shop, negotiate cost, and explain the situation in English.', instruction:'Ask them: "How would you explain this to the repair shop? What questions would you ask?"', difficulty:'medium' },
+  { icon:'🏧', title:'Card Declined at Checkout', cost:'Embarrassing!', desc:'Student\'s card is declined at the supermarket. Full basket. Queue behind them.', instruction:'Play as the cashier: "Sorry love, your card\'s been declined. Did you want to try again or have another card?" Add social pressure.', difficulty:'hard' },
+  { icon:'💸', title:'Paycheck Delayed 5 Days', cost:'$0 income this week', desc:'Employer says there was a payroll system error. No pay this week. Student must manage on what they have.', instruction:'Play as employer: "Look, it\'s a payroll error — nothing I can do before Friday. Sorry about that."', difficulty:'medium' },
+  { icon:'🚨', title:'Overdraft Fee Hit', cost:'-$15 penalty', desc:'Student\'s balance went below $0 overnight and the bank charged a $15 overdraft fee.', instruction:'Show them the "notification" and ask how they\'d query this with the bank. Do they know overdraft fees exist?', difficulty:'easy' },
+  { icon:'🏥', title:'Urgent Care Doctor Visit', cost:'-$68 gap fee', desc:'Student has a bad fever. Visits GP. Medicare covers most but there\'s a $68 gap payment.', instruction:'Explain: "Bulk billing means free. This clinic doesn\'t bulk bill. Gap is $68 today."', difficulty:'medium' },
+  { icon:'🔧', title:'Rent Increase Notice', cost:'+$20/week', desc:'Landlord sends notice: rent increasing by $20/week in 60 days.', instruction:'Be the landlord. Read notice formally. Is it legal? (Yes, in most states with 60 days notice.) Does student know their rights?', difficulty:'hard' },
+  { icon:'🔐', title:'Wallet Stolen', cost:'Replace card: $10–$15', desc:'Student\'s wallet was stolen on the train. They need to cancel their card and get a replacement.', instruction:'Role-play as the bank hotline: "You\'ve reached NAB fraud and lost cards. For card cancellation press 1..." Make it phone menu heavy.', difficulty:'hard' },
+  { icon:'📦', title:'Scam Delivery Text', cost:'$3.95 (if they fall for it)', desc:'Student receives a text: "Your parcel couldn\'t be delivered. Pay $3.95 redelivery: auspost-redelivery.xyz"', instruction:'Show the text message on paper/screen. Ask: "What would you do?" Is it a scam? (YES — AusPost never charges redelivery via text link.)', difficulty:'easy' },
+];
+
+function renderEmergencyCards() {
+  const grid = document.getElementById('emergency-cards');
+  if (!grid) return;
+  grid.innerHTML = teacherEmergencies.map((e, i) => `
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem">
+        <span style="font-size:2rem">${e.icon}</span>
+        <div>
+          <div style="font-weight:700">${e.title}</div>
+          <div style="font-family:var(--mono);font-size:.8rem;color:var(--red2)">${e.cost}</div>
+        </div>
+        <div style="margin-left:auto">
+          <span class="tag ${e.difficulty==='easy'?'tag-green':e.difficulty==='medium'?'tag-amber':'tag-red'}">${e.difficulty}</span>
+        </div>
+      </div>
+      <p style="margin-bottom:.75rem">${e.desc}</p>
+      <div class="acting-note" style="margin-bottom:.75rem">🎭 ${e.instruction}</div>
+      <button class="btn btn-danger btn-sm btn-full" onclick="triggerEmergencyCard(${i})">🎲 Trigger This Event</button>
+    </div>
+  `).join('');
+}
+
+function triggerEmergencyCard(i) {
+  const e = teacherEmergencies[i];
+  toast(`🚨 ${e.title}`, `Cost: ${e.cost}`, 'red', 6000);
+}
+
+function triggerClassEmergency() {
+  const e = teacherEmergencies[Math.floor(Math.random() * teacherEmergencies.length)];
+  toast(`🎲 EMERGENCY: ${e.title}`, e.instruction, 'red', 8000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderEmergencyCards();
+  updateTimerDisplay();
+});
+</script>
+</body>
+</html>

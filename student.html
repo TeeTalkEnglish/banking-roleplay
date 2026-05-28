@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇦🇺 Aussie Money Survival — Student Dashboard</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="nav-logo">
+    <span class="flag">🇦🇺</span>
+    <span>Money Survival</span>
+    <span class="nav-badge badge-student">STUDENT</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#scenarios">Scenarios</a></li>
+    <li><a href="#vocab">Vocab</a></li>
+    <li><a href="#minigames">Mini-games</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:.75rem">
+    <span class="score-display">⭐ <span id="score-val">0</span> pts</span>
+    <button class="btn btn-danger btn-sm" id="btn-emergency">🎲 Random Event</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>🏠 You Just Arrived in Australia</h1>
+  <p class="hero-subtitle">It's your first month. You have <strong style="color:var(--accent2)">$850</strong> and a lot to figure out. Survive, communicate, and don't get scammed. 🤞</p>
+  <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+    <button class="btn btn-primary btn-lg" onclick="document.getElementById('scenarios').scrollIntoView({behavior:'smooth'})">▶ Start Scenarios</button>
+    <button class="btn btn-secondary btn-lg" onclick="document.getElementById('minigames').scrollIntoView({behavior:'smooth'})">🎮 Mini-games</button>
+  </div>
+</div>
+
+<div class="container" id="dashboard">
+
+<!-- WEEK PILLS -->
+<section style="margin-bottom:2rem">
+  <div class="section-head">
+    <h2>📅 Your Month in Australia</h2>
+  </div>
+  <div class="week-pills">
+    <div class="week-pill" data-week="1">Week 1</div>
+    <div class="week-pill" data-week="2">Week 2</div>
+    <div class="week-pill" data-week="3">Week 3</div>
+    <div class="week-pill" data-week="4">Week 4</div>
+  </div>
+</section>
+
+<!-- MAIN DASHBOARD GRID -->
+<div class="dashboard-grid">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- Virtual Bank Card -->
+    <div class="bank-card">
+      <div class="bank-card-logo">Aussie Bank · Everyday Account</div>
+      <div class="bank-card-num">•••• •••• •••• 4271</div>
+      <div class="bank-card-name">YOUR NAME</div>
+      <div class="bank-card-chips">
+        <span class="tag tag-blue">VISA Debit</span>
+        <span class="tag tag-green">Active</span>
+      </div>
+    </div>
+
+    <!-- Balance -->
+    <div class="card card-accent">
+      <div class="stat-label">💰 Current Balance</div>
+      <div class="stat-big" id="stat-balance" style="color:var(--green2)">$850.00</div>
+      <div style="margin-top:.75rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem">
+          <span class="stat-label">Savings Goal ($1,200)</span>
+          <span style="font-family:var(--mono);font-size:.78rem;color:var(--accent2)">71%</span>
+        </div>
+        <div class="progress-wrap"><div class="progress-bar blue" id="save-pct" style="width:71%"></div></div>
+      </div>
+    </div>
+
+    <!-- Stress Meter -->
+    <div class="card">
+      <div class="card-header">
+        <h3>😰 Stress Level</h3>
+        <span class="stat-label" id="stress-level" style="font-family:var(--mono);font-size:.9rem">30%</span>
+      </div>
+      <div class="progress-wrap" style="margin-bottom:.75rem">
+        <div class="progress-bar green" id="stress-bar" style="width:30%"></div>
+      </div>
+      <div class="stress-meter">
+        <div class="stress-orbs">
+          <div class="orb active low"></div>
+          <div class="orb active low"></div>
+          <div class="orb active low"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+          <div class="orb"></div>
+        </div>
+        <span style="font-size:.75rem;color:var(--text3)">Calm → Overwhelmed</span>
+      </div>
+    </div>
+
+    <!-- Quick Spend Tracker -->
+    <div class="card">
+      <div class="card-header">
+        <h3>💸 Log Expense</h3>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:.75rem">
+        <select id="expense-cat" style="width:100%">
+          <option>🍞 Groceries</option>
+          <option>🚃 Transport</option>
+          <option>🏠 Rent</option>
+          <option>📱 Phone</option>
+          <option>💡 Electricity</option>
+          <option>🍕 Eating Out</option>
+          <option>💊 Medical</option>
+          <option>🛒 Other</option>
+        </select>
+        <div class="input-row">
+          <span>$</span>
+          <input type="number" id="manual-expense" placeholder="0.00" min="0" step="0.01" style="flex:1">
+          <button class="btn btn-warning btn-sm" onclick="handleBudgetInput(document.getElementById('manual-expense'), document.getElementById('expense-cat').value.split(' ').slice(1).join(' '))">-Log</button>
+        </div>
+      </div>
+      <div id="expense-list"></div>
+    </div>
+
+    <!-- Weekly Budget -->
+    <div class="card">
+      <div class="card-header"><h3>📊 Weekly Budget</h3></div>
+      <div style="display:flex;flex-direction:column;gap:.6rem">
+        <div style="display:flex;justify-content:space-between;font-size:.85rem">
+          <span style="color:var(--text2)">Income (weekly)</span>
+          <span style="font-family:var(--mono);color:var(--green2)">+$750</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:.85rem">
+          <span style="color:var(--text2)">Rent (your share)</span>
+          <span style="font-family:var(--mono);color:var(--red2)">-$265</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:.85rem">
+          <span style="color:var(--text2)">Groceries (est.)</span>
+          <span style="font-family:var(--mono);color:var(--red2)">-$80</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:.85rem">
+          <span style="color:var(--text2)">Transport (Myki)</span>
+          <span style="font-family:var(--mono);color:var(--red2)">-$35</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:.85rem">
+          <span style="color:var(--text2)">Phone plan</span>
+          <span style="font-family:var(--red2);font-family:var(--mono);color:var(--red2)">-$?</span>
+        </div>
+        <div style="border-top:1px solid var(--border);padding-top:.5rem;display:flex;justify-content:space-between;font-weight:700">
+          <span>Remaining</span>
+          <span style="font-family:var(--mono);color:var(--amber2)">~$370?</span>
+        </div>
+        <div class="alert alert-amber" style="margin:0">
+          <span class="alert-icon">⚠️</span>
+          <span>Phone plan cost is unknown. You must ask your teacher (phone company)!</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /sidebar -->
+
+  <!-- MAIN CONTENT -->
+  <div>
+
+    <!-- WEEK 1 -->
+    <div class="week-section" data-week="1">
+      <div class="alert alert-blue" style="margin-bottom:1.25rem">
+        <span class="alert-icon">🏦</span>
+        <div><strong>Week 1 Mission:</strong> Open a bank account, get a phone plan, and understand your rent situation. You don't know which options are best — ask questions!</div>
+      </div>
+
+      <section id="scenarios">
+        <div class="section-head">
+          <h2>🎭 Roleplay Scenarios</h2>
+          <span class="section-num">Week 1</span>
+        </div>
+        <div class="table-wrap">
+          <table class="scenario-table">
+            <thead>
+              <tr>
+                <th>Situation</th>
+                <th>Your Problem</th>
+                <th>Decision</th>
+                <th>Aussie Slang</th>
+                <th>Question Keywords</th>
+                <th>Roleplay Challenge</th>
+                <th>Log Cost</th>
+                <th>What Could Happen</th>
+                <th>Hint</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <!-- SCENARIO 1: BANK ACCOUNT -->
+              <tr>
+                <td>
+                  <span class="scenario-emoji">🏦</span>
+                  <strong>Opening a Bank Account</strong>
+                  <br><span class="tag tag-blue" style="margin-top:.3rem">Week 1</span>
+                </td>
+                <td>You need an account to get paid. There are 3 options. You don't know which is cheapest. Some have monthly fees — but you don't know how much.</td>
+                <td>
+                  Choose between:<br>
+                  <span class="tag tag-green">Everyday Account</span><br>
+                  <span class="tag tag-amber">Student Account</span><br>
+                  <span class="tag tag-purple">Basic Account</span><br>
+                  <em style="font-size:.78rem;color:var(--text3)">You must ask the bank worker which is best for you.</em>
+                </td>
+                <td>
+                  <div class="slang-row">
+                    <span class="slang-chip">arvo</span>
+                    <span class="slang-chip">no worries</span>
+                    <span class="slang-chip">reckon</span>
+                    <span class="slang-chip">sorted</span>
+                  </div>
+                  <details class="details-body" style="margin-top:.5rem">
+                    <summary>💬 Slang help</summary>
+                    <div class="details-body">
+                      <p>"<strong>No worries</strong>" = It's fine / don't stress</p>
+                      <p>"<strong>Sorted</strong>" = Finished / set up</p>
+                      <p>"<strong>Reckon</strong>" = Think / believe</p>
+                    </div>
+                  </details>
+                </td>
+                <td>
+                  <div class="hint-keywords">
+                    <span class="hint-kw">fees?</span>
+                    <span class="hint-kw">monthly?</span>
+                    <span class="hint-kw">free?</span>
+                    <span class="hint-kw">interest?</span>
+                    <span class="hint-kw">locked?</span>
+                    <span class="hint-kw">overdraft?</span>
+                  </div>
+                </td>
+                <td>Ask which account has <strong>no monthly fee</strong>. Ask what happens if your balance drops too low. Don't accept the first option!</td>
+                <td>
+                  <div class="input-row">
+                    <span>$</span>
+                    <input type="number" id="bank-cost" placeholder="0.00" min="0" step="0.01">
+                    <button class="btn btn-warning btn-sm budget-add-btn" data-input="bank-cost" data-label="Bank Account Fee">-Log</button>
+                  </div>
+                </td>
+                <td>If you pick the wrong account: pay $5–$8/month in hidden fees = <strong style="color:var(--red2)">$60–$96/year wasted</strong></td>
+                <td>
+                  <details>
+                    <summary>💡 Helpful phrases</summary>
+                    <div class="details-body">
+                      <div class="phrase-card">"Are there any monthly account-keeping fees?"<span>Ask this first — very direct, normal in Aus</span></div>
+                      <div class="phrase-card">"What happens if I go into overdraft?"<span>Overdraft = spending more than you have</span></div>
+                      <div class="phrase-card">"Which account is best for someone just starting out?"<span>Bank workers hear this every day</span></div>
+                    </div>
+                  </details>
+                </td>
+              </tr>
+
+              <!-- SCENARIO 2: PHONE PLAN -->
+              <tr>
+                <td>
+                  <span class="scenario-emoji">📱</span>
+                  <strong>Getting a Phone Plan</strong>
+                  <br><span class="tag tag-amber">Week 1</span>
+                </td>
+                <td>You need a SIM card to work and contact people. The shop has 3 different plans. You don't know if they have hidden contracts or lock-in periods.</td>
+                <td>
+                  Choose a plan. You don't know:<br>
+                  • Whether plans auto-renew<br>
+                  • Hidden activation fees<br>
+                  • What "unlimited" actually means<br>
+                  <em style="font-size:.78rem;color:var(--text3)">Ask before signing!</em>
+                </td>
+                <td>
+                  <div class="slang-row">
+                    <span class="slang-chip">heaps</span>
+                    <span class="slang-chip">dodgy</span>
+                    <span class="slang-chip">fair dinkum</span>
+                    <span class="slang-chip">chuck in</span>
+                  </div>
+                  <details>
+                    <summary>💬 Slang help</summary>
+                    <div class="details-body">
+                      <p>"<strong>Heaps</strong>" = A lot / very</p>
+                      <p>"<strong>Dodgy</strong>" = Suspicious / not trustworthy</p>
+                      <p>"<strong>Chuck in</strong>" = Include / add as bonus</p>
+                    </div>
+                  </details>
+                </td>
+                <td>
+                  <div class="hint-keywords">
+                    <span class="hint-kw">contract?</span>
+                    <span class="hint-kw">locked?</span>
+                    <span class="hint-kw">cancel?</span>
+                    <span class="hint-kw">activation?</span>
+                    <span class="hint-kw">included?</span>
+                    <span class="hint-kw">rollover?</span>
+                  </div>
+                </td>
+                <td>Ask if the plan is prepaid or postpaid. Ask if you can cancel any time. Ask about international calls/data.</td>
+                <td>
+                  <div class="input-row">
+                    <span>$</span>
+                    <input type="number" id="phone-cost" placeholder="0.00" min="0" step="0.01">
+                    <button class="btn btn-warning btn-sm budget-add-btn" data-input="phone-cost" data-label="Phone Plan">-Log</button>
+                  </div>
+                </td>
+                <td>If you sign a 24-month contract and hate it: <strong style="color:var(--red2)">$200+ exit fee</strong> or stuck paying for 2 years</td>
+                <td>
+                  <details>
+                    <summary>💡 Helpful phrases</summary>
+                    <div class="details-body">
+                      <div class="phrase-card">"Is this prepaid or am I locked in to a contract?"<span>Essential Q before signing anything</span></div>
+                      <div class="phrase-card">"What happens to unused data at the end of the month?"<span>Does it 'rollover' or disappear?</span></div>
+                      <div class="phrase-card">"Can I cancel this plan if I need to leave the country?"<span>Important for visa holders</span></div>
+                    </div>
+                  </details>
+                </td>
+              </tr>
+
+              <!-- SCENARIO 3: RENT / ROOMMATE -->
+              <tr>
+                <td>
+                  <span class="scenario-emoji">🏠</span>
+                  <strong>Share House Rent</strong>
+                  <br><span class="tag tag-purple">Week 1</span>
+                </td>
+                <td>You're renting a room with 3 housemates. The landlord/agent wants a bond. Your housemates are arguing about splitting bills. One roommate says they're not paying electricity.</td>
+                <td>
+                  Decide:<br>
+                  • How to split rent fairly<br>
+                  • How to deal with a difficult roommate<br>
+                  • What the bond covers<br>
+                  <em style="font-size:.78rem;color:var(--text3)">The landlord may add conditions you don't know about.</em>
+                </td>
+                <td>
+                  <div class="slang-row">
+                    <span class="slang-chip">brekky</span>
+                    <span class="slang-chip">arvo</span>
+                    <span class="slang-chip">flat out</span>
+                    <span class="slang-chip">mates rates</span>
+                    <span class="slang-chip">stingy</span>
+                  </div>
+                  <details>
+                    <summary>💬 Slang help</summary>
+                    <div class="details-body">
+                      <p>"<strong>Mates rates</strong>" = A special discount for friends</p>
+                      <p>"<strong>Flat out</strong>" = Very busy</p>
+                      <p>"<strong>Stingy</strong>" = Not willing to spend money</p>
+                    </div>
+                  </details>
+                </td>
+                <td>
+                  <div class="hint-keywords">
+                    <span class="hint-kw">bond?</span>
+                    <span class="hint-kw">split?</span>
+                    <span class="hint-kw">refund?</span>
+                    <span class="hint-kw">contract?</span>
+                    <span class="hint-kw">weekly?</span>
+                    <span class="hint-kw">included?</span>
+                  </div>
+                </td>
+                <td>Negotiate with your roommate about bills. Ask the landlord what the bond covers. Ask if utilities are included in rent.</td>
+                <td>
+                  <div class="input-row">
+                    <span>$</span>
+                    <input type="number" id="rent-cost" placeholder="0.00" min="0" step="0.01">
+                    <button class="btn btn-warning btn-sm budget-add-btn" data-input="rent-cost" data-label="Rent/Bond">-Log</button>
+                  </div>
+                </td>
+                <td>If you don't read the lease: could lose your bond ($800–$1200). If roommate doesn't pay bills: <strong style="color:var(--red2)">you pay their share</strong></td>
+                <td>
+                  <details>
+                    <summary>💡 Helpful phrases</summary>
+                    <div class="details-body">
+                      <div class="phrase-card">"How much is the bond and when do I get it back?"<span>Bond = Security deposit (up to 4 weeks rent)</span></div>
+                      <div class="phrase-card">"Are electricity and internet included in the rent?"<span>Many share houses split this separately</span></div>
+                      <div class="phrase-card">"Can we set up a shared account for bills?"<span>Suggest this to avoid housemate drama</span></div>
+                    </div>
+                  </details>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div><!-- /week 1 -->
+
+    <!-- WEEK 2 -->
+    <div class="week-section" data-week="2">
+      <div class="alert alert-amber" style="margin-bottom:1.25rem">
+        <span class="alert-icon">🛒</span>
+        <div><strong>Week 2 Mission:</strong> Shop for groceries, use public transport, and handle a confusing bill. Watch out — things are more expensive than you expected!</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Situation</th>
+              <th>Your Problem</th>
+              <th>Decision</th>
+              <th>Slang</th>
+              <th>Key Questions</th>
+              <th>Challenge</th>
+              <th>Log Cost</th>
+              <th>Risk</th>
+              <th>Hint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="scenario-emoji">🛒</span>
+                <strong>Woolworths / Coles Shop</strong><br>
+                <span class="tag tag-green">Week 2</span>
+              </td>
+              <td>You need to buy food for 1 week. You only have $80 budget. Some items are on "special" but you're not sure if it's a real deal.</td>
+              <td>Stay under $80. Choose between branded and home-brand products. Decide if "specials" are worth it.</td>
+              <td>
+                <div class="slang-row">
+                  <span class="slang-chip">bargain</span>
+                  <span class="slang-chip">tight</span>
+                  <span class="slang-chip">cheeky</span>
+                  <span class="slang-chip">servo</span>
+                </div>
+              </td>
+              <td><div class="hint-keywords"><span class="hint-kw">special?</span><span class="hint-kw">cheaper?</span><span class="hint-kw">expires?</span><span class="hint-kw">fresh?</span></div></td>
+              <td>Ask the cashier if the "special" applies to your item. If it doesn't scan correctly, ask politely for a price check.</td>
+              <td>
+                <div class="input-row">
+                  <span>$</span>
+                  <input type="number" id="grocery-spent" placeholder="0.00" min="0" step="0.01">
+                  <button class="btn btn-warning btn-sm budget-add-btn" data-input="grocery-spent" data-label="Groceries">-Log</button>
+                </div>
+              </td>
+              <td>If overcharged: <strong style="color:var(--red2)">-$10–$20 from budget</strong>. Not asking = losing money silently.</td>
+              <td>
+                <details>
+                  <summary>💡 Phrases</summary>
+                  <div class="details-body">
+                    <div class="phrase-card">"Excuse me, this scanned at the wrong price — can you check?"<span>Always polite in Australian supermarkets</span></div>
+                    <div class="phrase-card">"What's the difference between these two?"<span>Ask staff — they won't mind</span></div>
+                    <div class="phrase-card">"Does this special include the large size too?"<span>Specials often only apply to specific sizes</span></div>
+                  </div>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="scenario-emoji">🚃</span>
+                <strong>Using Public Transport (Myki)</strong><br>
+                <span class="tag tag-blue">Week 2</span>
+              </td>
+              <td>You need to get to work but you're not sure how much money to put on your Myki card. You don't know the daily cap or if you need to tap off.</td>
+              <td>Top up the right amount. Remember to tap on AND off (zones matter). Don't get fined.</td>
+              <td>
+                <div class="slang-row">
+                  <span class="slang-chip">arvo</span>
+                  <span class="slang-chip">ta</span>
+                  <span class="slang-chip">mate</span>
+                </div>
+              </td>
+              <td><div class="hint-keywords"><span class="hint-kw">zones?</span><span class="hint-kw">tap off?</span><span class="hint-kw">cap?</span><span class="hint-kw">fine?</span></div></td>
+              <td>Ask the transport officer how much a 2-zone journey costs. Ask if forgetting to tap off costs extra.</td>
+              <td>
+                <div class="input-row">
+                  <span>$</span>
+                  <input type="number" id="transport-cost" placeholder="0.00" min="0" step="0.01">
+                  <button class="btn btn-warning btn-sm budget-add-btn" data-input="transport-cost" data-label="Transport (Myki)">-Log</button>
+                </div>
+              </td>
+              <td>Forget to tap off = charged maximum zone fare. <br>No card/money = <strong style="color:var(--red2)">$97 fine</strong></td>
+              <td>
+                <details>
+                  <summary>💡 Phrases</summary>
+                  <div class="details-body">
+                    <div class="phrase-card">"Sorry, I'm new here — do I need to tap off on the tram too?"<span>Trams in free tram zone = no tap. Others = tap off</span></div>
+                    <div class="phrase-card">"How much should I put on my Myki for a week of travel?"<span>Good honest question — staff will help</span></div>
+                  </div>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div><!-- /week 2 -->
+
+    <!-- WEEK 3 -->
+    <div class="week-section" data-week="3">
+      <div class="alert alert-red" style="margin-bottom:1.25rem">
+        <span class="alert-icon">📞</span>
+        <div><strong>Week 3 — DANGER ZONE:</strong> You'll receive calls and messages this week. Some may be scams. A surprise bill arrived. And your roommate is pressuring you about money. Stay sharp!</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Situation</th>
+              <th>Your Problem</th>
+              <th>Decision</th>
+              <th>Slang</th>
+              <th>Key Questions</th>
+              <th>Challenge</th>
+              <th>Log</th>
+              <th>Risk</th>
+              <th>Hint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="scenario-emoji">☎️</span>
+                <strong>Suspicious Phone Call</strong><br>
+                <span class="tag tag-red">Week 3</span>
+              </td>
+              <td>Someone calls claiming to be from the ATO (Tax Office). They say you owe money and must pay immediately or face arrest.</td>
+              <td>Decide: Is this real? Do you hang up? Do you pay? How do you respond calmly in English?</td>
+              <td>
+                <div class="slang-row">
+                  <span class="slang-chip">no way</span>
+                  <span class="slang-chip">sketchy</span>
+                  <span class="slang-chip">full on</span>
+                  <span class="slang-chip">hang on</span>
+                </div>
+              </td>
+              <td><div class="hint-keywords"><span class="hint-kw">scam?</span><span class="hint-kw">ID?</span><span class="hint-kw">callback?</span><span class="hint-kw">verify?</span></div></td>
+              <td>Stay calm. Ask for their name and ID number. Say you'll call back on the official number. Don't give personal details or pay.</td>
+              <td>—</td>
+              <td>If you pay: <strong style="color:var(--red2)">lost money — unrecoverable</strong>. ATO NEVER demands immediate payment by phone.</td>
+              <td>
+                <details>
+                  <summary>💡 What to say</summary>
+                  <div class="details-body">
+                    <div class="phrase-card">"Can I get your name and employee ID please?"<span>Scammers often hang up at this point</span></div>
+                    <div class="phrase-card">"I'll call the ATO directly on 13 28 61 to verify this."<span>The official ATO number — always safe to say this</span></div>
+                    <div class="phrase-card">"I'm not comfortable giving my details over the phone."<span>100% legitimate thing to say in Australia</span></div>
+                  </div>
+                </details>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="scenario-emoji">⚡</span>
+                <strong>Electricity Bill Confusion</strong><br>
+                <span class="tag tag-amber">Week 3</span>
+              </td>
+              <td>An electricity bill arrived. It's $360. Your housemates say it's your fault because you "use too much". You need to split it but someone is being difficult.</td>
+              <td>Work out your fair share. Argue your case politely. Suggest a solution that everyone accepts.</td>
+              <td>
+                <div class="slang-row">
+                  <span class="slang-chip">fair enough</span>
+                  <span class="slang-chip">sort it out</span>
+                  <span class="slang-chip">split it</span>
+                  <span class="slang-chip">chuck in</span>
+                </div>
+              </td>
+              <td><div class="hint-keywords"><span class="hint-kw">split?</span><span class="hint-kw">fair?</span><span class="hint-kw">usage?</span><span class="hint-kw">quarterly?</span></div></td>
+              <td>Calmly suggest splitting 4 ways. If one housemate refuses, ask what they think is fair.</td>
+              <td>
+                <div class="input-row">
+                  <span>$</span>
+                  <input type="number" id="elec-cost" placeholder="0.00" min="0" step="0.01">
+                  <button class="btn btn-warning btn-sm budget-add-btn" data-input="elec-cost" data-label="Electricity Bill">-Log</button>
+                </div>
+              </td>
+              <td>If you pay alone: <strong style="color:var(--red2)">-$360 instead of -$90</strong>. Real cost: $90/4 people.</td>
+              <td>
+                <details>
+                  <summary>💡 Phrases</summary>
+                  <div class="details-body">
+                    <div class="phrase-card">"I think the fairest thing is to split it evenly — $90 each."</div>
+                    <div class="phrase-card">"Can we set up a shared expenses app like Splitwise?"<span>Very common in Australian share houses</span></div>
+                  </div>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div><!-- /week 3 -->
+
+    <!-- WEEK 4 -->
+    <div class="week-section" data-week="4">
+      <div class="alert alert-green" style="margin-bottom:1.25rem">
+        <span class="alert-icon">🏆</span>
+        <div><strong>Week 4 — Final Week:</strong> You're nearly through your first month! Transfer money home, deal with a transfer delay, and check if your bank account has any surprise charges.</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Situation</th>
+              <th>Your Problem</th>
+              <th>Decision</th>
+              <th>Slang</th>
+              <th>Key Questions</th>
+              <th>Challenge</th>
+              <th>Log</th>
+              <th>Risk</th>
+              <th>Hint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="scenario-emoji">💸</span>
+                <strong>International Money Transfer</strong><br>
+                <span class="tag tag-blue">Week 4</span>
+              </td>
+              <td>You want to send $200 home to your family. Your bank says they can do it. But you don't know the exchange rate, fees, or how long it takes.</td>
+              <td>Decide: use the bank, or use Wise/Western Union? Ask about fees and exchange rates before sending.</td>
+              <td>
+                <div class="slang-row">
+                  <span class="slang-chip">reckon</span>
+                  <span class="slang-chip">fair go</span>
+                  <span class="slang-chip">dodgy</span>
+                </div>
+              </td>
+              <td><div class="hint-keywords"><span class="hint-kw">rate?</span><span class="hint-kw">fee?</span><span class="hint-kw">delay?</span><span class="hint-kw">arrive?</span><span class="hint-kw">better?</span></div></td>
+              <td>Ask the bank about the exact exchange rate AND transfer fee. Ask how long it takes. Compare before deciding.</td>
+              <td>
+                <div class="input-row">
+                  <span>$</span>
+                  <input type="number" id="transfer-cost" placeholder="0.00" min="0" step="0.01">
+                  <button class="btn btn-warning btn-sm budget-add-btn" data-input="transfer-cost" data-label="International Transfer">-Log</button>
+                </div>
+              </td>
+              <td>Banks charge $15–$30 transfer fee PLUS bad exchange rates. Could cost $40+ extra vs Wise/Remitly.</td>
+              <td>
+                <details>
+                  <summary>💡 Phrases</summary>
+                  <div class="details-body">
+                    <div class="phrase-card">"What exchange rate do you use — is it the mid-market rate?"<span>Banks often use a worse rate to make profit</span></div>
+                    <div class="phrase-card">"Is there a transfer fee on top of that?"<span>Always ask — fees can be $20–$35</span></div>
+                    <div class="phrase-card">"How long does it take to arrive in [country]?"<span>Can be 1–5 business days</span></div>
+                  </div>
+                </details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SURVIVAL SCORE SUMMARY -->
+      <div class="card card-accent" style="margin-top:1.5rem">
+        <div class="card-header">
+          <h3>🏆 Month 1 Survival Report</h3>
+          <span class="tag tag-green">Week 4</span>
+        </div>
+        <div class="grid-2" style="gap:1rem;margin-bottom:1rem">
+          <div>
+            <div class="stat-label">Final Balance</div>
+            <div class="stat-big" id="stat-balance-final" style="color:var(--green2)">$850.00</div>
+          </div>
+          <div>
+            <div class="stat-label">Total Score</div>
+            <div class="stat-big" style="color:var(--accent2)">⭐ <span id="score-val-2">0</span> pts</div>
+          </div>
+        </div>
+        <div class="checklist">
+          <div class="task-row"><span class="task-check"><input type="checkbox" id="c1" onchange="if(this.checked){Score.add(20);toast('✅ Bank account opened!','','green')}"></span><label class="task-label" for="c1">Opened a bank account with no hidden fees</label></div>
+          <div class="task-row"><span class="task-check"><input type="checkbox" id="c2" onchange="if(this.checked){Score.add(20);toast('✅ Phone plan sorted!','No lock-in contract','green')}"></span><label class="task-label" for="c2">Got a prepaid/no-contract phone plan</label></div>
+          <div class="task-row"><span class="task-check"><input type="checkbox" id="c3" onchange="if(this.checked){Score.add(15);toast('🏠 Rent sorted!','','green')}"></span><label class="task-label" for="c3">Understood the rent and bond situation</label></div>
+          <div class="task-row"><span class="task-check"><input type="checkbox" id="c4" onchange="if(this.checked){Score.add(15);toast('🛒 Under budget!','','green')}"></span><label class="task-label" for="c4">Bought groceries under $80</label></div>
+          <div class="task-row"><span class="task-check"><input type="checkbox" id="c5" onchange="if(this.checked){Score.add(25);toast('🛡️ Avoided scam!','Well done — ATO never calls like that','green')}"></span><label class="task-label" for="c5">Identified and avoided the scam call</label></div>
+          <div class="task-row"><span class="task-check"><input type="checkbox" id="c6" onchange="if(this.checked){Score.add(15);toast('⚡ Bill split fairly!','','green')}"></span><label class="task-label" for="c6">Negotiated electricity bill split fairly</label></div>
+          <div class="task-row"><span class="task-check"><input type="checkbox" id="c7" onchange="if(this.checked){Score.add(20);toast('💸 Smart transfer!','','green')}"></span><label class="task-label" for="c7">Found cheapest money transfer option</label></div>
+        </div>
+        <button class="btn btn-primary btn-full" style="margin-top:1rem" onclick="document.getElementById('score-val-2').textContent=document.getElementById('score-val').textContent; toast('🏆 Month 1 Complete!','Check your final score above','green',5000)">Calculate Final Score</button>
+      </div>
+    </div><!-- /week 4 -->
+
+  </div><!-- /main -->
+</div><!-- /dashboard-grid -->
+
+<!-- VOCAB SECTION -->
+<section id="vocab">
+  <div class="section-head"><h2>📖 Banking Vocabulary Survival Kit</h2></div>
+  <div class="grid-3" style="margin-bottom:1.5rem">
+    <div class="card">
+      <div class="card-header"><h3>🏦 Banking Terms</h3></div>
+      <div class="vocab-pill"><strong>Overdraft</strong> — spending more than you have</div>
+      <div class="vocab-pill"><strong>Direct debit</strong> — automatic bill payment</div>
+      <div class="vocab-pill"><strong>BSB</strong> — bank sort code (6 digits)</div>
+      <div class="vocab-pill"><strong>PayID</strong> — send money with phone/email</div>
+      <div class="vocab-pill"><strong>Transaction account</strong> — everyday spending account</div>
+      <div class="vocab-pill"><strong>Offset account</strong> — savings that reduce loan interest</div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>🏠 Renting Terms</h3></div>
+      <div class="vocab-pill"><strong>Bond</strong> — security deposit (max 4 weeks)</div>
+      <div class="vocab-pill"><strong>Lease</strong> — rental contract</div>
+      <div class="vocab-pill"><strong>Body corp</strong> — apartment building management</div>
+      <div class="vocab-pill"><strong>RTBA</strong> — holds your bond safely</div>
+      <div class="vocab-pill"><strong>Condition report</strong> — document listing damage</div>
+      <div class="vocab-pill"><strong>Outgoings</strong> — extra fees (strata, rates)</div>
+    </div>
+    <div class="card">
+      <div class="card-header"><h3>🛡️ Scam Red Flags</h3></div>
+      <div class="vocab-pill" style="border-color:rgba(239,68,68,.3)"><strong style="color:var(--red2)">Urgent</strong> — real services don't rush you</div>
+      <div class="vocab-pill" style="border-color:rgba(239,68,68,.3)"><strong style="color:var(--red2)">Wire transfer</strong> — scammer's favourite method</div>
+      <div class="vocab-pill" style="border-color:rgba(239,68,68,.3)"><strong style="color:var(--red2)">Gift cards</strong> — government never asks for these</div>
+      <div class="vocab-pill" style="border-color:rgba(239,68,68,.3)"><strong style="color:var(--red2)">.ru / .cn links</strong> — not Australian banks</div>
+      <div class="vocab-pill" style="border-color:rgba(239,68,68,.3)"><strong style="color:var(--red2)">"You'll be arrested"</strong> — ATO/police don't say this</div>
+    </div>
+  </div>
+
+  <!-- Aussie Slang Guide -->
+  <div class="card">
+    <div class="card-header"><h3>🇦🇺 Essential Aussie Slang for Money Situations</h3></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Slang</th><th>Meaning</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td><code>arvo</code></td><td>afternoon</td><td>"Can I come in this arvo to open the account?"</td></tr>
+          <tr><td><code>heaps</code></td><td>a lot / very much</td><td>"That fee is heaps expensive."</td></tr>
+          <tr><td><code>dodgy</code></td><td>suspicious / not right</td><td>"That text looks a bit dodgy to me."</td></tr>
+          <tr><td><code>sorted</code></td><td>fixed / organised</td><td>"Brilliant — all sorted, thanks!"</td></tr>
+          <tr><td><code>fair dinkum</code></td><td>genuine / seriously</td><td>"Fair dinkum? That's a lot of fees!"</td></tr>
+          <tr><td><code>no worries</code></td><td>it's fine / you're welcome</td><td>Staff will say this constantly</td></tr>
+          <tr><td><code>chuck in</code></td><td>include / add</td><td>"Can you chuck in free internet banking?"</td></tr>
+          <tr><td><code>ta</code></td><td>thanks</td><td>Very casual — say to cashiers, bus drivers</td></tr>
+          <tr><td><code>reckon</code></td><td>think / believe</td><td>"I reckon the other plan is better value."</td></tr>
+          <tr><td><code>tight</code></td><td>stingy / not much money</td><td>"I'm a bit tight this week — any discounts?"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MINIGAMES SECTION -->
+<section id="minigames">
+  <div class="section-head"><h2>🎮 Mini-games</h2><span class="section-num">Practise independently</span></div>
+  <div class="grid-2" style="margin-bottom:1.5rem">
+
+    <!-- ATM Game -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🏧 ATM Survival Challenge</h3>
+        <span class="tag tag-blue">Fast thinking</span>
+      </div>
+      <p style="margin-bottom:1rem">Understand ATM English quickly and make the right banking decisions.</p>
+      <button class="btn btn-primary btn-full" onclick="ATMGame.start()">▶ Start ATM Challenge</button>
+      <div id="atm-game" style="display:none;margin-top:1.25rem">
+        <div id="atm-question"></div>
+      </div>
+    </div>
+
+    <!-- Scam Detector -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🛡️ Scam Detector</h3>
+        <span class="tag tag-red">Important!</span>
+      </div>
+      <p style="margin-bottom:1rem">Read real-looking messages and decide: Legit or Scam? Protect your money!</p>
+      <button class="btn btn-danger btn-full" onclick="ScamGame.start()">▶ Start Scam Detector</button>
+      <div id="scam-game" style="display:none;margin-top:1.25rem">
+        <div id="scam-question"></div>
+      </div>
+    </div>
+
+    <!-- Split the Bill -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🍕 Split the Bill Calculator</h3>
+        <span class="tag tag-green">Practical</span>
+      </div>
+      <p style="margin-bottom:1rem">Add shared expenses and calculate everyone's fair share.</p>
+      <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:.75rem">
+        <div style="display:flex;gap:.5rem">
+          <input type="text" id="bill-item-name" placeholder="e.g. Electricity" style="flex:1">
+          <input type="number" id="bill-item-amt" placeholder="Amount ($)" style="width:110px">
+        </div>
+        <div style="display:flex;gap:.5rem;align-items:center">
+          <label style="font-size:.85rem;color:var(--text2);white-space:nowrap">Split between:</label>
+          <input type="number" id="bill-people" value="4" min="2" max="10" style="width:70px">
+          <span style="font-size:.85rem;color:var(--text3)">people</span>
+          <button class="btn btn-primary btn-sm" onclick="BillSplit.addItem()">Add</button>
+        </div>
+      </div>
+      <div id="bill-results"></div>
+    </div>
+
+    <!-- Grocery Rush -->
+    <div class="card">
+      <div class="card-header">
+        <h3>🛒 Grocery Budget Rush</h3>
+        <span class="tag tag-amber">Budget: $80</span>
+      </div>
+      <p style="margin-bottom:.75rem">Tick what you want to buy. Stay under $80! Green = essential, Blue = optional.</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;padding:.5rem .75rem;background:var(--surface2);border-radius:var(--radius-sm)">
+        <span style="font-size:.85rem;font-weight:600">Cart total:</span>
+        <span id="grocery-total" style="font-family:var(--mono);font-weight:700;color:var(--green2)">$0.00 / $80.00</span>
+      </div>
+      <div class="progress-wrap" style="margin-bottom:.75rem"><div class="progress-bar green" id="grocery-bar" style="width:0%"></div></div>
+      <div id="grocery-items" style="max-height:320px;overflow-y:auto"></div>
+    </div>
+
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<!-- EMERGENCY MODAL -->
+<div class="modal-overlay" id="emergency-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <span id="em-icon" style="font-size:2rem">🚨</span>
+        <h3 id="em-title" style="color:var(--red2)">Emergency!</h3>
+      </div>
+      <button class="modal-close" id="em-close">✕</button>
+    </div>
+    <p id="em-desc" style="margin-bottom:.75rem"></p>
+    <div id="em-amount" style="font-family:var(--mono);font-weight:700;font-size:1.1rem;margin-bottom:1rem"></div>
+    <div class="alert alert-amber">
+      <span class="alert-icon">💬</span>
+      <span>Practice saying: <em>"I need to sort this out — what are my options?"</em></span>
+    </div>
+    <button class="btn btn-primary btn-full" id="em-close2" onclick="document.getElementById('emergency-overlay').classList.remove('open')">I understand — deal with it</button>
+  </div>
+</div>
+
+<div id="toast-container"></div>
+
+<footer style="text-align:center;padding:2.5rem 1rem;color:var(--text3);font-size:.8rem;border-top:1px solid var(--border);margin-top:3rem">
+  🇦🇺 Aussie Money Survival — ESL Roleplay Simulator &nbsp;|&nbsp; Student Edition &nbsp;|&nbsp;
+  <a href="teacher.html" style="color:var(--purple);opacity:.5" tabindex="-1">[ Teacher Page ]</a>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
