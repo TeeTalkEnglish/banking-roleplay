@@ -3,13 +3,505 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scenario 2 — Student</title>
+  <title>Scenario 2 - Student | Lost Debit Card</title>
   <link rel="stylesheet" href="../style.css">
+  <style>
+    body.scenario-page {
+      background: radial-gradient(circle at top, rgba(96,165,250,.16), transparent 35%), linear-gradient(180deg, #081119 0%, #0e1724 100%);
+      min-height: 100vh;
+      padding: 2rem 0;
+      color: var(--text);
+    }
+    .page-shell {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .page-hero {
+      background: rgba(11,20,31,.95);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .45rem .85rem;
+      border-radius: 999px;
+      background: rgba(59,130,246,.14);
+      color: var(--accent2);
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .85rem;
+    }
+    .page-hero h1 {
+      margin: 0 0 .7rem;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+    }
+    .page-hero p {
+      color: var(--text2);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+    .content-grid { display: grid; gap: 1.25rem; }
+    @media (min-width: 860px) {
+      .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    }
+    .card.full-width { grid-column: 1 / -1; }
+    .card h2 { margin-top: 0; }
+    .checklist { margin-top: 1rem; color: var(--text2); }
+    .checklist li { margin-bottom: .7rem; }
+    .highlight-box {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      line-height: 1.8;
+      color: var(--text2);
+    }
+    .highlight-box p { margin: .75rem 0; }
+    .vocab-grid {
+      display: grid;
+      gap: .65rem;
+      margin-top: 1rem;
+    }
+    .vocab-item {
+      display: grid;
+      gap: .2rem;
+      padding: .75rem .9rem;
+      border-radius: var(--radius-sm);
+      background: rgba(59,130,246,.1);
+      border: 1px solid rgba(59,130,246,.2);
+      color: var(--text2);
+      font-size: .9rem;
+    }
+    .vocab-item strong {
+      color: var(--accent2);
+      font-family: var(--mono);
+      font-size: .82rem;
+    }
+    .memory-table {
+      width: 100%;
+      min-width: 820px;
+      border-collapse: collapse;
+    }
+    .memory-table th,
+    .memory-table td {
+      white-space: normal;
+      vertical-align: top;
+    }
+    .memory-table td strong {
+      color: var(--accent2);
+    }
+    .step-list {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+    .step-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+    }
+    .step-card h3 {
+      margin: 0 0 .35rem;
+      font-size: 1rem;
+    }
+    .step-card p { margin: 0; }
+    .hint {
+      margin-top: .8rem;
+      background: rgba(59,130,246,.08);
+      border: 1px solid rgba(59,130,246,.2);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .hint summary { color: var(--accent2); }
+    .hint p {
+      padding: 0 .9rem .85rem;
+      color: var(--text2);
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: .5rem;
+    }
+    @media (max-width: 640px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .button-row { flex-direction: column; }
+    }
+  </style>
 </head>
-<body class="container">
-  <h1>Scenario 2 — Student Page</h1>
-  <p>This is the student page for Scenario 2.</p>
-  <p><a href="teacher.html">Open Scenario 2 Teacher Page</a></p>
-  <p><a href="../index.html">Back to Hub</a></p>
+<body class="scenario-page">
+  <main class="page-shell">
+    <section class="page-hero">
+      <span class="page-tag">Scenario 2</span>
+      <h1>Lost Debit Card</h1>
+      <p>You are in Australia and you realise your debit card is missing. Speak to the bank teller, explain only what you know, and ask what to do next.</p>
+    </section>
+
+    <section class="content-grid">
+          
+      <article class="card full-width">
+        <h2>Bank vocabulary</h2>
+        <div class="vocab-grid">
+          <span class="vocab-item"><strong>Debit card</strong> A card that spends money from your everyday bank account.</span>
+          <span class="vocab-item"><strong>Block / freeze a card</strong> Stop the card so it cannot be used.</span>
+          <span class="vocab-item"><strong>Suspicious transaction</strong> A payment that might not be yours.</span>
+          <span class="vocab-item"><strong>Identity verification</strong> Questions or documents used to prove who you are.</span>
+          <span class="vocab-item"><strong>Replacement card</strong> A new card the bank sends after your card is lost, stolen or cancelled.</span>
+          <span class="vocab-item"><strong>Dispute a transaction</strong> Ask the bank to investigate a payment you did not make.</span>
+          <span class="vocab-item"><strong>Digital wallet</strong> A card saved on your phone, such as Apple Pay or Google Pay.</span>
+          <span class="vocab-item"><strong>Temporary card limit</strong> A short-term limit to reduce risk while the bank checks the problem.</span>
+        </div>
+      </article>
+
+      <article class="card full-width">
+        <h2>Information to remember</h2>
+        <p>Use this table while you talk to the bank teller. The teller may ask for these details one by one.</p>
+        <div class="table-wrap">
+          <table class="memory-table">
+            <thead>
+              <tr>
+                <th>Topic</th>
+                <th>What you know</th>
+                <th>Tell the teller</th>
+                <th>Ask the teller</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Main problem</strong></td>
+                <td>Your debit card is missing.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I think I've lost my debit card."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"Can you help me?"</p>
+                  </details>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Where you are</strong></td>
+                <td>You live and currently work in Australia as a meat butcher.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I'm in Australia and I work as a meat butcher. I need help with my bank card."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"What should I do first?"</p>
+                  </details>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Safety worry</strong></td>
+                <td>You are worried someone might use the card.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I'm worried someone might use it."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"Should I freeze it or cancel it?"</p>
+                  </details>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Last place you remember</strong></td>
+                <td>You may remember using it at a supermarket, on transport, at a cafe or in a shopping centre.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I last remember using it at..."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"Can you check the last card use?"</p>
+                  </details>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Recent payments</strong></td>
+                <td>Some payments may be yours. Some may look suspicious.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I recognise this one, but I don't recognise this one."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"Can we check the recent transactions together?"</p>
+                  </details>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>ID</strong></td>
+                <td>You have photo ID with you.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I have my photo ID with me."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"What ID do you need from me?"</p>
+                  </details>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Money today</strong></td>
+                <td>You may still need money for groceries, rent or transport.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I still need to pay for important things today."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"Can I withdraw cash or use my banking app?"</p>
+                  </details>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>New card</strong></td>
+                <td>If the old card is cancelled, you may need a replacement card.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I may need a replacement card."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"How long will it take, and is there a fee?"</p>
+                  </details>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Phone payments and PIN</strong></td>
+                <td>Your digital wallet or PIN may need to be checked for safety.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I use my phone to pay sometimes."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"Will my digital wallet still work? Should I change my PIN?"</p>
+                  </details>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Before you leave</strong></td>
+                <td>You need to know what the bank did and what happens next.</td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"I want to make sure I understand."</p>
+                  </details>
+                </td>
+                <td>
+                  <details class="hint">
+                    <summary>Show</summary>
+                    <p>"Can I confirm the next steps and get a reference number?"</p>
+                  </details>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      
+      <article class="card full-width">
+        <h2>Correspondent profile</h2>
+        <div class="highlight-box">
+          <div class="table-wrap">
+            <table class="memory-table">
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Customer</td>
+                  <td>Mina Tran</td>
+                </tr>
+                <tr>
+                  <td>Account</td>
+                  <td>Everyday transaction account</td>
+                </tr>
+                <tr>
+                  <td>Residence</td>
+                  <td>Melbourne, Australia</td>
+                </tr>
+                <tr>
+                  <td>Occupation</td>
+                  <td>Meat butcher at a local butcher shop</td>
+                </tr>
+                <tr>
+                  <td>Personal details</td>
+                  <td>Living and working in Australia with passport photo ID and a work ID card.</td>
+                </tr>
+                <tr>
+                  <td>Phone details</td>
+                  <td>Recently changed phone number and cannot receive the bank app one-time code yet.</td>
+                </tr>
+                <tr>
+                  <td>Last known card use</td>
+                  <td>Woolworths Melbourne Central, yesterday 4:20 pm, $37.85.</td>
+                </tr>
+                <tr>
+                  <td>Recent activity</td>
+                  <td>Metro Trains top-up yesterday 5:05 pm, $9.50 (likely her own).</td>
+                </tr>
+                <tr>
+                  <td>Suspicious payments</td>
+                  <td>7-Eleven Carlton $18.70, Shell Richmond $42.10, and a $1.00 test payment today.</td>
+                </tr>
+                <tr>
+                  <td>Travel plans</td>
+                  <td>Travelling from Sydney to Brisbane in six days and needs money before a replacement card arrives.</td>
+                </tr>
+                <tr>
+                  <td>Lost/stolen story</td>
+                  <td>Wallet may have been lost or stolen on a Melbourne tram with ID inside, or the card may later be found in a jacket pocket.</td>
+                </tr>
+                <tr>
+                  <td>Challenge guidance</td>
+                  <td>Use this profile for all scenarios: lost after Woolworths, tram theft, suspicious payments, travel urgency, found later in jacket, and app login problems.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="screen-note">Do not reveal recent transactions unless the teller asks you to check them.</p>
+        </div>
+      </article>
+
+      <article class="card full-width">
+        <h2>Dispute information</h2> 
+        <p>Use this table to choose which transactions you do not recognise. Report them clearly to the teller.</p>
+        <div class="table-wrap">
+          <table class="memory-table">
+            <thead>
+              <tr>
+                <th>Transaction</th>
+                <th>Date / time</th>
+                <th>Amount</th>
+                <th>Customer note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Woolworths Melbourne Central</td>
+                <td>Yesterday 4:20 pm</td>
+                <td>$37.85</td>
+                <td>Recognise</td>
+              </tr>
+              <tr>
+                <td>Metro Trains top-up</td>
+                <td>Yesterday 5:05 pm</td>
+                <td>$9.50</td>
+                <td>Likely mine</td>
+              </tr>
+              <tr>
+                <td>7-Eleven Carlton</td>
+                <td>Today 8:14 am</td>
+                <td>$18.70</td>
+                <td>Do not recognise</td>
+              </tr>
+              <tr>
+                <td>Shell Richmond</td>
+                <td>Today 8:46 am</td>
+                <td>$42.10</td>
+                <td>Do not recognise</td>
+              </tr>
+              <tr>
+                <td>Card test payment</td>
+                <td>Today 9:02 am</td>
+                <td>$1.00</td>
+                <td>Do not recognise</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="highlight-box">
+          <p><strong>Tell the teller:</strong> "I recognise the Woolworths payment, but I do not recognise the payments at 7-Eleven Carlton, Shell Richmond, or the $1.00 test payment."</p>
+          <p><strong>Explain:</strong> The suspicious payments happened after the card was last used at Woolworths.</p>
+        </div>
+      </article>
+
+      <article class="card full-width">
+        <h2>Sample conversation</h2>
+        <div class="highlight-box">
+          <p><strong>Customer:</strong> Good morning. I think I've lost my debit card.</p>
+          <p><strong>Teller:</strong> I'm sorry to hear that. When did you last have it?</p>
+          <p><strong>Customer:</strong> I used it yesterday afternoon at the supermarket.</p>
+          <p><strong>Teller:</strong> Would you like me to block the card immediately?</p>
+          <p><strong>Customer:</strong> Yes please. Can you also check if there have been any suspicious transactions?</p>
+          <p><strong>Teller:</strong> Certainly. I'll need to verify your identity first.</p>
+        </div>
+      </article>
+
+
+
+      <article class="card full-width">
+        <h2>Talk it through</h2>
+        <div class="highlight-box">
+          <p>After the conversation, answer these questions in your own words.</p>
+          <ul class="checklist">
+            <li>What should you do first if your debit card is lost in Australia?</li>
+            <li>Why is it safer to freeze or block a card quickly?</li>
+            <li>What details helped the teller understand your situation?</li>
+            <li>What should you check before you agree that a transaction is yours?</li>
+            <li>How can you pay for important things while waiting for a replacement card?</li>
+            <li>Why should you never share your PIN, password or one-time security code?</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <div class="button-row">
+      <a class="btn btn-secondary btn-full" href="../index.html">Back to Hub</a>
+      <a class="btn btn-primary btn-full" href="teacher.html">Open Teacher Page</a>
+    </div>
+  </main>
 </body>
 </html>

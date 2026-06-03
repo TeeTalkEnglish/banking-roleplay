@@ -3,13 +3,474 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scenario 2 — Teacher</title>
+  <title>Scenario 2 - Teacher | Lost Debit Card</title>
   <link rel="stylesheet" href="../style.css">
+  <style>
+    body.scenario-page {
+      background: radial-gradient(circle at top, rgba(139,92,246,.16), transparent 35%), linear-gradient(180deg, #0c1018 0%, #111827 100%);
+      min-height: 100vh;
+      padding: 2rem 0;
+      color: var(--text);
+    }
+    .page-shell {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .page-hero {
+      background: rgba(17,24,39,.95);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .45rem .85rem;
+      border-radius: 999px;
+      background: rgba(139,92,246,.16);
+      color: #c4b5fd;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .85rem;
+    }
+    .page-hero h1 {
+      margin: 0 0 .7rem;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+    }
+    .page-hero p {
+      color: var(--text2);
+      line-height: 1.7;
+      max-width: 820px;
+    }
+    .content-grid { display: grid; gap: 1.25rem; }
+    @media (min-width: 900px) {
+      .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    .card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
+    }
+    .card.full-width { grid-column: 1 / -1; }
+    .card h2 { margin-top: 0; }
+    .card h3 { margin: 0 0 .45rem; font-size: 1rem; }
+    .checklist { margin-top: 1rem; color: var(--text2); }
+    .checklist li { margin-bottom: .7rem; }
+    .highlight-box {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      line-height: 1.8;
+      color: var(--text2);
+    }
+    .highlight-box p { margin: .75rem 0; }
+    .answer-grid,
+    .challenge-grid,
+    .problem-grid,
+    .qa-grid,
+    .teller-step-grid {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1rem;
+    }
+    .answer-card,
+    .challenge-card,
+    .problem-card,
+    .qa-row,
+    .teller-step-card {
+      background: rgba(139,92,246,.08);
+      border: 1px solid rgba(139,92,246,.22);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+    }
+    .problem-card {
+      background: rgba(245,158,11,.08);
+      border-color: rgba(245,158,11,.24);
+    }
+    .challenge-card {
+      background: rgba(255,255,255,.03);
+      border-color: var(--border2);
+    }
+    .teller-step-card {
+      background: rgba(255,255,255,.03);
+      border-color: var(--border2);
+    }
+    .answer-card strong,
+    .challenge-card strong,
+    .problem-card strong,
+    .qa-row strong,
+    .teller-step-card strong {
+      color: #c4b5fd;
+    }
+    .problem-card strong { color: var(--amber2); }
+    .script-line {
+      padding: .6rem .75rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      margin-bottom: .55rem;
+    }
+    .script-line strong { color: var(--text); }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-top: .65rem;
+    }
+    .mini-tag {
+      font-family: var(--mono);
+      font-size: .7rem;
+      color: var(--accent3);
+      background: rgba(59,130,246,.12);
+      border: 1px solid rgba(59,130,246,.25);
+      border-radius: 999px;
+      padding: .25rem .55rem;
+    }
+    .screen-note {
+      color: var(--text2);
+      margin-bottom: 1rem;
+    }
+    .screen-panel {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .screen-table {
+      width: 100%;
+      min-width: 1180px;
+      border-collapse: collapse;
+    }
+    .screen-table th,
+    .screen-table td {
+      white-space: normal;
+      vertical-align: top;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: 999px;
+      padding: .2rem .55rem;
+      font-family: var(--mono);
+      font-size: .68rem;
+      border: 1px solid var(--border2);
+      color: var(--text2);
+      background: rgba(255,255,255,.04);
+    }
+    .status-pill.ok {
+      color: var(--green2);
+      border-color: rgba(16,185,129,.35);
+      background: rgba(16,185,129,.1);
+    }
+    .status-pill.warn {
+      color: var(--amber2);
+      border-color: rgba(245,158,11,.35);
+      background: rgba(245,158,11,.1);
+    }
+    .status-pill.alert {
+      color: var(--red2);
+      border-color: rgba(239,68,68,.35);
+      background: rgba(239,68,68,.1);
+    }
+    .table-scroll-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .6rem;
+      margin: .85rem 0 .6rem;
+    }
+    .table-scroll-label {
+      color: var(--text3);
+      font-size: .82rem;
+    }
+    .table-scroll-actions {
+      display: flex;
+      gap: .6rem;
+    }
+    .scroll-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.6rem;
+      min-height: 2.4rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .scroll-btn:hover {
+      background: var(--surface3);
+      border-color: var(--border2);
+    }
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: .5rem;
+    }
+    @media (max-width: 640px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .button-row { flex-direction: column; }
+    }
+  </style>
 </head>
-<body class="container">
-  <h1>Scenario 2 — Teacher Page</h1>
-  <p>This is the teacher page for Scenario 2.</p>
-  <p><a href="student.html">Open Scenario 2 Student Page</a></p>
-  <p><a href="../index.html">Back to Hub</a></p>
+<body class="scenario-page">
+  <main class="page-shell">
+    <section class="page-hero">
+      <span class="page-tag">Scenario 2 - Teacher</span>
+      <h1>Lost Debit Card Teller Guide</h1>
+      <p>Use this page to play the bank teller and prepare the learner for a real Australian banking problem: a missing card, possible fraud, identity checks, app safety, temporary money access and replacement-card delays.</p>
+    </section>
+
+    <section class="content-grid">
+      <article class="card full-width">
+        <h2>Teacher setup</h2>
+        <div class="highlight-box">
+          <p><strong>Student role:</strong> A customer in Australia whose debit card is missing.</p>
+          <p><strong>Teacher role:</strong> A bank teller who asks verification questions, checks recent transactions and guides the customer through the safest next step.</p>
+          <p>Do not give the full solution immediately. Let the learner ask questions, then reveal realistic information based on the challenge you choose.</p>
+        </div>
+      </article>
+
+     
+      
+
+      <article class="card full-width">
+        <h2>Teller conversation table</h2>
+        <p class="screen-note">Use this as the bank screen and teller guide. Start with one challenge in the first row, then follow the matching student steps.</p>
+        <div class="table-scroll-controls" aria-label="Table scroll controls">
+          <span class="table-scroll-label">Move across the table</span>
+          <span class="table-scroll-actions">
+            <button class="scroll-btn" type="button" data-scroll-table="teller-table" data-scroll-direction="-1" aria-label="Scroll table left">&larr;</button>
+            <button class="scroll-btn" type="button" data-scroll-table="teller-table" data-scroll-direction="1" aria-label="Scroll table right">&rarr;</button>
+          </span>
+        </div>
+        <div class="table-wrap" id="teller-table">
+          <table class="screen-table">
+            <thead>
+              <tr>
+                <th>Student step</th>
+                <th>Challenge / situation to use</th>
+                <th>Screen information</th>
+                <th>Latest transactions / suspicious payments</th>
+                <th>What the bank teller says or asks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Explain the problem</strong></td>
+                <td>
+                  Choose one challenge now:<br>
+                  A. Lost after Woolworths<br>
+                  B. Wallet possibly stolen on tram<br>
+                  C. Suspicious tap-and-go payments<br>
+                  D. Travelling next week<br>
+                  E. Card later found in jacket<br>
+                  F. App login problem
+                </td>
+                <td>
+                  Customer: Mina Tran<br>
+                  Account: Everyday transaction account<br>
+                  Card status: <span class="status-pill warn">Active before call</span>
+                </td>
+                <td>Do not show transactions yet. Wait for the student to ask.</td>
+                <td>"Good morning. How can I help today?" Then: "I'm sorry that happened. I can help you with that."</td>
+              </tr>
+              <tr>
+                <td><strong>2. Ask what to do first</strong></td>
+                <td>Use for all challenges. If Challenge B or C is chosen, guide the student toward cancelling, not only freezing.</td>
+                <td>Card can be frozen immediately. If stolen or used by someone else, card should be cancelled and replaced.</td>
+                <td>No transaction check yet unless the student asks.</td>
+                <td>"The safest first step is to freeze the card so it cannot be used while we check. If it was stolen, I recommend cancelling it."</td>
+              </tr>
+              <tr>
+                <td><strong>3. Give the last place remembered</strong></td>
+                <td>
+                  A: Last used after shopping.<br>
+                  B: Wallet disappeared on a Melbourne tram.<br>
+                  E: Student may later find it in a jacket pocket.
+                </td>
+                <td>Last known card use: Woolworths, Melbourne Central, yesterday at 4:20 pm, $37.85.</td>
+                <td><span class="status-pill ok">Likely normal</span> Woolworths Melbourne Central, $37.85.</td>
+                <td>"The last card use I can see is Woolworths yesterday afternoon. Do you remember that payment?"</td>
+              </tr>
+              <tr>
+                <td><strong>4. Ask about suspicious payments</strong></td>
+                <td>
+                  C: Use all suspicious payments.<br>
+                  B: Use one suspicious payment after the tram story.<br>
+                  A/E: No unknown payments unless you want extra difficulty.
+                </td>
+                <td>Show recent card activity after the student asks to check transactions.</td>
+                <td>
+                  <span class="status-pill warn">Check</span> Metro Trains top-up, yesterday 5:05 pm, $9.50<br>
+                  <span class="status-pill alert">Suspicious</span> 7-Eleven Carlton, today 8:14 am, $18.70<br>
+                  <span class="status-pill alert">Suspicious</span> Shell Richmond, today 8:46 am, $42.10<br>
+                  <span class="status-pill alert">Fraud test</span> Card test transaction, today 9:02 am, $1.00
+                </td>
+                <td>"Tell me which payments you recognise. If you do not recognise one, we can include it in a dispute."</td>
+              </tr>
+              <tr>
+                <td><strong>5. Ask about a replacement card</strong></td>
+                <td>
+                  B/C: Replacement strongly recommended.<br>
+                  A/E: Replacement optional if no suspicious payments and card is found.<br>
+                  D: Ask about urgent delivery or alternatives.
+                </td>
+                <td>Replacement card: 5 to 7 business days by post. Fee: $0.00 or waived. Address must be confirmed.</td>
+                <td>Pending replacement card order. Status: <span class="status-pill warn">Needs address</span></td>
+                <td>"A replacement usually takes 5 to 7 business days. Can you confirm your current address?"</td>
+              </tr>
+              <tr>
+                <td><strong>6. Ask how to pay while waiting</strong></td>
+                <td>D: Student travels from Sydney to Brisbane in six days and needs money access before the new card arrives.</td>
+                <td>Access options: cash withdrawal in branch after ID check, bank transfer, PayID, BPAY, app access if login works.</td>
+                <td>No new payments needed. Focus on practical access to money.</td>
+                <td>"If your ID is verified, you may be able to withdraw cash today. You can also use bank transfer or PayID if online banking is working."</td>
+              </tr>
+              <tr>
+                <td><strong>7. Ask what ID the bank needs</strong></td>
+                <td>B: Wallet also had licence and Medicare card. Add identity-risk discussion. Optional complication: student only has a photo of passport.</td>
+                <td>Photo ID required. Passport or Australian driver licence accepted. A photo of ID may not be enough for some services.</td>
+                <td>No transaction change.</td>
+                <td>"Before I access the account, I need to verify your identity. Do you have your physical passport or another photo ID?"</td>
+              </tr>
+              <tr>
+                <td><strong>8. Ask about payments not recognised</strong></td>
+                <td>C: Student must identify which payments are not theirs and ask to dispute them.</td>
+                <td>Dispute needs amount, date, merchant, whether card was lost or stolen, and whether the customer authorised it.</td>
+                <td>Dispute examples: $18.70 at 7-Eleven, $42.10 at Shell, $1.00 card test transaction.</td>
+                <td>"We can lodge a dispute. I need to note exactly which transactions are not yours."</td>
+              </tr>
+              <tr>
+                <td><strong>9. Ask about app, digital wallet and PIN safety</strong></td>
+                <td>
+                  F: Student cannot log in because Australian phone number changed.<br>
+                  E: If card is found, ask whether to change PIN before unfreezing.
+                </td>
+                <td>Digital wallet may stop if the card is cancelled. Phone number must be updated safely in branch or through secure bank process.</td>
+                <td>Possible scam risk: someone may call asking for a one-time security code.</td>
+                <td>"Never share your PIN, password or one-time security code. If your phone number changed, we need to update it securely."</td>
+              </tr>
+              <tr>
+                <td><strong>10. Confirm next steps</strong></td>
+                <td>
+                  A/E: Card frozen or unfrozen if safe.<br>
+                  B/C/D/F: Card cancelled, replacement ordered, dispute or app issue recorded.
+                </td>
+                <td>
+                  Card status after action: <span class="status-pill ok">Frozen</span> or <span class="status-pill alert">Cancelled</span><br>
+                  Reference number: LC-48291
+                </td>
+                <td>Tell student to monitor account for more pending transactions over the next few days.</td>
+                <td>"Your card is now blocked. Your reference number is LC-48291. Keep checking your account and contact us if anything else appears."</td>
+              </tr>
+              <tr>
+                <td><strong>Realistic problem — Address mismatch</strong></td>
+                <td>The bank has the customer's old hostel address, but the replacement card needs to go to a new share house.</td>
+                <td>Ask the customer for proof of their new address before ordering a replacement card.</td>
+                <td>No change to transactions.</td>
+                <td>"I can order the card, but your address is different on our system. Can you provide proof of your new address?"</td>
+              </tr>
+              <tr>
+                <td><strong>Realistic problem — Rent due tomorrow</strong></td>
+                <td>The customer needs to pay rent before the replacement card arrives.</td>
+                <td>Check whether online banking or an alternative payment method is available.</td>
+                <td>No change to transactions.</td>
+                <td>"You can still pay rent by bank transfer or PayID if online banking is working. Do you need help finding your BSB and account number?"</td>
+              </tr>
+              <tr>
+                <td><strong>Realistic problem — Scam follow-up call</strong></td>
+                <td>Someone called claiming to be the bank and asked for the customer's one-time code.</td>
+                <td>Warn the customer about scams and confirm the bank will never ask for full security codes.</td>
+                <td>No change to transactions.</td>
+                <td>"A real bank will not ask for your full password, PIN, or one-time security code. What should you do if you receive that call?"</td>
+              </tr>
+              <tr>
+                <td><strong>Realistic problem — Card used on public transport</strong></td>
+                <td>The card was used for a tap-on transport payment after the customer lost it.</td>
+                <td>Include the transport charge in the disputed transactions if the customer does not recognise it.</td>
+                <td>Possible disputed payment: Metro Trains top-up or other transport charge.</td>
+                <td>"Do you recognise this transport charge? If not, we can include it in the dispute."</td>
+              </tr>
+              <tr>
+                <td><strong>Realistic problem — No passport today</strong></td>
+                <td>The customer only has a photo of their passport on their phone, not the physical document.</td>
+                <td>Explain that a photo may not be enough for some services and ask for alternative ID or a return visit.</td>
+                <td>No change to transactions.</td>
+                <td>"A photo may not be enough for some services. Do you have another form of ID, or can you return with your passport?"</td>
+              </tr>
+              <tr>
+                <td><strong>Realistic problem — Replacement fee question</strong></td>
+                <td>The customer is worried about extra charges for a replacement card.</td>
+                <td>Tell them whether the first replacement fee is waived and confirm any costs before proceeding.</td>
+                <td>No change to transactions.</td>
+                <td>"Some banks waive the first replacement fee, but policies vary. It is always OK to ask about fees before agreeing."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-scroll-controls" aria-label="Table scroll controls">
+          <span class="table-scroll-label">Move across the table</span>
+          <span class="table-scroll-actions">
+            <button class="scroll-btn" type="button" data-scroll-table="teller-table" data-scroll-direction="-1" aria-label="Scroll table left">&larr;</button>
+            <button class="scroll-btn" type="button" data-scroll-table="teller-table" data-scroll-direction="1" aria-label="Scroll table right">&rarr;</button>
+          </span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Correction targets</h2>
+        <ul class="checklist">
+          <li>Use "lost my debit card", not "lost my bank".</li>
+          <li>Use "block", "freeze" or "cancel" for the card action.</li>
+          <li>Use "transaction" for a payment shown on the account.</li>
+          <li>Use "I don't recognise this payment", not "I don't know this money".</li>
+          <li>Use polite direct questions: "Can you...?", "Could I...?", "How long...?"</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Debrief answers</h2>
+        <ul class="checklist">
+          <li>Freeze or block the card as soon as possible.</li>
+          <li>Check recent transactions and identify anything unknown.</li>
+          <li>Cancel the card if it might be stolen or compromised.</li>
+          <li>Ask the bank how to access money while waiting.</li>
+          <li>Never share PINs, passwords or one-time codes.</li>
+          <li>Keep address and phone details updated with the bank.</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="button-row">
+      <a class="btn btn-secondary btn-full" href="../index.html">Back to Hub</a>
+      <a class="btn btn-primary btn-full" href="student.html">Open Student Page</a>
+    </div>
+  </main>
+  <script>
+    document.querySelectorAll('[data-scroll-table]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.scrollTable);
+        if (!target) return;
+        const direction = Number(button.dataset.scrollDirection) || 1;
+        target.scrollBy({ left: direction * 360, behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
