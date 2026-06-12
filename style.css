@@ -5,12 +5,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-  --bg:          #0d1117;
-  --surface:     #161b22;
-  --surface2:    #1f2937;
-  --surface3:    #263347;
-  --border:      #2d3748;
-  --border2:     #374151;
+  --bg:          #f5f8fc;
+  --surface:     #ffffff;
+  --surface2:    #eef3f8;
+  --surface3:    #dce6f1;
+  --border:      #d3dcea;
+  --border2:     #bccadd;
   --accent:      #3b82f6;
   --accent2:     #60a5fa;
   --accent3:     #93c5fd;
@@ -21,16 +21,16 @@
   --amber:       #f59e0b;
   --amber2:      #fbbf24;
   --purple:      #8b5cf6;
-  --text:        #f0f6fc;
-  --text2:       #8b949e;
-  --text3:       #6e7681;
+  --text:        #132238;
+  --text2:       #435466;
+  --text3:       #6b7c8f;
   --mono:        'Space Mono', monospace;
   --sans:        'DM Sans', sans-serif;
   --radius:      14px;
   --radius-sm:   8px;
   --radius-lg:   20px;
-  --shadow:      0 4px 24px rgba(0,0,0,.45);
-  --shadow-lg:   0 8px 48px rgba(0,0,0,.6);
+  --shadow:      0 8px 24px rgba(16,24,40,.08);
+  --shadow-lg:   0 16px 40px rgba(16,24,40,.12);
   --glow:        0 0 24px rgba(59,130,246,.25);
   --transition:  0.2s cubic-bezier(.4,0,.2,1);
 }
@@ -90,7 +90,7 @@ code, .mono {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13,17,23,.9);
+  background: rgba(255,255,255,.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   padding: .9rem 1.5rem;
@@ -511,7 +511,7 @@ section { margin-bottom: 2.5rem; }
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,246,.12), transparent);
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,246,.08), transparent);
   pointer-events: none;
 }
 .hero-subtitle { color: var(--text2); max-width: 580px; margin: .75rem auto 1.5rem; font-size: 1rem; }

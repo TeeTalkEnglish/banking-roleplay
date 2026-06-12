@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../style.css">
   <style>
     body.scenario-page {
-      background: radial-gradient(circle at top, rgba(96,165,250,.16), transparent 35%), linear-gradient(180deg, #081119 0%, #0e1724 100%);
+      background: radial-gradient(circle at top, rgba(96,165,250,.16), transparent 35%), linear-gradient(180deg, #f9fbff 0%, #eef4ff 100%);
       min-height: 100vh;
       padding: 2rem 0;
       color: var(--text);
@@ -19,7 +19,7 @@
       margin: 0 auto;
     }
     .page-hero {
-      background: rgba(11,20,31,.95);
+      background: rgba(255,255,255,.96);
       border: 1px solid var(--border2);
       border-radius: var(--radius-lg);
       padding: 1.8rem;
@@ -47,12 +47,60 @@
       line-height: 1.7;
       max-width: 760px;
     }
+    .hero-media {
+      margin-top: 1.15rem;
+      display: grid;
+      gap: .5rem;
+    }
+    .hero-media img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .hero-media figcaption {
+      font-size: .8rem;
+      color: var(--text3);
+      text-align: center;
+    }
+    .visual-section {
+      display: grid;
+      gap: 1rem;
+    }
+    .visual-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: .75rem;
+    }
+    .visual-card {
+      margin: 0;
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .visual-card img {
+      display: block;
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+    .visual-card figcaption {
+      padding: .75rem .85rem;
+      font-size: .8rem;
+      color: var(--text2);
+      line-height: 1.5;
+    }
     .content-grid { display: grid; gap: 1.25rem; }
     @media (min-width: 860px) {
       .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     .card {
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.96);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.35rem;
@@ -63,7 +111,7 @@
     .checklist { margin-top: 1rem; color: var(--text2); }
     .checklist li { margin-bottom: .7rem; }
     .highlight-box {
-      background: rgba(255,255,255,.03);
+      background: #f8fbff;
       border: 1px solid var(--border2);
       border-radius: var(--radius);
       padding: 1.2rem;
@@ -81,7 +129,7 @@
       gap: .2rem;
       padding: .75rem .9rem;
       border-radius: var(--radius-sm);
-      background: rgba(59,130,246,.1);
+      background: #eef6ff;
       border: 1px solid rgba(59,130,246,.2);
       color: var(--text2);
       font-size: .9rem;
@@ -110,7 +158,7 @@
       margin-top: 1rem;
     }
     .step-card {
-      background: rgba(255,255,255,.03);
+      background: #f8fbff;
       border: 1px solid var(--border2);
       border-radius: var(--radius-sm);
       padding: 1rem;
@@ -122,7 +170,7 @@
     .step-card p { margin: 0; }
     .hint {
       margin-top: .8rem;
-      background: rgba(59,130,246,.08);
+      background: #f2f8ff;
       border: 1px solid rgba(59,130,246,.2);
       border-radius: var(--radius-sm);
       overflow: hidden;
@@ -150,6 +198,15 @@
       <span class="page-tag">Scenario 2</span>
       <h1>Lost Debit Card</h1>
       <p>You are in Australia and you realise your debit card is missing. Speak to the bank teller, explain only what you know, and ask what to do next.</p>
+      <figure class="hero-media">
+        <img
+          src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80"
+          alt="Person using a bank card for an online payment on a laptop"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        >
+        <figcaption>Visual reference: card use, online payment, and banking steps</figcaption>
+      </figure>
     </section>
 
     <section class="content-grid">
@@ -165,6 +222,29 @@
           <span class="vocab-item"><strong>Dispute a transaction</strong> Ask the bank to investigate a payment you did not make.</span>
           <span class="vocab-item"><strong>Digital wallet</strong> A card saved on your phone, such as Apple Pay or Google Pay.</span>
           <span class="vocab-item"><strong>Temporary card limit</strong> A short-term limit to reduce risk while the bank checks the problem.</span>
+        </div>
+      </article>
+
+      <article class="card full-width visual-section">
+        <h2>Visual references</h2>
+        <p>Use these photos to connect the words to real banking situations.</p>
+        <div class="visual-grid">
+          <figure class="visual-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Blackboard_Transact_Processing_Terminal.jpg?width=900" alt="Cashless payment terminal in a store" loading="lazy">
+            <figcaption>Payment terminal: the kind of machine you might tap on in a shop or cafe.</figcaption>
+          </figure>
+          <figure class="visual-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Contactless_Payment_Card_opened_to_show_RF_antenna.jpg?width=900" alt="Contactless card opened to show the RF antenna" loading="lazy">
+            <figcaption>Contactless card: helps explain tap-and-go and card security.</figcaption>
+          </figure>
+          <figure class="visual-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tap_pay_point.jpg?width=900" alt="Tap pay point sign and device" loading="lazy">
+            <figcaption>Tap pay point: useful for talking about card payments and digital wallets.</figcaption>
+          </figure>
+          <figure class="visual-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cashless-Payment-Device.jpg?width=900" alt="Cashless payment device used for contactless payment" loading="lazy">
+            <figcaption>Cashless payment device: good visual support for card, phone, and app payments.</figcaption>
+          </figure>
         </div>
       </article>
 
