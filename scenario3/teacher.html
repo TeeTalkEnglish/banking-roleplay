@@ -55,6 +55,40 @@ body{
     color:#0f4c5c;
 }
 
+.visual-section{
+    display:grid;
+    gap:1rem;
+}
+
+.visual-grid{
+    display:grid;
+    gap:1rem;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    margin-top:.75rem;
+}
+
+.visual-card{
+    margin:0;
+    background:#f8fbff;
+    border:1px solid #b7c8d6;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.visual-card img{
+    display:block;
+    width:100%;
+    height:170px;
+    object-fit:cover;
+}
+
+.visual-card figcaption{
+    padding:.75rem .85rem;
+    font-size:.8rem;
+    color:#555;
+    line-height:1.5;
+}
+
 .teacher-box{
     background:#fff8e7;
     border:2px solid #e0c38c;
@@ -155,6 +189,37 @@ Do not give all information immediately.
 <li>Bank Name Required</li>
 <li>Account Number Required</li>
 </ul>
+
+</div>
+
+<div class="teacher-box visual-section">
+
+<h2>Visual references</h2>
+<p>Use these images to make the overseas transfer conversation more concrete.</p>
+
+<div class="visual-grid">
+
+<figure class="visual-card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(238,247,247)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(108,166,177)' stroke-width='4'/><circle cx='165' cy='205' r='70' fill='rgb(13,110,253)' opacity='.16'/><text x='400' y='185' font-family='Arial' font-size='42' font-weight='700' text-anchor='middle' fill='rgb(15,76,92)'>Send money overseas</text><text x='400' y='242' font-family='Arial' font-size='26' text-anchor='middle' fill='rgb(69,84,102)'>Check the fee and exchange rate</text><text x='400' y='300' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(15,76,92)'>Ask for the SWIFT code</text></svg>" alt="Illustration for sending money overseas" loading="lazy">
+<figcaption>Overseas transfer: fee, exchange rate, and SWIFT code.</figcaption>
+</figure>
+
+<figure class="visual-card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(242,251,247)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(16,185,129)' stroke-width='4'/><text x='400' y='184' font-family='Arial' font-size='42' font-weight='700' text-anchor='middle' fill='rgb(15,76,92)'>Passport and ID</text><text x='400' y='242' font-family='Arial' font-size='26' text-anchor='middle' fill='rgb(69,84,102)'>Bring photo identification</text><text x='400' y='298' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(15,76,92)'>The bank checks your details first</text></svg>" alt="Illustration of passport and identification" loading="lazy">
+<figcaption>Identity check: what the teller needs before processing the transfer.</figcaption>
+</figure>
+
+<figure class="visual-card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(255,247,236)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(215,182,141)' stroke-width='4'/><text x='400' y='182' font-family='Arial' font-size='42' font-weight='700' text-anchor='middle' fill='rgb(139,90,43)'>SWIFT code</text><text x='400' y='238' font-family='Arial' font-size='26' text-anchor='middle' fill='rgb(69,84,102)'>Needed to identify the bank</text><text x='400' y='294' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(139,90,43)'>Check all digits before sending</text></svg>" alt="Illustration of a SWIFT code reference" loading="lazy">
+<figcaption>SWIFT code: the missing bank detail the customer must find.</figcaption>
+</figure>
+
+<figure class="visual-card">
+<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(238,246,255)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(59,130,246)' stroke-width='4'/><text x='400' y='182' font-family='Arial' font-size='42' font-weight='700' text-anchor='middle' fill='rgb(15,76,92)'>Urgent transfer</text><text x='400' y='238' font-family='Arial' font-size='26' text-anchor='middle' fill='rgb(69,84,102)'>Fast service may cost extra</text><text x='400' y='294' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(15,76,92)'>Delivery still takes time</text></svg>" alt="Illustration of an urgent money transfer" loading="lazy">
+<figcaption>Urgent transfer: useful for discussing speed and extra fees.</figcaption>
+</figure>
+
+</div>
 
 </div>
 

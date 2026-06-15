@@ -47,6 +47,36 @@
       line-height: 1.7;
       max-width: 820px;
     }
+    .visual-section {
+      display: grid;
+      gap: 1rem;
+    }
+    .visual-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: .75rem;
+    }
+    .visual-card {
+      margin: 0;
+      background: #f8fbff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .visual-card img {
+      display: block;
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+    .visual-card figcaption {
+      padding: .75rem .85rem;
+      font-size: .8rem;
+      color: var(--text2);
+      line-height: 1.5;
+    }
     .content-grid { display: grid; gap: 1.25rem; }
     @media (min-width: 900px) {
       .content-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -146,14 +176,26 @@
     }
     .screen-table {
       width: 100%;
-      min-width: 1180px;
+      min-width: 0;
+      table-layout: fixed;
       border-collapse: collapse;
+      font-size: .8rem;
     }
     .screen-table th,
     .screen-table td {
       white-space: normal;
       vertical-align: top;
+      padding: .55rem .65rem;
+      line-height: 1.45;
     }
+    .screen-table th:nth-child(1),
+    .screen-table td:nth-child(1) { width: 14%; }
+    .screen-table th:nth-child(2),
+    .screen-table td:nth-child(2) { width: 22%; }
+    .screen-table th:nth-child(3),
+    .screen-table td:nth-child(3) { width: 29%; }
+    .screen-table th:nth-child(4),
+    .screen-table td:nth-child(4) { width: 35%; }
     .status-pill {
       display: inline-flex;
       align-items: center;
@@ -249,6 +291,29 @@
      
       
 
+      <article class="card full-width visual-section">
+        <h2>Visual references</h2>
+        <p>Use these images to reinforce the lost-card conversation and the actions the teller might suggest.</p>
+        <div class="visual-grid">
+          <figure class="visual-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Contactless_Payment_Card_opened_to_show_RF_antenna.jpg?width=900" alt="Contactless card opened to show the RF antenna" loading="lazy">
+            <figcaption>Contactless card: useful when discussing how a card can be used or blocked.</figcaption>
+          </figure>
+          <figure class="visual-card">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cashless-Payment-Device.jpg?width=900" alt="Cashless payment device used for contactless payment" loading="lazy">
+            <figcaption>Payment device: helps the teller talk about recent transactions.</figcaption>
+          </figure>
+          <figure class="visual-card">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(238,246,255)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(59,130,246)' stroke-width='4'/><rect x='150' y='160' width='190' height='120' rx='18' fill='rgb(219,234,254)' stroke='rgb(59,130,246)' stroke-width='4'/><text x='400' y='195' font-family='Arial' font-size='42' font-weight='700' text-anchor='middle' fill='rgb(19,34,56)'>Lost wallet</text><text x='400' y='248' font-family='Arial' font-size='25' text-anchor='middle' fill='rgb(67,84,102)'>Ask where the card was last used</text><text x='400' y='302' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(19,34,56)'>Then check for strange payments</text></svg>" alt="Illustration of a lost wallet" loading="lazy">
+            <figcaption>Lost wallet: prompts the teller to ask the key first question.</figcaption>
+          </figure>
+          <figure class="visual-card">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(242,251,247)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(16,185,129)' stroke-width='4'/><rect x='160' y='165' width='480' height='90' rx='18' fill='rgb(220,252,231)' stroke='rgb(16,185,129)' stroke-width='4'/><text x='400' y='206' font-family='Arial' font-size='40' font-weight='700' text-anchor='middle' fill='rgb(19,34,56)'>Freeze the card</text><text x='400' y='264' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(67,84,102)'>Stop payments while you check transactions</text><text x='400' y='320' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(19,34,56)'>Safer than waiting</text></svg>" alt="Illustration of freezing a debit card" loading="lazy">
+            <figcaption>Freeze the card: a quick teller action after a loss or theft.</figcaption>
+          </figure>
+        </div>
+      </article>
+
       <article class="card full-width">
         <h2>Teller conversation table</h2>
         <p class="screen-note">Use this as the bank screen and teller guide. Start with one challenge in the first row, then follow the matching student steps.</p>
@@ -263,162 +328,141 @@
           <table class="screen-table">
             <thead>
               <tr>
-                <th>Student step</th>
+                <th>Topic</th>
                 <th>Challenge / situation to use</th>
-                <th>Screen information</th>
-                <th>Latest transactions / suspicious payments</th>
+                <th>Screen / transactions</th>
                 <th>What the bank teller says or asks</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>1. Explain the problem</strong></td>
+                <td><strong>Lost card</strong></td>
                 <td>
-                  Choose one challenge now:<br>
                   A. Lost after Woolworths<br>
-                  B. Wallet possibly stolen on tram<br>
-                  C. Suspicious tap-and-go payments<br>
-                  D. Travelling next week<br>
-                  E. Card later found in jacket<br>
-                  F. App login problem
+                  B. Stolen on tram<br>
+                  C. Odd payments<br>
+                  D. Travelling soon<br>
+                  E. Found later<br>
+                  F. App issue
                 </td>
                 <td>
                   Customer: Mina Tran<br>
                   Account: Everyday transaction account<br>
                   Card status: <span class="status-pill warn">Active before call</span>
+                  <br>Transactions: wait until asked
                 </td>
-                <td>Do not show transactions yet. Wait for the student to ask.</td>
                 <td>"Good morning. How can I help today?" Then: "I'm sorry that happened. I can help you with that."</td>
               </tr>
               <tr>
-                <td><strong>2. Ask what to do first</strong></td>
-                <td>Use for all challenges. If Challenge B or C is chosen, guide the student toward cancelling, not only freezing.</td>
-                <td>Card can be frozen immediately. If stolen or used by someone else, card should be cancelled and replaced.</td>
-                <td>No transaction check yet unless the student asks.</td>
+                <td><strong>Freeze or cancel?</strong></td>
+                <td>All cases. B/C: cancel, not just freeze.</td>
+                <td>Freeze now. Cancel if stolen or used by someone else. No transaction check yet.</td>
                 <td>"The safest first step is to freeze the card so it cannot be used while we check. If it was stolen, I recommend cancelling it."</td>
               </tr>
               <tr>
-                <td><strong>3. Give the last place remembered</strong></td>
+                <td><strong>Last use</strong></td>
                 <td>
-                  A: Last used after shopping.<br>
-                  B: Wallet disappeared on a Melbourne tram.<br>
-                  E: Student may later find it in a jacket pocket.
+                  A. Used after shopping<br>
+                  B. Lost on tram<br>
+                  E. Found in jacket
                 </td>
-                <td>Last known card use: Woolworths, Melbourne Central, yesterday at 4:20 pm, $37.85.</td>
-                <td><span class="status-pill ok">Likely normal</span> Woolworths Melbourne Central, $37.85.</td>
+                <td>Last use: Woolworths, Melbourne Central, yesterday 4:20 pm, $37.85.<br><span class="status-pill ok">Likely normal</span></td>
                 <td>"The last card use I can see is Woolworths yesterday afternoon. Do you remember that payment?"</td>
               </tr>
               <tr>
-                <td><strong>4. Ask about suspicious payments</strong></td>
+                <td><strong>Odd payments</strong></td>
                 <td>
-                  C: Use all suspicious payments.<br>
-                  B: Use one suspicious payment after the tram story.<br>
-                  A/E: No unknown payments unless you want extra difficulty.
+                  C. All odd payments<br>
+                  B. One odd payment<br>
+                  A/E. None
                 </td>
-                <td>Show recent card activity after the student asks to check transactions.</td>
-                <td>
-                  <span class="status-pill warn">Check</span> Metro Trains top-up, yesterday 5:05 pm, $9.50<br>
-                  <span class="status-pill alert">Suspicious</span> 7-Eleven Carlton, today 8:14 am, $18.70<br>
-                  <span class="status-pill alert">Suspicious</span> Shell Richmond, today 8:46 am, $42.10<br>
-                  <span class="status-pill alert">Fraud test</span> Card test transaction, today 9:02 am, $1.00
-                </td>
+                <td>Recent activity: Metro Trains $9.50; 7-Eleven $18.70; Shell $42.10; test payment $1.00.</td>
                 <td>"Tell me which payments you recognise. If you do not recognise one, we can include it in a dispute."</td>
               </tr>
               <tr>
-                <td><strong>5. Ask about a replacement card</strong></td>
+                <td><strong>New card</strong></td>
                 <td>
-                  B/C: Replacement strongly recommended.<br>
-                  A/E: Replacement optional if no suspicious payments and card is found.<br>
-                  D: Ask about urgent delivery or alternatives.
+                  B/C. Replace now<br>
+                  A/E. Replace if needed<br>
+                  D. Fast delivery
                 </td>
-                <td>Replacement card: 5 to 7 business days by post. Fee: $0.00 or waived. Address must be confirmed.</td>
-                <td>Pending replacement card order. Status: <span class="status-pill warn">Needs address</span></td>
+                <td>Replacement card: 5 to 7 business days. Fee: $0.00 or waived. Status: <span class="status-pill warn">Needs address</span></td>
                 <td>"A replacement usually takes 5 to 7 business days. Can you confirm your current address?"</td>
               </tr>
               <tr>
-                <td><strong>6. Ask how to pay while waiting</strong></td>
-                <td>D: Student travels from Sydney to Brisbane in six days and needs money access before the new card arrives.</td>
-                <td>Access options: cash withdrawal in branch after ID check, bank transfer, PayID, BPAY, app access if login works.</td>
-                <td>No new payments needed. Focus on practical access to money.</td>
+                <td><strong>Money now</strong></td>
+                <td>D. Needs money for travel</td>
+                <td>Cash, bank transfer, PayID, BPAY, app access. No new payments needed.</td>
                 <td>"If your ID is verified, you may be able to withdraw cash today. You can also use bank transfer or PayID if online banking is working."</td>
               </tr>
               <tr>
-                <td><strong>7. Ask what ID the bank needs</strong></td>
-                <td>B: Wallet also had licence and Medicare card. Add identity-risk discussion. Optional complication: student only has a photo of passport.</td>
-                <td>Photo ID required. Passport or Australian driver licence accepted. A photo of ID may not be enough for some services.</td>
-                <td>No transaction change.</td>
+                <td><strong>ID check</strong></td>
+                <td>B. Wallet had ID too<br>E. Photo passport only</td>
+                <td>Passport or driver licence accepted. Photo may not be enough. No transaction change.</td>
                 <td>"Before I access the account, I need to verify your identity. Do you have your physical passport or another photo ID?"</td>
               </tr>
               <tr>
-                <td><strong>8. Ask about payments not recognised</strong></td>
-                <td>C: Student must identify which payments are not theirs and ask to dispute them.</td>
-                <td>Dispute needs amount, date, merchant, whether card was lost or stolen, and whether the customer authorised it.</td>
-                <td>Dispute examples: $18.70 at 7-Eleven, $42.10 at Shell, $1.00 card test transaction.</td>
+                <td><strong>Dispute</strong></td>
+                <td>C. Not my payments</td>
+                <td>Need amount, date, merchant, and whether card was lost or stolen. Examples: $18.70, $42.10, $1.00.</td>
                 <td>"We can lodge a dispute. I need to note exactly which transactions are not yours."</td>
               </tr>
               <tr>
-                <td><strong>9. Ask about app, digital wallet and PIN safety</strong></td>
+                <td><strong>App / PIN</strong></td>
                 <td>
-                  F: Student cannot log in because Australian phone number changed.<br>
-                  E: If card is found, ask whether to change PIN before unfreezing.
+                  F. Phone number changed<br>
+                  E. Change PIN first
                 </td>
-                <td>Digital wallet may stop if the card is cancelled. Phone number must be updated safely in branch or through secure bank process.</td>
-                <td>Possible scam risk: someone may call asking for a one-time security code.</td>
+                <td>Wallet may stop. Update phone number safely. Possible scam risk: one-time code request.</td>
                 <td>"Never share your PIN, password or one-time security code. If your phone number changed, we need to update it securely."</td>
               </tr>
               <tr>
-                <td><strong>10. Confirm next steps</strong></td>
+                <td><strong>Next steps</strong></td>
                 <td>
-                  A/E: Card frozen or unfrozen if safe.<br>
-                  B/C/D/F: Card cancelled, replacement ordered, dispute or app issue recorded.
+                  A/E. Freeze or unfreeze if safe<br>
+                  B/C/D/F. Cancel or replace
                 </td>
                 <td>
                   Card status after action: <span class="status-pill ok">Frozen</span> or <span class="status-pill alert">Cancelled</span><br>
                   Reference number: LC-48291
+                  <br>Tell student to monitor account for more pending transactions.
                 </td>
-                <td>Tell student to monitor account for more pending transactions over the next few days.</td>
                 <td>"Your card is now blocked. Your reference number is LC-48291. Keep checking your account and contact us if anything else appears."</td>
               </tr>
               <tr>
                 <td><strong>Realistic problem — Address mismatch</strong></td>
-                <td>The bank has the customer's old hostel address, but the replacement card needs to go to a new share house.</td>
-                <td>Ask the customer for proof of their new address before ordering a replacement card.</td>
-                <td>No change to transactions.</td>
+                <td>Old address on file, new share house needed.</td>
+                <td>Ask for proof of the new address before ordering the card. No change to transactions.</td>
                 <td>"I can order the card, but your address is different on our system. Can you provide proof of your new address?"</td>
               </tr>
               <tr>
                 <td><strong>Realistic problem — Rent due tomorrow</strong></td>
-                <td>The customer needs to pay rent before the replacement card arrives.</td>
-                <td>Check whether online banking or an alternative payment method is available.</td>
-                <td>No change to transactions.</td>
+                <td>Rent needs paying before the card arrives.</td>
+                <td>Check online banking or another payment method. No change to transactions.</td>
                 <td>"You can still pay rent by bank transfer or PayID if online banking is working. Do you need help finding your BSB and account number?"</td>
               </tr>
               <tr>
                 <td><strong>Realistic problem — Scam follow-up call</strong></td>
-                <td>Someone called claiming to be the bank and asked for the customer's one-time code.</td>
-                <td>Warn the customer about scams and confirm the bank will never ask for full security codes.</td>
-                <td>No change to transactions.</td>
+                <td>Scam call asked for a one-time code.</td>
+                <td>Warn about scams and say the bank will never ask for full security codes. No change to transactions.</td>
                 <td>"A real bank will not ask for your full password, PIN, or one-time security code. What should you do if you receive that call?"</td>
               </tr>
               <tr>
                 <td><strong>Realistic problem — Card used on public transport</strong></td>
-                <td>The card was used for a tap-on transport payment after the customer lost it.</td>
-                <td>Include the transport charge in the disputed transactions if the customer does not recognise it.</td>
-                <td>Possible disputed payment: Metro Trains top-up or other transport charge.</td>
+                <td>Transport tap after the card was lost.</td>
+                <td>Include the transport charge in the dispute if the customer does not recognise it.</td>
                 <td>"Do you recognise this transport charge? If not, we can include it in the dispute."</td>
               </tr>
               <tr>
                 <td><strong>Realistic problem — No passport today</strong></td>
-                <td>The customer only has a photo of their passport on their phone, not the physical document.</td>
-                <td>Explain that a photo may not be enough for some services and ask for alternative ID or a return visit.</td>
-                <td>No change to transactions.</td>
+                <td>Only a passport photo, not the real document.</td>
+                <td>A photo may not be enough. Ask for other ID or a return visit. No change to transactions.</td>
                 <td>"A photo may not be enough for some services. Do you have another form of ID, or can you return with your passport?"</td>
               </tr>
               <tr>
                 <td><strong>Realistic problem — Replacement fee question</strong></td>
-                <td>The customer is worried about extra charges for a replacement card.</td>
-                <td>Tell them whether the first replacement fee is waived and confirm any costs before proceeding.</td>
-                <td>No change to transactions.</td>
+                <td>Worried about replacement fees.</td>
+                <td>Tell them if the first fee is waived and confirm any costs first. No change to transactions.</td>
                 <td>"Some banks waive the first replacement fee, but policies vary. It is always OK to ask about fees before agreeing."</td>
               </tr>
             </tbody>
