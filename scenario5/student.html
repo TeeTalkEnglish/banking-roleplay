@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Day 5 — Work, Salary & Getting Paid</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+:root{
+--bg:#07131d;
+--panel:#0f1c2b;
+--card:#122235;
+--accent:#3b82f6;
+--accent2:#60a5fa;
+--text:#16253d;
+--muted:#5b6b83;
+
+--salary:#1e3a8a;
+--tax:#7c3aed;
+--bank:#0f766e;
+--fee:#9a3412;
+
+--radius:22px;
+}
+
+body{
+margin:0;
+padding:40px 20px;
+
+background:
+radial-gradient(circle at top,#143050,transparent 40%),
+linear-gradient(
+180deg,
+#eef6ff,
+#ffffff
+);
+
+font-family:
+Inter,
+Segoe UI,
+sans-serif;
+
+color:#1e293b;
+}
+
+.container{
+max-width:1250px;
+margin:auto;
+}
+
+.hero{
+
+padding:50px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+backdrop-filter:
+blur(16px);
+
+border-radius:30px;
+
+margin-bottom:30px;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:
+clamp(2.4rem,5vw,4rem);
+
+margin-bottom:10px;
+
+}
+
+.hero p{
+
+color:
+#334155;
+
+font-size:
+1.4rem;
+font-weight: 500;
+
+max-width:800px;
+
+margin:auto;
+
+line-height:1.8;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(
+420px,
+1fr
+)
+);
+
+gap:22px;
+
+}
+
+.card{
+
+background:white;
+
+border:1px solid #dbe7f3;
+
+border-radius:24px;
+
+padding:32px;
+
+box-shadow:
+
+0 20px 60px rgba(20,60,120,.08);
+
+transition:.25s;
+
+}
+
+.card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+
+0 24px 70px rgba(20,60,120,.14);
+
+}
+.card:hover{
+
+transform:
+translateY(-6px);
+
+border-color:
+var(--accent);
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+width:8px;
+
+height:100%;
+
+}
+
+.card:nth-child(1)::before{
+background:var(--salary);
+}
+
+.card:nth-child(2)::before{
+background:var(--tax);
+}
+
+.card:nth-child(3)::before{
+background:var(--bank);
+}
+
+.card:nth-child(4)::before{
+background:var(--fee);
+}
+
+.card h2{
+
+margin-top:0;
+
+font-size:1.7rem;
+color:#10284d;
+font-weight:800;
+line-height:1.3;
+
+}
+
+.card p{
+
+line-height:1.8;
+
+color:
+#44546a;
+
+}
+
+.card ul{
+
+padding-left:20px;
+
+}
+
+.card li{
+
+margin-bottom:10px;
+
+}
+
+.tag{
+
+display:inline-block;
+
+padding:
+
+8px 14px;
+
+border-radius:
+
+999px;
+
+background:
+
+rgba(59,130,246,.18);
+
+color:
+
+#8dc4ff;
+
+font-size:.82rem;
+
+margin-bottom:16px;
+
+}
+
+.vocab{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:10px;
+
+margin-top:16px;
+
+}
+
+.vocab span{
+
+background:#eef5ff;
+color: #2356a3;
+border: none;
+font-weight: 600;
+
+}
+
+details{
+
+margin-top:18px;
+
+background:#f7fbff;
+border:1px solid #dce9ff;
+
+
+padding:18px;
+
+border-radius:16px;
+
+}
+
+summary{
+
+cursor:pointer;
+
+color:#2563eb;
+
+font-weight:700;
+
+}
+
+.section{
+
+margin-top:30px;
+
+padding:28px;
+
+border-radius:24px;
+
+background:
+
+rgba(255,255,255,.04);
+
+}
+
+.section h2{
+
+margin-top:0;
+
+}
+
+.section ul{
+
+columns:2;
+
+}
+
+.button-row{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:40px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:
+
+16px 24px;
+
+border-radius:
+
+999px;
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:.2s;
+
+}
+
+.btn:hover{
+
+transform:
+
+scale(1.03);
+
+}
+
+.btn-secondary{
+
+background:
+
+rgba(255,255,255,.08);
+
+color:white;
+
+}
+
+.btn-primary{
+
+background:
+
+linear-gradient(
+90deg,
+#2563eb,
+#60a5fa
+);
+
+color:white;
+
+}
+
+@media(max-width:760px){
+
+.hero{
+padding:30px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.section ul{
+columns:1;
+}
+
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+
+    
+<div class="hero">
+
+<h1>Day 5: Work, Salary & Getting Paid</h1>
+
+<p>
+Learn how to talk about money, salary, work payments,
+and solve common money problems in Australia.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+💵 New Vocabulary You Will Learn Today
+</h2>
+
+<p>
+These words are commonly used at work, in payroll, and at Australian banks.
+</p>
+
+<div class="table-wrap">
+
+<table class="vocab-table">
+
+<thead>
+
+<tr>
+
+<th>Word</th>
+
+<th>Meaning</th>
+
+<th>Example</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Salary</td>
+<td>Fixed regular payment</td>
+<td>My salary is paid monthly.</td>
+</tr>
+
+<tr>
+<td>Wage</td>
+<td>Payment by hour</td>
+<td>My wage is $30 per hour.</td>
+</tr>
+
+<tr>
+<td>Payslip</td>
+<td>Document showing earnings</td>
+<td>Can you explain my payslip?</td>
+</tr>
+
+<tr>
+<td>Gross Pay</td>
+<td>Pay before deductions</td>
+<td>My gross pay seems correct.</td>
+</tr>
+
+<tr>
+<td>Net Pay</td>
+<td>Money received after deductions</td>
+<td>My net pay looks lower.</td>
+</tr>
+
+<tr>
+<td>Tax</td>
+<td>Money paid to government</td>
+<td>Why was tax deducted?</td>
+</tr>
+
+<tr>
+<td>Payroll</td>
+<td>Department handling employee pay</td>
+<td>I contacted payroll.</td>
+</tr>
+
+<tr>
+<td>Superannuation</td>
+<td>Australian retirement savings</td>
+<td>Has my super been paid?</td>
+</tr>
+
+<tr>
+<td>BSB</td>
+<td>Australian bank branch number</td>
+<td>Where do I find my BSB?</td>
+</tr>
+
+<tr>
+<td>Direct Deposit</td>
+<td>Money sent into account automatically</td>
+<td>I receive direct deposit.</td>
+</tr>
+
+<tr>
+<td>Processing Time</td>
+<td>Time needed for payment</td>
+<td>How long is processing?</td>
+</tr>
+
+<tr>
+<td>Deduction</td>
+<td>Money removed from pay</td>
+<td>What deductions are included?</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<h2>Scenario 5A — First Pay Didn’t Arrive</h2>
+
+<p><strong>Your Role</strong></p>
+
+<p>
+You worked your first week at a café.
+Payday passed but your money has not arrived.
+</p>
+
+<p><strong>Your Objective</strong></p>
+
+<ul>
+<li>Ask what happened.</li>
+<li>Check if your details are correct.</li>
+<li>Find out when you will get paid.</li>
+</ul>
+
+<p><strong>Vocabulary</strong></p>
+
+<p>
+payday • payroll • direct deposit • processing • pending
+</p>
+
+<details>
+<summary>Hint</summary>
+
+Try asking:
+
+<ul>
+<li>I haven't received my pay yet.</li>
+<li>Can you check my payment?</li>
+<li>When should it arrive?</li>
+</ul>
+
+</details>
+
+</div>
+
+<div class="card">
+
+<h2>Scenario 5B — Understanding Your Payslip</h2>
+
+<p><strong>Your Role</strong></p>
+
+<p>
+You received less money than expected.
+</p>
+
+<p><strong>Your Objective</strong></p>
+
+<ul>
+<li>Understand deductions.</li>
+<li>Understand tax.</li>
+<li>Understand your final pay.</li>
+</ul>
+
+<p><strong>Vocabulary</strong></p>
+
+<p>
+gross pay • net pay • tax • deduction • super
+</p>
+
+<details>
+
+<summary>Hint</summary>
+
+Ask:
+
+<ul>
+<li>Why is my pay lower?</li>
+<li>Can you explain my payslip?</li>
+</ul>
+
+</details>
+
+</div>
+
+<div class="card">
+
+<h2>Scenario 5C — Salary Deposit Setup</h2>
+
+<p><strong>Your Role</strong></p>
+
+<p>
+Your manager needs your bank information.
+</p>
+
+<p><strong>Your Objective</strong></p>
+
+<ul>
+<li>Provide correct payment details.</li>
+<li>Understand where salary goes.</li>
+</ul>
+
+<p><strong>Vocabulary</strong></p>
+
+<p>
+BSB • payroll • account number • salary
+</p>
+
+<details>
+
+<summary>Hint</summary>
+
+Ask:
+
+<ul>
+<li>Where can I find my BSB?</li>
+<li>Do you need my account number?</li>
+</ul>
+
+</details>
+
+</div>
+
+<div class="card">
+
+<h2>Scenario 5D — Unexpected Bank Fee</h2>
+
+<p><strong>Your Role</strong></p>
+
+<p>
+You noticed missing money in your account.
+</p>
+
+<p><strong>Your Objective</strong></p>
+
+<ul>
+<li>Understand charges.</li>
+<li>Learn how to avoid fees.</li>
+</ul>
+
+<p><strong>Vocabulary</strong></p>
+
+<p>
+account fee • statement • transaction • monthly fee
+</p>
+
+<details>
+
+<summary>Hint</summary>
+
+Ask:
+
+<ul>
+<li>Why was I charged?</li>
+<li>Can I avoid this fee?</li>
+</ul>
+
+</details>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Real-Life Money Vocabulary</h2>
+
+<ul>
+<li>Salary → Fixed regular pay</li>
+<li>Wage → Hourly payment</li>
+<li>Payslip → Record of earnings</li>
+<li>Overtime → Extra work hours</li>
+<li>Tax → Money paid to government</li>
+<li>Superannuation → Retirement savings</li>
+<li>Payroll → Company payment system</li>
+<li>Payday → Day employees get paid</li>
+</ul>
+
+</div>
+
+
+<div class="section">
+
+<h2>Useful Workplace Questions</h2>
+
+<ul>
+
+<li>I haven't received my pay.</li>
+
+<li>Can you explain my payslip?</li>
+
+<li>Why is my pay lower?</li>
+
+<li>How do I update my bank details?</li>
+
+<li>Where can I find my BSB?</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="section">
+
+<h2>Reflection</h2>
+
+<ul>
+
+<li>What new money vocabulary did you learn?</li>
+
+<li>Which situation felt most realistic?</li>
+
+<li>Would you feel confident discussing pay in Australia?</li>
+
+</ul>
+
+</div>
+
+<div class="button-row">
+
+<a href="../index.html" class="btn btn-secondary">
+
+← Back to Scenarios
+
+</a>
+
+<a href="teacher.html" class="btn btn-primary">
+
+Open Teacher Page
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
