@@ -73,6 +73,101 @@
     .checklist li {
       margin-bottom: .6rem;
     }
+    .ielts-part {
+      margin-top: 1.15rem;
+    }
+    .ielts-part h3 {
+      margin: 0;
+      color: var(--accent2);
+      font-size: 1rem;
+    }
+    .part-time {
+      margin: .35rem 0 .6rem;
+      color: var(--text2);
+      font-size: .9rem;
+      font-style: italic;
+    }
+    .ielts-part p {
+      margin: .45rem 0 .2rem;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+    .answer-template {
+      margin-top: .85rem;
+      background: #f8fbff;
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      padding: .75rem 1rem;
+      color: var(--text2);
+      line-height: 1.65;
+    }
+    .answer-template summary {
+      color: var(--accent2);
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+      text-decoration: underline;
+      text-underline-offset: .18em;
+    }
+    .answer-template summary::before {
+      content: '';
+      display: none;
+    }
+    .answer-template strong {
+      color: var(--accent2);
+    }
+    .answer-template p {
+      margin: .35rem 0;
+    }
+    .sample-question {
+      margin-bottom: .7rem;
+    }
+    .sample-question summary {
+      color: var(--text2);
+      cursor: pointer;
+      list-style: none;
+      text-decoration: none;
+      font-weight: 400;
+    }
+    .sample-question summary::before {
+      content: '';
+      display: none;
+    }
+    .sample-question p {
+      margin: .45rem 0 0;
+      padding: .7rem .85rem;
+      background: #f8fbff;
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      color: var(--text2);
+      line-height: 1.65;
+    }
+    .note-input-wrap {
+      margin-top: .9rem;
+    }
+    .note-input-wrap label {
+      display: block;
+      margin-bottom: .45rem;
+      color: var(--accent2);
+      font-weight: 700;
+    }
+    .student-notes {
+      width: 100%;
+      min-height: 140px;
+      padding: .8rem .9rem;
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .student-notes:focus {
+      outline: none;
+      border-color: var(--accent2);
+      box-shadow: 0 0 0 3px rgba(59,130,246,.12);
+    }
     .highlight-box {
       background: #f8fbff;
       border: 1px solid var(--border2);
@@ -386,12 +481,95 @@
 
       <article class="card full-width">
         <h2>After the roleplay</h2>
-        <ul class="checklist">
-          <li>What should you do first when a debit card is missing?</li>
-          <li>Which transactions did Mina recognise?</li>
-          <li>Which transactions should Mina dispute?</li>
-          <li>How can Mina pay for important things while waiting for a new card?</li>
-        </ul>
+        <div class="ielts-part">
+          <h3>Part 1 - Introduction and interview</h3>
+          <p class="part-time">(4–5 mins)</p>
+          <ul class="checklist">
+            <li>
+              <details class="sample-question">
+                <summary>Do you usually pay by cash, card or phone? Why?</summary>
+                <p>I usually pay by card because it is quick and I do not need to carry much cash. For example, I use my card when I buy groceries or take public transport.</p>
+              </details>
+            </li>
+            <li>
+              <details class="sample-question">
+                <summary>Have you ever had a problem with a bank card or payment?</summary>
+                <p>Yes, once my card payment did not go through at a shop. I checked my banking app, tried again, and then used another payment method.</p>
+              </details>
+            </li>
+            <li>
+              <details class="sample-question">
+                <summary>Do you think it is easy to use banking apps? Why or why not?</summary>
+                <p>I think banking apps are quite easy if people use them regularly. However, they can be confusing for older people or anyone who is not confident with technology.</p>
+              </details>
+            </li>
+          </ul>
+          <details class="answer-template">
+            <summary>Answer template</summary>
+            <p>Give a direct answer. Add one reason. Add one small example.</p>
+            <p>"I usually __ because __. For example, __."</p>
+          </details>
+        </div>
+
+        <div class="ielts-part">
+          <h3>Part 2 - Cue card</h3>
+          <p class="part-time">(1–2 mins speaking, 1 min prep)</p>
+          <div class="sample-question">
+            <p>Describe a time when you lost something important.</p>
+            <ul class="checklist">
+              <li>what you lost</li>
+              <li>where you think you lost it</li>
+              <li>what you did next</li>
+              <li>and explain how you felt about the situation.</li>
+            </ul>
+          </div>
+
+          <div class="note-input-wrap">
+            <label for="part2-notes">My notes</label>
+            <textarea id="part2-notes" class="student-notes" placeholder="Type your key answer ideas here..."></textarea>
+          </div>
+
+          <details class="answer-template">
+            <summary>Answer template</summary>
+            <p>Start with the situation. Explain the details in order. Finish with your feeling or lesson.</p>
+            <p>"I'd like to talk about a time when I lost __. It happened __. First, I __. Then, I __. In the end, __. I felt __ because __."</p>
+          </details>
+          <details class="answer-template">
+            <summary>Sample answer</summary>
+            <p>I'd like to talk about a time when I lost my debit card. I think I left it at a supermarket after paying for food. First, I checked my wallet and bag carefully. Then, I called the bank and asked them to freeze the card. In the end, I got a replacement card. I felt worried at first, but I was relieved after the bank made the card safe.</p>
+          </details>
+        </div>
+
+        <div class="ielts-part">
+          <h3>Part 3 - Discussion</h3>
+          <p class="part-time">(4–5 mins)</p>
+          <ul class="checklist">
+            <li>
+              <details class="sample-question">
+                <summary>Why do some people worry about card payments or online banking?</summary>
+                <p>Some people worry because they are afraid of fraud or suspicious transactions. They may also worry about losing their phone, forgetting passwords, or making a mistake online.</p>
+              </details>
+            </li>
+            <li>
+              <details class="sample-question">
+                <summary>Do you think digital payments are safer than cash? Why or why not?</summary>
+                <p>In my opinion, digital payments can be safer because banks can block a lost card and track transactions. However, cash can feel simpler because it does not need a phone, internet connection, or password.</p>
+              </details>
+            </li>
+            <li>
+              <details class="sample-question">
+                <summary>How can banks help customers feel more confident when they report a lost or stolen card?</summary>
+                <p>Banks can help by giving clear instructions, quick support, and simple ways to report a lost card. For example, they could explain what will happen next and give the customer a reference number.</p>
+              </details>
+            </li>
+          </ul>
+          <details class="answer-template">
+            <summary>Answer template</summary>
+            <p>Give your opinion. Explain the reason. Compare two sides or give a wider example.</p>
+            <p>"In my opinion, __. The main reason is __. However, __. For example, __."</p>
+          </details>
+        </div>
+
       </article>
     </section>
 
