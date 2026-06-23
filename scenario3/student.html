@@ -23,19 +23,60 @@ body{
 }
 
 .day-header{
+
     text-align:center;
-    margin-bottom:30px;
+
+background:
+linear-gradient(
+135deg,
+#0f4c5c,
+#2c7da0
+);
+
+color:white;
+
+padding:50px;
+
+border-radius:24px;
+
+margin-bottom:32px;
+
+box-shadow:
+0 20px 45px rgba(0,0,0,.08);
+
 }
 
 .day-header h1{
-    font-size:3rem;
-    margin-bottom:10px;
-    color:#0f4c5c;
+
+font-size:
+clamp(
+2.5rem,
+5vw,
+4rem
+);
+
+margin-bottom:14px;
+
+color:white;
+
 }
 
 .day-header p{
-    font-size:1.1rem;
-    color:#555;
+
+max-width:700px;
+
+line-height:1.8;
+
+font-size:1.1rem;
+
+color:
+rgba(
+255,
+255,
+255,
+0.9
+);
+
 }
 
 .scenario-grid{
@@ -147,6 +188,213 @@ body{
 .btn-primary{
     background:#0d6efd;
     color:white;
+}
+
+/* AFTER ROLEPLAY STYLE */
+
+.ielts-section{
+
+display:grid;
+
+gap:28px;
+
+margin-top:24px;
+
+}
+
+.ielts-part{
+
+background:
+
+linear-gradient(
+180deg,
+#ffffff,
+#f8fbff
+);
+
+border:
+
+1px solid
+rgba(44,125,160,.16);
+
+border-radius:22px;
+
+padding:28px;
+
+box-shadow:
+
+0 12px 35px rgba(0,0,0,.04);
+
+}
+
+.ielts-part h3{
+
+margin:0;
+
+font-size:1.4rem;
+
+color:#0f4c5c;
+
+}
+
+.part-time{
+
+margin-top:10px;
+
+margin-bottom:18px;
+
+font-size:.95rem;
+
+color:#6b7280;
+
+font-style:italic;
+
+}
+
+.answer-template{
+
+margin-top:18px;
+
+background:#eef7ff;
+
+border:
+
+1px solid
+#d7e8ff;
+
+border-radius:16px;
+
+padding:16px;
+
+}
+
+.answer-template summary{
+
+cursor:pointer;
+
+font-weight:700;
+
+color:#2c7da0;
+
+margin-bottom:10px;
+
+}
+
+.answer-template p{
+
+line-height:1.9;
+
+margin-top:12px;
+
+}
+
+.checklist{
+
+margin-top:20px;
+
+padding-left:20px;
+
+}
+
+.checklist li{
+
+margin-bottom:16px;
+
+}
+
+.sample-question{
+
+margin-bottom:18px;
+
+}
+
+.sample-question summary{
+
+padding:16px;
+
+background:#fafcff;
+
+border:
+
+1px solid
+#e7edf4;
+
+border-radius:14px;
+
+cursor:pointer;
+
+font-weight:600;
+
+}
+
+.sample-question p{
+
+padding:18px;
+
+margin-top:10px;
+
+background:#f8fbff;
+
+border-radius:14px;
+
+line-height:1.9;
+
+}
+
+.note-input-wrap{
+
+margin-top:24px;
+
+}
+
+.note-input-wrap label{
+
+display:block;
+
+margin-bottom:10px;
+
+font-weight:700;
+
+color:#0f4c5c;
+
+}
+
+.student-notes{
+
+width:100%;
+
+min-height:180px;
+
+padding:18px;
+
+font:inherit;
+
+border-radius:16px;
+
+border:
+
+1px solid
+#d7e8ff;
+
+background:white;
+
+resize:vertical;
+
+box-sizing:border-box;
+
+}
+
+.student-notes:focus{
+
+outline:none;
+
+border-color:#2c7da0;
+
+box-shadow:
+
+0 0 0 4px
+rgba(44,125,160,.12);
+
 }
 
 @media(max-width:768px){
@@ -413,26 +661,300 @@ transfer tracking
 
 </div>
 
-<!-- Reflection -->
+<!-- After Roleplay IELTS -->
 
 <div class="section-box">
 
-<h2>Reflection Questions</h2>
+<h2>After the Roleplay — IELTS Speaking Practice</h2>
+
+<!-- PART 1 -->
+
+<div class="ielts-part">
+
+<h3>Part 1 — Introduction and Interview</h3>
+<p class="part-time">(4–5 mins)</p>
+
+<details class="answer-template">
+
+<summary>Answer template</summary>
+
+<p>
+Answer directly → explain → add an example.
+</p>
+
+<p>
+
+Yes, I do. / No, not really.
+
+Usually, I prefer to ___ because ___.
+
+For example, when I needed to ___, I decided to ___.
+
+Overall, I think ___ because ___.
+
+</p>
+
+</details>
+
 
 <ul>
-<li>What information is needed for an international transfer?</li>
-<li>Which scenario was the most difficult?</li>
-<li>What problem did you have to solve?</li>
-<li>What new banking vocabulary did you learn?</li>
-<li>Would you feel confident sending money overseas in Australia?</li>
+    
+    <li>
+        
+        <details class="sample-question">
+            
+            <summary>Have you ever sent money to someone?</summary>
+            
+            <p>
+                Yes, I have. I once sent money to my family overseas because they needed help.
+                The process was simple after I prepared all the banking information.
+            </p>
+            
+        </details>
+        
+    </li>
+    
+    <li>
+        
+        <details class="sample-question">
+            
+            <summary>Do you usually use cash or bank transfer?</summary>
+            
+            <p>
+I usually prefer bank transfers because they are faster and easier to track.
+</p>
+
+</details>
+
+</li>
+
+<li>
+    
+    <details class="sample-question">
+        
+        <summary>Do you think international banking is difficult?</summary>
+        
+        <p>
+            At first it seems difficult because of the extra details required, but after learning the process it becomes manageable.
+        </p>
+        
+    </details>
+    
+</li>
+
 </ul>
 
 </div>
 
-<div class="button-row">
 
-<a href="../index.html" class="btn btn-secondary">
-← Back to Scenarios
+<!-- PART 2 -->
+
+<div class="ielts-part">
+    
+    <h3>Part 2 — Cue Card</h3>
+    <p class="part-time">(1 min preparation · 1–2 mins speaking)</p>
+    
+    <div class="sample-question">
+        
+        <p>
+            
+            Describe a time when you had to solve a financial problem.
+            
+        </p>
+        
+        <ul>
+            
+            <li>what happened</li>
+            
+            <li>who was involved</li>
+            
+            <li>what steps you took</li>
+            
+            <li>and explain how you felt afterward</li>
+            
+        </ul>
+        
+    </div>
+    
+    <details class="answer-template">
+        
+        <summary>Answer template</summary>
+        
+        <p>
+            
+           <p>
+
+I'd like to talk about a time when ___.
+
+This happened when ___.
+
+The situation became difficult because ___.
+
+To solve the problem, I first ___.
+
+After that, I ___.
+
+Eventually, ___.
+
+Looking back, I learned ___.
+
+</p>
+
+        </p>
+        
+    </details>
+
+    <div class="note-input-wrap">
+        
+        <label for="part2-notes">
+            My notes
+</label>
+
+<textarea
+id="part2-notes"
+class="student-notes"
+placeholder="Write key ideas here..."
+></textarea>
+
+</div>
+
+<details class="answer-template">
+    
+    <summary>Sample answer</summary>
+    
+    <p>
+        
+        I'd like to talk about a time when I needed to send money overseas.
+        
+        My family needed financial support, so I visited the bank.
+        
+        First, I prepared the account number and identification.
+        
+        Then, I asked about fees and transfer times.
+        
+        In the end, the transfer was completed successfully.
+        
+        I felt relieved because everything arrived safely.
+        
+    </p>
+    
+</details>
+
+</div>
+
+
+<!-- PART 3 -->
+
+<div class="ielts-part">
+    
+    <h3>Part 3 — Discussion</h3>
+    
+    <p class="part-time">(4–5 mins)</p>
+    
+<details class="answer-template">
+
+<summary>Answer template</summary>
+
+<p>
+    
+    State opinion → explain → compare → example.
+    
+</p>
+
+<p>
+    
+    "In my opinion, __.
+    
+    One reason is __.
+    
+    For example, __.
+    
+    However, __.
+
+    Overall, ___.
+    
+    "
+    
+</p>
+
+</details>
+
+<ul>
+
+    <li>
+        
+        <details class="sample-question">
+            
+            <summary>Should banks make international transfers easier?</summary>
+            
+            <p>
+                In my opinion, banks should simplify international transfers.
+
+One reason is that many customers feel confused by technical information and requirements.
+
+For example, first-time users may not understand terms such as SWIFT code or transfer fee.
+
+However, banks still need security procedures to protect customers.
+
+Overall, I believe the process should become easier while maintaining strong verification systems.
+</p>
+            
+        </details>
+    
+    <li>
+        
+        <details class="sample-question">
+            
+            <summary>Why do people send money internationally?</summary>
+            
+            <p>
+                People often send money to support family members, pay tuition fees, or manage business activities.
+            </p>
+            
+        </details>
+        
+    </li>
+    
+    <li>
+        
+        <details class="sample-question">
+            
+            <summary>Should banks make international transfers easier?</summary>
+            
+            <p>
+                Yes, because simpler systems reduce mistakes and help customers feel more confident.
+            </p>
+            
+        </details>
+        
+    </li>
+    
+    <li>
+        
+        <details class="sample-question">
+            
+            <summary>Do you think digital banking will replace traditional banking?</summary>
+            
+            <p>
+                Digital banking is growing quickly, but many people still value face-to-face support for important transactions.
+            </p>
+            
+        </details>
+        
+    </li>
+    
+</ul>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="button-row">
+    
+    <a href="../index.html" class="btn btn-secondary">
+        ← Back to Scenarios
 </a>
 
 <a href="teacher.html" class="btn btn-primary">
