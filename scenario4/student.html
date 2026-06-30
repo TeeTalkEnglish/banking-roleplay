@@ -1,163 +1,195 @@
 <!DOCTYPE html>
 <html lang="en-AU">
+
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 4: Scam Safety | Student</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="../ielts-part.css">
+
+<title>Day 4 — Scam Safety</title>
 
 <style>
 
+:root{
+--primary:#0f4c5c;
+--card:#ffffff;
+--bg:#f5f7fa;
+}
+
+*{
+box-sizing:border-box;
+}
+
 body{
-    background:#f5f7fa;
-    color:#2c3e50;
-    font-family:Arial, sans-serif;
-    margin:0;
-    padding:30px;
+margin:0;
+padding:30px;
+font-family:Arial,sans-serif;
+background:var(--bg);
+color:#2c3e50;
 }
 
-.page-container{
-    max-width:1200px;
-    margin:auto;
+.container{
+max-width:1200px;
+margin:auto;
 }
 
-.day-header{
-    text-align:center;
-    margin-bottom:30px;
+.header{
+text-align:center;
+margin-bottom:36px;
 }
 
-.day-header h1{
-    font-size:3rem;
-    margin-bottom:10px;
-    color:#0f4c5c;
+.header h1{
+font-size:2.8rem;
+color:var(--primary);
+margin-bottom:10px;
 }
 
-.day-header p{
-    font-size:1.1rem;
-    color:#555;
+.header p{
+color:#666;
+max-width:720px;
+margin:auto;
+line-height:1.6;
 }
 
-.scenario-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
-    gap:20px;
-    margin-bottom:30px;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+gap:24px;
 }
 
-.scenario-card{
-    background:#eef7f7;
-    border:2px solid #6ca6b1;
-    border-radius:15px;
-    padding:20px;
+.card{
+background:white;
+padding:24px;
+border-radius:18px;
+border:2px solid #dde7ea;
 }
 
-.scenario-card h2{
-    text-align:center;
-    color:#0f4c5c;
-    margin-top:0;
+.card h2{
+margin-top:0;
+color:var(--primary);
 }
 
-.scenario-card hr{
-    border:none;
-    border-top:2px solid #9db8c0;
-    margin:15px 0;
+.section{
+margin-top:24px;
+padding-top:20px;
+border-top:1px solid #e3e8ec;
 }
 
-.scenario-card p{
-    line-height:1.6;
+.mission{
+background:#fff7ec;
+padding:18px;
+border-radius:14px;
 }
 
-.visual-section{
-    display:grid;
-    gap:1rem;
+.phone-frame{
+max-width:380px;
+margin:24px auto;
+background:#111;
+padding:14px;
+border-radius:28px;
 }
 
-.visual-grid{
-    display:grid;
-    gap:1rem;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    margin-top:.75rem;
+.phone-screen{
+background:white;
+padding:18px;
+border-radius:22px;
 }
 
-.visual-card{
-    margin:0;
-    background:#f8fbff;
-    border:1px solid #b7c8d6;
-    border-radius:15px;
-    overflow:hidden;
+.phone-meta{
+font-size:12px;
+color:#777;
+margin-bottom:12px;
 }
 
-.visual-card img{
-    display:block;
-    width:100%;
-    height:170px;
-    object-fit:cover;
+.phone-title{
+font-size:18px;
+font-weight:bold;
+margin-bottom:14px;
 }
 
-.visual-card figcaption{
-    padding:.75rem .85rem;
-    font-size:.8rem;
-    color:#555;
-    line-height:1.5;
+.message{
+background:#eaf2ff;
+padding:14px;
+line-height:1.8;
+border-radius:14px;
 }
 
-.section-box{
-    background:#fff7ec;
-    border:2px solid #d7b68d;
-    border-radius:15px;
-    padding:20px;
-    margin-bottom:25px;
+.question-box{
+background:#f8fbff;
+padding:18px;
+border-radius:14px;
+display:grid;
+gap:12px;
 }
 
-.section-box h2{
-    margin-top:0;
-    color:#8b5a2b;
+.vocab-row{
+background:white;
+padding:14px;
+border-radius:10px;
+font-size:.95rem;
+color:#555;
 }
 
-.section-box ul{
-    margin:0;
-    padding-left:20px;
+.safe-outcome{
+background:#eefaf2;
+padding:18px;
+border-radius:14px;
+line-height:1.8;
 }
 
-.section-box li{
-    margin-bottom:8px;
+.quick{
+background:#eef7f7;
 }
 
-.button-row{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:25px;
+.glossary{
+margin-top:32px;
+background:white;
+padding:24px;
+border-radius:18px;
+}
+
+.glossary li{
+margin-bottom:10px;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:14px;
+margin-top:30px;
+flex-wrap:wrap;
 }
 
 .btn{
-    padding:12px 22px;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
+padding:12px 22px;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+color:white;
 }
 
-.btn-secondary{
-    background:#6c757d;
-    color:white;
+.secondary{
+background:#6c757d;
 }
 
-.btn-primary{
-    background:#0d6efd;
-    color:white;
+.primary{
+background:#0d6efd;
 }
 
 @media(max-width:768px){
-    .scenario-grid{
-        grid-template-columns:1fr;
-    }
 
-    .day-header h1{
-        font-size:2rem;
-    }
+body{
+padding:20px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.header h1{
+font-size:2rem;
+}
+
 }
 
 </style>
@@ -165,87 +197,211 @@ body{
 
 <body>
 
-<div class="page-container">
+<div class="container">
 
-<div class="day-header">
-    <h1>Day 4: Scam Safety</h1>
-    <p>
-        Learn how to spot scams, protect your bank details,
-        and ask clear questions when something feels wrong.
-    </p>
+<div class="header">
+
+<h1>Day 4: Scam Safety</h1>
+
+<p>
+Learn how to recognise scam tactics,
+ask safer questions,
+and protect your banking information.
+</p>
+
 </div>
 
-<div class="scenario-grid">
+<!-- PRE-LESSON VOCAB -->
 
-<div class="scenario-card">
+<div class="study-box">
 
-<h2>Scenario 4A: Fake Bank Text</h2>
-
-<hr>
+<h2>Study Before the Lesson</h2>
 
 <p>
-<strong>Your Role:</strong><br>
-You received a text message that appears to be from your bank.
-You are not sure whether it is real.
+Open <a href="https://www.duolingo.com/characters">DuolingoDuolingo Phonemetic Chart</a> to practice pronunciation.
+Preview these words before roleplay.
+Look at the image → read the pronunciation → guess the meaning.
 </p>
+
+<div class="study-grid">
+
+<div class="word-card">
+
+<img src="images/phishing.jpg" alt="Phishing scam">
+
+<div class="word-content">
+
+<div class="word">
+phishing
+</div>
+
+<div class="phonetic">
+/ˈfɪʃ.ɪŋ/
+</div>
+
+<div class="meaning">
+fake messages or websites that try to steal information
+</div>
+
+</div>
+
+</div>
+
+
+<div class="word-card">
+
+<img src="images/verify.jpg" alt="Verify identity">
+
+<div class="word-content">
+
+<div class="word">
+verify
+</div>
+
+<div class="phonetic">
+/ˈver.ɪ.faɪ/
+</div>
+
+<div class="meaning">
+check whether something is true
+</div>
+
+</div>
+
+</div>
+
+
+<div class="word-card">
+
+<img src="images/urgent.jpg" alt="Urgent warning">
+
+<div class="word-content">
+
+<div class="word">
+urgent
+</div>
+
+<div class="phonetic">
+/ˈɜː.dʒənt/
+</div>
+
+<div class="meaning">
+needs immediate attention
+</div>
+
+</div>
+
+</div>
+
+
+<div class="word-card">
+
+<img src="images/transfer.jpg" alt="Transfer money">
+
+<div class="word-content">
+
+<div class="word">
+transfer
+</div>
+
+<div class="phonetic">
+/trænsˈfɜːr/
+</div>
+
+<div class="meaning">
+move money from one account to another
+</div>
+
+</div>
+
+</div>
+
+
+<div class="word-card">
+
+<img src="images/callback.jpg" alt="Call back">
+
+<div class="word-content">
+
+<div class="word">
+callback
+</div>
+
+<div class="phonetic">
+/ˈkɔːl.bæk/
+</div>
+
+<div class="meaning">
+hang up and call the official number yourself
+</div>
+
+</div>
+
+</div>
+
+
+<div class="word-card">
+
+<img src="images/dispute.jpg" alt="Dispute payment">
+
+<div class="word-content">
+
+<div class="word">
+dispute
+</div>
+
+<div class="phonetic">
+/dɪˈspjuːt/
+</div>
+
+<div class="meaning">
+ask the bank to investigate a payment
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="grid">
+
+<!-- SCENARIO A -->
+
+<div class="card">
+
+<h2>Scenario 4A — Fake Bank Text</h2>
+
+<div class="mission">
+
+<h3>Your Mission</h3>
 
 <p>
-<strong>Your Goal:</strong><br>
-Collect information before making a decision.
-Do not assume the message is true or false immediately.
+You received a message that appears to come from your bank.
+Gather information before deciding what to do.
 </p>
 
-<!-- PHONE -->
+</div>
 
-<div style="
-max-width:380px;
-margin:24px auto;
-background:#111;
-padding:14px;
-border-radius:28px;
-">
+<div class="phone-frame">
 
-<div style="
-background:white;
-padding:18px;
-border-radius:22px;
-font-family:Arial;
-">
+<div class="phone-screen">
 
-<div style="
-font-size:12px;
-color:#666;
-margin-bottom:12px;
-">
-
+<div class="phone-meta">
 SMS • Today • 10:17 AM
-
 </div>
 
-<div style="
-font-weight:bold;
-font-size:18px;
-margin-bottom:16px;
-">
-
+<div class="phone-title">
 National Bank Security
-
 </div>
 
-<div style="
-background:#eaf2ff;
-padding:14px;
-border-radius:14px;
-line-height:1.8;
-">
+<div class="message">
 
-Hello,
+We detected unusual activity.
 
-We detected unusual activity on your account.
-
-Please verify immediately to avoid temporary restrictions.
-
-Verify here:
+Verify immediately:
 
 secure-bank-check.com
 
@@ -257,220 +413,84 @@ Reply YES for assistance.
 
 </div>
 
-<hr>
+<div class="section">
 
 <h3>Your Investigation</h3>
 
-<p>
-Do not click.
-Talk to the sender and collect information first.
-</p>
+<div class="question-box">
 
-<div style="
-display:grid;
-gap:14px;
-margin-top:18px;
-">
-
-<div style="
-background:#f8fbff;
-padding:16px;
-border-radius:12px;
-">
-
-<strong>Find out about the issue</strong>
-
-<p>
-Useful vocabulary:
-</p>
-
-<p>
-
-problem • unusual activity • reason • account • details
-
-</p>
-
+<div class="vocab-row">
+problem • account • details
 </div>
 
-<div style="
-background:#f8fbff;
-padding:16px;
-border-radius:12px;
-">
-
-<strong>Find out about the solution</strong>
-
-<p>
-Useful vocabulary:
-</p>
-
-<p>
-
-verify • fix • process • next step • action
-
-</p>
-
+<div class="vocab-row">
+verify • process • next step
 </div>
 
-<div style="
-background:#f8fbff;
-padding:16px;
-border-radius:12px;
-">
-
-<strong>Check safer options</strong>
-
-<p>
-Useful vocabulary:
-</p>
-
-<p>
-
-official app • phone • support • another way • confirm
-
-</p>
-
+<div class="vocab-row">
+official app • confirm • support
 </div>
 
-<div style="
-background:#f8fbff;
-padding:16px;
-border-radius:12px;
-">
-
-<strong>Understand urgency</strong>
-
-<p>
-Useful vocabulary:
-</p>
-
-<p>
-
-now • urgent • restriction • timing • consequence
-
-</p>
+<div class="vocab-row">
+urgent • timing • consequence
+</div>
 
 </div>
 
 </div>
 
-<hr>
+<div class="section">
 
-<h3>Decision</h3>
+<div class="safe-outcome">
 
-<p>
-After collecting information, decide what to do next.
-</p>
+<h3>Safe Outcome</h3>
 
-<ul>
+☐ Asked questions<br>
+☐ Verified independently<br>
+☐ Protected information<br>
+☐ Explained decision
 
-<li>continue</li>
+</div>
 
-<li>check independently</li>
-
-<li>stop communication</li>
-
-</ul>
-
-<hr>
-
-<h3>Success Criteria</h3>
-
-<ul>
-
-<li>☐ I asked for more information</li>
-
-<li>☐ I checked other options</li>
-
-<li>☐ I protected my information</li>
-
-<li>☐ I explained my decision</li>
-
-</ul>
-
-<hr>
-
-<p>
-
-Vocabulary:
-phishing • suspicious • verification • one-time code • account lock
-
-</p>
+</div>
 
 </div>
 
 
+<!-- SCENARIO B -->
 
+<div class="card">
 
-<div class="scenario-card">
+<h2>Scenario 4B — Fake Safe Account Call</h2>
 
-<h2>Scenario 4B: Fake Safe Account Call</h2>
+<div class="mission">
 
-<hr>
-
-<p>
-<strong>Your Role:</strong><br>
-You receive a phone call from someone claiming to work for your bank.
-You are not sure whether the caller is genuine.
-</p>
+<h3>Your Mission</h3>
 
 <p>
-<strong>Your Goal:</strong><br>
-Collect information before making a decision.
-Do not transfer money immediately.
+Someone claims to work for your bank and tells you to move money.
+Decide whether the request is trustworthy.
 </p>
 
-<!-- PHONE CALL -->
+</div>
 
-<div style="
-max-width:380px;
-margin:24px auto;
-background:#111;
-padding:14px;
-border-radius:28px;
-">
+<div class="phone-frame">
 
-<div style="
-background:white;
-padding:18px;
-border-radius:22px;
-font-family:Arial;
-">
+<div class="phone-screen">
 
-<div style="
-font-size:12px;
-color:#666;
-margin-bottom:12px;
-">
-
+<div class="phone-meta">
 Incoming Call • 2:43 PM
-
 </div>
 
-<div style="
-font-weight:bold;
-font-size:18px;
-margin-bottom:16px;
-">
-
+<div class="phone-title">
 National Bank Fraud Team
-
 </div>
 
-<div style="
-background:#eef7ff;
-padding:14px;
-border-radius:14px;
-line-height:1.8;
-">
-
-Hello.
-
-We noticed suspicious activity.
+<div class="message">
 
 Your money may be at risk.
 
-For protection, please move your funds to a secure account immediately.
+Move your funds to a secure account immediately.
 
 Stay on the line.
 
@@ -480,539 +500,116 @@ Stay on the line.
 
 </div>
 
-<hr>
+<div class="section">
 
 <h3>Your Investigation</h3>
 
+<div class="question-box">
+
+<div class="vocab-row">
+risk • activity • account
+</div>
+
+<div class="vocab-row">
+transfer • secure • process
+</div>
+
+<div class="vocab-row">
+official number • callback • branch
+</div>
+
+<div class="vocab-row">
+immediately • timing • consequence
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="safe-outcome">
+
+<h3>Safe Outcome</h3>
+
+☐ Collected information<br>
+☐ Avoided transfer<br>
+☐ Verified independently
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QUICK CARDS -->
+
+<div class="card quick">
+
+<h2>Scenario 4C — Unknown Card Payment</h2>
+
 <p>
-Do not transfer money immediately.
-Talk to the caller and collect information first.
+You notice a payment you do not recognise.
 </p>
 
-<div style="
-display:grid;
-gap:14px;
-margin-top:18px;
-">
-
-<div style="
-background:#f8fbff;
-padding:16px;
-border-radius:12px;
-">
-
-<strong>Find out about the problem</strong>
-
 <p>
-Useful vocabulary:
-</p>
-
-<p>
-
-risk • suspicious activity • account • fraud • details
-
+freeze • transaction • merchant • refund
 </p>
 
 </div>
 
-<div style="
-background:#f8fbff;
-padding:16px;
-border-radius:12px;
-">
 
-<strong>Find out about the solution</strong>
+<div class="card quick">
+
+<h2>Scenario 4D — PayID Request</h2>
 
 <p>
-Useful vocabulary:
+A seller wants payment before delivery.
 </p>
 
 <p>
-
-protect • transfer • secure account • process • next step
-
-</p>
-
-</div>
-
-<div style="
-background:#f8fbff;
-padding:16px;
-border-radius:12px;
-">
-
-<strong>Check safer options</strong>
-
-<p>
-Useful vocabulary:
-</p>
-
-<p>
-
-official number • callback • branch • another way • confirm
-
-</p>
-
-</div>
-
-<div style="
-background:#f8fbff;
-padding:16px;
-border-radius:12px;
-">
-
-<strong>Understand urgency</strong>
-
-<p>
-Useful vocabulary:
-</p>
-
-<p>
-
-immediately • urgent • danger • deadline • consequence
-
+PayID • proof • transfer • marketplace
 </p>
 
 </div>
 
 </div>
 
-<hr>
 
-<h3>Decision</h3>
+<!-- GLOSSARY -->
 
-<p>
-After collecting information, decide what to do next.
-</p>
-
-<ul>
-
-<li>continue the call</li>
-
-<li>end the call and verify independently</li>
-
-<li>contact the bank yourself</li>
-
-</ul>
-
-<hr>
-
-<h3>Success Criteria</h3>
-
-<ul>
-
-<li>☐ I asked for more information</li>
-
-<li>☐ I checked safer options</li>
-
-<li>☐ I avoided immediate transfer</li>
-
-<li>☐ I explained my decision</li>
-
-</ul>
-
-<hr>
-
-<p>
-
-Vocabulary:
-impersonation • scammer • urgent • transfer • safe account • callback
-
-</p>
-
-</div>
-
-
-<div class="scenario-card">
-
-<h2>Scenario 4C: Unknown Card Payment</h2>
-
-<hr>
-
-<p><strong>Customer Role:</strong> You are checking your bank app and notice a card payment you do not recognise.</p>
-<p><strong>Scenario:</strong> The payment appears to have happened after you used your card at a normal store.</p>
-<p><strong>Objective:</strong> Ask the bank to freeze the card, check the transaction, and explain how to dispute it.</p>
-<p><strong>Vocabulary:</strong> suspicious payment, dispute, freeze, merchant, refund, transaction</p>
-
-</div>
-
-<div class="scenario-card">
-
-<h2>Scenario 4D: PayID Request</h2>
-
-<hr>
-
-<p><strong>Customer Role:</strong> You want to buy something from a person online.</p>
-<p><strong>Scenario:</strong> The seller asks you to pay by PayID before you receive the item.</p>
-<p><strong>Objective:</strong> Decide if the request is safe, ask about buyer protection, and avoid sending money too quickly.</p>
-<p><strong>Vocabulary:</strong> PayID, seller, buyer protection, instant transfer, online marketplace, proof</p>
-
-</div>
-
-</div>
-
-<div class="section-box visual-section">
-
-<h2>Visual references</h2>
-<p>Use these images to spot warning signs and talk about safe banking choices.</p>
-
-<div class="visual-grid">
-
-<figure class="visual-card">
-<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(255,247,236)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(245,158,11)' stroke-width='4'/><text x='400' y='182' font-family='Arial' font-size='42' font-weight='700' text-anchor='middle' fill='rgb(139,90,43)'>Fake bank text</text><text x='400' y='238' font-family='Arial' font-size='26' text-anchor='middle' fill='rgb(69,84,102)'>Do not click the link</text><text x='400' y='294' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(139,90,43)'>Check the official app</text></svg>" alt="Illustration of a fake bank text message" loading="lazy">
-<figcaption>Phishing text: reminds students to check before they click.</figcaption>
-</figure>
-
-<figure class="visual-card">
-<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(242,251,247)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(16,185,129)' stroke-width='4'/><text x='400' y='182' font-family='Arial' font-size='42' font-weight='700' text-anchor='middle' fill='rgb(15,76,92)'>Fake safe account call</text><text x='400' y='238' font-family='Arial' font-size='26' text-anchor='middle' fill='rgb(69,84,102)'>Hang up and call back yourself</text><text x='400' y='294' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(15,76,92)'>Never move money for a stranger</text></svg>" alt="Illustration of a fake bank call" loading="lazy">
-<figcaption>Impersonation call: shows the danger of a fake bank worker.</figcaption>
-</figure>
-
-<figure class="visual-card">
-<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(238,246,255)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(59,130,246)' stroke-width='4'/><text x='400' y='182' font-family='Arial' font-size='42' font-weight='700' text-anchor='middle' fill='rgb(15,76,92)'>Unknown card payment</text><text x='400' y='238' font-family='Arial' font-size='26' text-anchor='middle' fill='rgb(69,84,102)'>Check the merchant and amount</text><text x='400' y='294' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(15,76,92)'>Freeze the card if needed</text></svg>" alt="Illustration of an unknown card payment" loading="lazy">
-<figcaption>Suspicious payment: helps students ask about a dispute.</figcaption>
-</figure>
-
-<figure class="visual-card">
-<img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'><rect width='800' height='500' rx='28' fill='rgb(242,251,247)'/><rect x='70' y='85' width='660' height='330' rx='24' fill='white' stroke='rgb(16,185,129)' stroke-width='4'/><text x='400' y='182' font-family='Arial' font-size='42' font-weight='700' text-anchor='middle' fill='rgb(15,76,92)'>PayID request</text><text x='400' y='238' font-family='Arial' font-size='26' text-anchor='middle' fill='rgb(69,84,102)'>Check the seller first</text><text x='400' y='294' font-family='Arial' font-size='24' text-anchor='middle' fill='rgb(15,76,92)'>Instant transfers can be risky</text></svg>" alt="Illustration of a PayID payment request" loading="lazy">
-<figcaption>PayID request: reminds students that instant payments are hard to reverse.</figcaption>
-</figure>
-
-</div>
-
-</div>
-
-<div class="section-box">
+<div class="glossary">
 
 <h2>Real-Life Banking Vocabulary</h2>
 
 <ul>
-<li><strong>Phishing</strong> – a fake message or website that tries to steal your details</li>
-<li><strong>Impersonation</strong> – pretending to be your bank or another trusted organisation</li>
-<li><strong>One-time code</strong> – a temporary security code used to log in or verify you</li>
-<li><strong>Freeze</strong> – stop a card or account from being used for a short time</li>
-<li><strong>Dispute</strong> – ask the bank to investigate a payment</li>
-<li><strong>PayID</strong> – a fast way to send money using a phone number or email linked to a bank account</li>
-<li><strong>Callback</strong> – when you hang up and call the official number back yourself</li>
-</ul>
 
-</div>
+<li><strong>Phishing</strong> — fake messages trying to steal information</li>
 
-<div class="section-box">
+<li><strong>Impersonation</strong> — pretending to be a trusted organisation</li>
 
-<h2>Useful Questions at the Bank</h2>
+<li><strong>One-time code</strong> — temporary security code</li>
 
-<ul>
-<li>Is this message real?</li>
-<li>Should I click the link?</li>
-<li>What should I do if someone asks for a code?</li>
-<li>Can you check this payment with me?</li>
-<li>How do I freeze my card?</li>
-<li>Can I dispute this transaction?</li>
-<li>How do I know if a PayID request is safe?</li>
-<li>What is the safest thing to do next?</li>
-</ul>
+<li><strong>Freeze</strong> — temporarily stop account activity</li>
 
-</div>
+<li><strong>Dispute</strong> — ask for payment investigation</li>
 
-<div class="section-box">
-
-<h2>Australian Banking Notes</h2>
-
-<ul>
-<li>Banks will not ask for your full password or PIN in a text message or phone call.</li>
-<li>If a message feels wrong, stop and contact the official bank number yourself.</li>
-<li>Unknown card payments should be checked quickly.</li>
-<li>Instant transfers can be hard to reverse, so always check before you send.</li>
-<li>If you are unsure, ask the bank to explain the safest option first.</li>
-</ul>
-
-</div>
-
-<!-- After Roleplay IELTS -->
-
-<div class="section-box">
-
-<h2>After the Roleplay — IELTS Speaking Practice</h2>
-
-<!-- PART 1 -->
-
-<div class="ielts-part">
-
-<h3>Part 1 — Introduction and Interview</h3>
-
-<p class="part-time">(4–5 mins)</p>
-
-<details class="answer-template">
-
-<summary>Answer template</summary>
-
-<p>
-Answer directly → explain → add an example.
-</p>
-
-<p>
-
-Yes, I do. / No, not really.
-
-Usually, I ___ because ___.
-
-For example, one time ___.
-
-Overall, I think ___.
-
-</p>
-
-</details>
-
-<ul>
-
-<li>
-
-<details class="sample-question">
-
-<summary>Have you ever received a suspicious message?</summary>
-
-<p>
-Yes, I have. Once I received a message asking me to click a link and verify my account, but I ignored it and checked through the official app instead.
-</p>
-
-</details>
-
-</li>
-
-<li>
-
-<details class="sample-question">
-
-<summary>Do you usually check messages carefully?</summary>
-
-<p>
-Yes. I try to read messages carefully because scams are becoming more common.
-</p>
-
-</details>
-
-</li>
-
-<li>
-
-<details class="sample-question">
-
-<summary>Do you prefer online banking or visiting a bank?</summary>
-
-<p>
-I prefer online banking for convenience, but I visit a branch for important issues.
-</p>
-
-</details>
-
-</li>
+<li><strong>Callback</strong> — call the official number yourself</li>
 
 </ul>
 
 </div>
 
 
-<!-- PART 2 -->
+<div class="buttons">
 
-<div class="ielts-part">
-
-<h3>Part 2 — Cue Card</h3>
-
-<p class="part-time">(1 min preparation · 1–2 mins speaking)</p>
-
-<div class="sample-question">
-
-<p>
-
-Describe a time when you had to protect yourself from a scam.
-
-</p>
-
-<ul>
-
-<li>what happened</li>
-
-<li>how you realised something was wrong</li>
-
-<li>what action you took</li>
-
-<li>and explain what you learned</li>
-
-</ul>
-
-</div>
-
-<details class="answer-template">
-
-<summary>Answer template</summary>
-
-<p>
-
-I'd like to talk about a time when ___.
-
-At first, I thought ___.
-
-However, I realised ___.
-
-To stay safe, I ___.
-
-As a result, ___.
-
-Looking back, I learned ___.
-
-</p>
-
-</details>
-
-<div class="note-input-wrap">
-
-<label for="part2-notes">
-
-My notes
-
-</label>
-
-<textarea
-id="part2-notes"
-class="student-notes"
-placeholder="Write key ideas here..."
-></textarea>
-
-</div>
-
-<details class="answer-template">
-
-<summary>Sample answer</summary>
-
-<p>
-
-I'd like to talk about a time when I received a text message claiming to be from my bank.
-
-At first, I felt worried because the message said my account was locked.
-
-However, I noticed the link looked unusual.
-
-To stay safe, I ignored the message and contacted the bank directly.
-
-In the end, it turned out to be a scam.
-
-I learned that checking information first is very important.
-
-</p>
-
-</details>
-
-</div>
-
-
-<!-- PART 3 -->
-
-<div class="ielts-part">
-
-<h3>Part 3 — Discussion</h3>
-
-<p class="part-time">(4–5 mins)</p>
-
-<details class="answer-template">
-
-<summary>Answer template</summary>
-
-<p>
-
-State opinion → explain → example → conclusion.
-
-</p>
-
-<p>
-
-In my opinion, ___.
-
-One reason is ___.
-
-For example, ___.
-
-However, ___.
-
-Overall, ___.
-
-</p>
-
-</details>
-
-<ul>
-
-<li>
-
-<details class="sample-question">
-
-<summary>Why do people fall for scams?</summary>
-
-<p>
-People often fall for scams because scammers create urgency and emotional pressure.
-</p>
-
-</details>
-
-</li>
-
-<li>
-
-<details class="sample-question">
-
-<summary>Should banks do more to educate customers?</summary>
-
-<p>
-Yes. Better education can help customers recognise scams earlier and make safer decisions.
-</p>
-
-</details>
-
-</li>
-
-<li>
-
-<details class="sample-question">
-
-<summary>Is online banking becoming too risky?</summary>
-
-<p>
-Online banking has risks, but good security habits can reduce them significantly.
-</p>
-
-</details>
-
-</li>
-
-<li>
-
-<details class="sample-question">
-
-<summary>Do younger people handle digital safety better?</summary>
-
-<p>
-Younger people may understand technology more easily, but everyone still needs awareness training.
-</p>
-
-</details>
-
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-<div class="button-row">
-
-<a href="../index.html" class="btn btn-secondary">
-← Back to Scenarios
+<a href="#" class="btn secondary">
+← Back
 </a>
 
-<a href="teacher.html" class="btn btn-primary">
-Open Teacher Roleplay
+<a href="#" class="btn primary">
+Teacher Page
 </a>
 
 </div>
