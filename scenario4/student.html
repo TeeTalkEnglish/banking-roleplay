@@ -176,20 +176,102 @@ background:#6c757d;
 background:#0d6efd;
 }
 
-@media(max-width:768px){
-
-body{
-padding:20px;
+.ielts-section{
+display:grid;
+gap:28px;
+margin-top:32px;
 }
 
-.grid{
-grid-template-columns:1fr;
+.ielts-part{
+background:linear-gradient(180deg,#ffffff,#f8fbff);
+border:1px solid rgba(15,76,92,.16);
+border-radius:22px;
+padding:28px;
+box-shadow:0 12px 35px rgba(0,0,0,.04);
 }
 
-.header h1{
-font-size:2rem;
+.ielts-part h3{
+margin:0;
+font-size:1.4rem;
+color:var(--primary);
 }
 
+.part-time{
+margin-top:10px;
+margin-bottom:18px;
+font-size:.95rem;
+color:#6b7280;
+font-style:italic;
+}
+
+.answer-template{
+margin-top:18px;
+background:#eef7ff;
+border:1px solid #d7e8ff;
+border-radius:16px;
+padding:16px;
+}
+
+.answer-template summary{
+cursor:pointer;
+font-weight:700;
+color:#2c7da0;
+margin-bottom:10px;
+}
+
+.answer-template p{
+line-height:1.9;
+margin-top:12px;
+}
+
+.sample-question{
+margin-bottom:18px;
+}
+
+.sample-question summary{
+padding:16px;
+background:#fafcff;
+border:1px solid #e7edf4;
+border-radius:14px;
+cursor:pointer;
+font-weight:600;
+}
+
+.sample-question p{
+padding:18px;
+margin-top:10px;
+background:#f8fbff;
+border-radius:14px;
+line-height:1.9;
+}
+
+.note-input-wrap{
+margin-top:24px;
+}
+
+.note-input-wrap label{
+display:block;
+margin-bottom:10px;
+font-weight:700;
+color:var(--primary);
+}
+
+.student-notes{
+width:100%;
+min-height:180px;
+padding:18px;
+font:inherit;
+border-radius:16px;
+border:1px solid #d7e8ff;
+background:white;
+resize:vertical;
+box-sizing:border-box;
+}
+
+.student-notes:focus{
+outline:none;
+border-color:#2c7da0;
+box-shadow:0 0 0 4px rgba(44,125,160,.12);
 }
 
 </style>
@@ -576,30 +658,115 @@ PayID • proof • transfer • marketplace
 
 </div>
 
+<!-- IELTS SPEAKING PRACTICE -->
 
-<!-- GLOSSARY -->
+<div class="ielts-section">
 
-<div class="glossary">
+<h2>After the Roleplay — IELTS Speaking Practice</h2>
 
-<h2>Real-Life Banking Vocabulary</h2>
+<div class="ielts-part">
+
+<h3>Part 1 — Introduction and Interview</h3>
+<p class="part-time">(4–5 mins)</p>
+
+<details class="answer-template">
+<summary>Answer template</summary>
+<p>Answer directly → explain → add an example.</p>
+<p>Yes, I have. / No, not really. Usually, I try to ___ because ___. For example, when I received ___, I decided to ___. Overall, I think ___ because ___.</p>
+</details>
 
 <ul>
-
-<li><strong>Phishing</strong> — fake messages trying to steal information</li>
-
-<li><strong>Impersonation</strong> — pretending to be a trusted organisation</li>
-
-<li><strong>One-time code</strong> — temporary security code</li>
-
-<li><strong>Freeze</strong> — temporarily stop account activity</li>
-
-<li><strong>Dispute</strong> — ask for payment investigation</li>
-
-<li><strong>Callback</strong> — call the official number yourself</li>
-
+<li>
+<details class="sample-question">
+<summary>Have you ever received a suspicious message or phone call?</summary>
+<p>Yes, I have. I once received a message that looked like it was from my bank, but it seemed unusual. I did not click the link and checked the official website instead.</p>
+</details>
+</li>
+<li>
+<details class="sample-question">
+<summary>Do you think people should be careful with online banking?</summary>
+<p>Yes, definitely. Online banking is convenient, but it can also be risky if people share personal information too easily.</p>
+</details>
+</li>
+<li>
+<details class="sample-question">
+<summary>How do you protect your personal information?</summary>
+<p>I usually keep my passwords private and avoid clicking unknown links. I also prefer to verify information through official contacts.</p>
+</details>
+</li>
 </ul>
 
 </div>
+
+<div class="ielts-part">
+
+<h3>Part 2 — Cue Card</h3>
+<p class="part-time">(1 min preparation · 1–2 mins speaking)</p>
+
+<div class="sample-question">
+<p>Describe a time when you had to be careful with your money or personal information.</p>
+<ul>
+<li>what happened</li>
+<li>why you were worried</li>
+<li>what you did</li>
+<li>and explain how it ended</li>
+</ul>
+</div>
+
+<details class="answer-template">
+<summary>Answer template</summary>
+<p>I'd like to talk about a time when ___. This happened when ___. I felt worried because ___. To deal with the situation, I first ___. After that, I ___. In the end, ___. Looking back, I learned ___.</p>
+</details>
+
+<div class="note-input-wrap">
+<label for="part2-notes">My notes</label>
+<textarea id="part2-notes" class="student-notes" placeholder="Write key ideas here..."></textarea>
+</div>
+
+<details class="answer-template">
+<summary>Sample answer</summary>
+<p>I'd like to talk about a time when I received a suspicious message that seemed to come from my bank. I felt worried because the message asked me to click a link and enter my details. I did not follow the instructions. Instead, I called the official number and checked the situation with the bank. In the end, I confirmed that it was a scam, and I felt relieved that I had acted carefully.</p>
+</details>
+
+</div>
+
+<div class="ielts-part">
+
+<h3>Part 3 — Discussion</h3>
+<p class="part-time">(4–5 mins)</p>
+
+<details class="answer-template">
+<summary>Answer template</summary>
+<p>State opinion → explain → compare → example.</p>
+<p>In my opinion, ___. One reason is ___. For example, ___. However, ___. Overall, ___.</p>
+</details>
+
+<ul>
+<li>
+<details class="sample-question">
+<summary>Why do some people fall for scams?</summary>
+<p>Some people fall for scams because they feel rushed, worried, or excited by an offer. Scammers often use emotional language to make people act quickly without thinking.</p>
+</details>
+</li>
+<li>
+<details class="sample-question">
+<summary>Should banks do more to educate customers about scam safety?</summary>
+<p>Yes, I think they should. Customers often need clear advice and simple warnings, especially when scams become more advanced.</p>
+</details>
+</li>
+<li>
+<details class="sample-question">
+<summary>Is online security more important than convenience?</summary>
+<p>In my opinion, security is more important. Although convenient services are helpful, protecting personal information is essential.</p>
+</details>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+
 
 
 <div class="buttons">
