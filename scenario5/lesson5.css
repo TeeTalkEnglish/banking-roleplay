@@ -258,6 +258,97 @@ body{
   line-height:1.9;
 }
 
+.ielts-section{
+  display:grid;
+  gap:28px;
+  margin-top:32px;
+}
+
+.ielts-part{
+  background:linear-gradient(180deg,#ffffff,#f8fbff);
+  border:1px solid rgba(15,76,92,.16);
+  border-radius:22px;
+  padding:28px;
+  box-shadow:0 12px 35px rgba(0,0,0,.04);
+}
+
+.ielts-part h3{
+  margin:0;
+  font-size:1.4rem;
+  color:var(--primary);
+}
+
+.part-time{
+  margin-top:10px;
+  margin-bottom:18px;
+  font-size:.95rem;
+  color:#6b7280;
+  font-style:italic;
+}
+
+.answer-template{
+  margin-top:18px;
+  background:#eef7ff;
+  border:1px solid #d7e8ff;
+  border-radius:16px;
+  padding:16px;
+}
+
+.answer-template summary{
+  cursor:pointer;
+  font-weight:700;
+  color:#2c7da0;
+  margin-bottom:10px;
+}
+
+.answer-template p{
+  line-height:1.9;
+  margin-top:12px;
+}
+
+.sample-question{
+  margin-bottom:18px;
+}
+
+.sample-question summary{
+  padding:16px;
+  background:#fafcff;
+  border:1px solid #e7edf4;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.sample-question p{
+  padding:18px;
+  margin-top:10px;
+  background:#f8fbff;
+  border-radius:14px;
+  line-height:1.9;
+}
+
+.note-input-wrap{
+  margin-top:24px;
+}
+
+.note-input-wrap label{
+  display:block;
+  margin-bottom:10px;
+  font-weight:700;
+  color:var(--primary);
+}
+
+.student-notes{
+  width:100%;
+  min-height:140px;
+  border-radius:14px;
+  border:1px solid #d7e8ff;
+  padding:16px;
+  font-size:1rem;
+  line-height:1.7;
+  resize:vertical;
+}
+
 .buttons{
   display:flex;
   justify-content:center;
