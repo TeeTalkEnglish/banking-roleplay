@@ -1,0 +1,1794 @@
+/* =========================================
+   TEE TALK ENGLISH
+   Scenario 6
+   Understanding Your First Payslip
+========================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+
+--primary:#2563eb;
+--primary-light:#60a5fa;
+--primary-dark:#1d4ed8;
+
+--green:#16a34a;
+--orange:#ea580c;
+--purple:#7c3aed;
+--red:#dc2626;
+
+--bg:#eef5ff;
+--card:#ffffff;
+--border:#dbeafe;
+
+--text:#1e293b;
+--muted:#64748b;
+
+--radius:22px;
+
+--shadow:
+0 18px 40px rgba(0,0,0,.08);
+
+--shadow-hover:
+0 24px 60px rgba(37,99,235,.18);
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+font-family:
+Inter,
+Segoe UI,
+sans-serif;
+
+background:
+
+linear-gradient(
+180deg,
+#eef5ff 0%,
+#ffffff 100%
+);
+
+color:var(--text);
+
+line-height:1.7;
+
+}
+
+.container{
+
+width:min(1200px,94%);
+
+margin:auto;
+
+padding:40px 0 80px;
+
+}
+
+/* =========================================
+ HERO
+========================================= */
+
+.hero{
+
+background:
+
+linear-gradient(
+135deg,
+#2563eb,
+#60a5fa
+);
+
+color:white;
+
+padding:60px;
+
+border-radius:30px;
+
+box-shadow:var(--shadow);
+
+margin-bottom:40px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+right:-120px;
+
+top:-120px;
+
+width:320px;
+
+height:320px;
+
+border-radius:50%;
+
+background:
+
+rgba(255,255,255,.08);
+
+}
+
+.lesson-number{
+
+display:inline-block;
+
+background:
+
+rgba(255,255,255,.18);
+
+padding:8px 18px;
+
+border-radius:999px;
+
+font-weight:700;
+
+margin-bottom:25px;
+
+backdrop-filter:blur(8px);
+
+}
+
+.hero h1{
+
+font-size:
+
+clamp(2.5rem,5vw,4rem);
+
+line-height:1.2;
+
+margin-bottom:20px;
+
+font-weight:800;
+
+}
+
+.hero p{
+
+font-size:1.15rem;
+
+max-width:850px;
+
+opacity:.95;
+
+}
+
+/* =========================================
+ HERO GRID
+========================================= */
+
+.hero-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:20px;
+
+margin-top:45px;
+
+}
+
+.hero-card{
+
+background:
+
+rgba(255,255,255,.12);
+
+border:
+
+1px solid rgba(255,255,255,.18);
+
+border-radius:20px;
+
+padding:22px;
+
+backdrop-filter:blur(12px);
+
+transition:.25s;
+
+}
+
+.hero-card:hover{
+
+transform:translateY(-6px);
+
+background:
+
+rgba(255,255,255,.18);
+
+}
+
+.hero-card h3{
+
+margin-bottom:10px;
+
+font-size:1rem;
+
+}
+
+.hero-card p{
+
+font-size:1rem;
+
+}
+
+/* =========================================
+ GENERAL SECTION
+========================================= */
+
+.section{
+
+background:white;
+
+padding:40px;
+
+border-radius:28px;
+
+margin-bottom:30px;
+
+box-shadow:var(--shadow);
+
+border:1px solid var(--border);
+
+}
+
+.section h2{
+
+font-size:2rem;
+
+margin-bottom:18px;
+
+color:#0f172a;
+
+}
+
+.section>p{
+
+margin-bottom:25px;
+
+color:var(--muted);
+
+}
+
+/* =========================================
+ MISSION
+========================================= */
+
+.mission-grid{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:20px;
+
+}
+
+.mission{
+
+background:#f8fbff;
+
+border:1px solid #dbeafe;
+
+border-radius:22px;
+
+padding:28px;
+
+transition:.25s;
+
+text-align:center;
+
+}
+
+.mission:hover{
+
+transform:translateY(-6px);
+
+box-shadow:var(--shadow-hover);
+
+}
+
+.mission span{
+
+font-size:2.5rem;
+
+display:block;
+
+margin-bottom:16px;
+
+}
+
+.mission h3{
+
+margin-bottom:12px;
+
+font-size:1.2rem;
+
+color:#1e3a8a;
+
+}
+
+.mission p{
+
+color:var(--muted);
+
+}
+
+/* =========================================
+ STORY
+========================================= */
+
+.story{
+
+background:
+
+#f8fbff;
+
+padding:35px;
+
+border-radius:22px;
+
+border-left:8px solid var(--primary);
+
+}
+
+.story p{
+
+margin-bottom:18px;
+
+}
+
+.story h3{
+
+margin:20px 0;
+
+color:var(--red);
+
+font-size:1.5rem;
+
+}
+
+blockquote{
+
+background:white;
+
+padding:18px 24px;
+
+border-left:5px solid var(--primary);
+
+border-radius:12px;
+
+margin:25px 0;
+
+font-style:italic;
+
+}
+
+/* =========================================
+ VIDEO
+========================================= */
+
+.video-wrapper{
+
+position:relative;
+
+padding-bottom:56.25%;
+
+height:0;
+
+overflow:hidden;
+
+border-radius:22px;
+
+margin:30px 0;
+
+box-shadow:var(--shadow);
+
+}
+
+.video-wrapper iframe{
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+width:100%;
+
+height:100%;
+
+border:0;
+
+}
+
+.video-goals{
+
+background:#eff6ff;
+
+padding:25px;
+
+border-radius:18px;
+
+margin-top:25px;
+
+}
+
+.goal-tags{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:12px;
+
+margin-top:18px;
+
+}
+
+.goal-tags span{
+
+background:white;
+
+padding:10px 18px;
+
+border-radius:999px;
+
+font-weight:600;
+
+color:var(--primary);
+
+border:1px solid var(--border);
+
+}
+
+/* =========================================
+ BUTTONS
+========================================= */
+
+.button-row{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin:60px 0;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:15px 32px;
+
+border-radius:999px;
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:.25s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-4px);
+
+}
+
+.btn-primary{
+
+background:
+
+linear-gradient(
+90deg,
+#2563eb,
+#60a5fa
+);
+
+color:white;
+
+}
+
+.btn-secondary{
+
+background:white;
+
+color:var(--primary);
+
+border:2px solid var(--primary);
+
+}
+
+/* =========================================
+VOCABULARY GRID
+========================================= */
+
+.vocab-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+margin-top:30px;
+
+}
+
+.vocab-card{
+
+background:white;
+
+border:1px solid var(--border);
+
+border-radius:24px;
+
+overflow:hidden;
+
+box-shadow:var(--shadow);
+
+transition:.3s;
+
+position:relative;
+
+}
+
+.vocab-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:var(--shadow-hover);
+
+}
+
+.vocab-card img{
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+.heard-badge{
+
+position:absolute;
+
+top:15px;
+
+right:15px;
+
+background:#16a34a;
+
+color:white;
+
+padding:6px 12px;
+
+border-radius:999px;
+
+font-size:.75rem;
+
+font-weight:700;
+
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.vocab-card h3{
+
+font-size:1.4rem;
+
+margin:20px 20px 10px;
+
+color:#1e3a8a;
+
+}
+
+.ipa{
+
+margin:0 20px;
+
+font-size:.95rem;
+
+font-style:italic;
+
+color:#2563eb;
+
+font-weight:600;
+
+}
+
+.meaning{
+
+margin:15px 20px;
+
+color:var(--muted);
+
+}
+
+.example{
+
+margin:15px 20px;
+
+padding:15px;
+
+background:#eff6ff;
+
+border-left:5px solid var(--primary);
+
+border-radius:12px;
+
+font-style:italic;
+
+}
+
+.collocations{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:10px;
+
+padding:0 20px 25px;
+
+}
+
+.collocations span{
+
+background:#dbeafe;
+
+padding:8px 14px;
+
+border-radius:999px;
+
+font-size:.85rem;
+
+font-weight:600;
+
+color:#1d4ed8;
+
+}
+
+/* =========================================
+QUESTION GRID
+========================================= */
+
+.question-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:20px;
+
+margin-top:25px;
+
+}
+
+.question-card{
+
+background:#f8fbff;
+
+border:1px solid var(--border);
+
+border-radius:20px;
+
+padding:25px;
+
+transition:.25s;
+
+}
+
+.question-card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:var(--shadow);
+
+}
+
+.question-card h3{
+
+margin-bottom:15px;
+
+color:#2563eb;
+
+}
+
+.question-card h4{
+
+margin-bottom:15px;
+
+}
+
+/* =========================================
+QUIZ
+========================================= */
+
+.quiz{
+
+display:grid;
+
+gap:18px;
+
+margin-top:25px;
+
+}
+
+.quiz-item{
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+border-left:6px solid var(--primary);
+
+box-shadow:var(--shadow);
+
+}
+
+.quiz-item h3{
+
+margin-bottom:10px;
+
+color:#1e3a8a;
+
+}
+
+/* =========================================
+NOTES
+========================================= */
+
+.notes{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:20px;
+
+margin-top:25px;
+
+}
+
+.note{
+
+background:#fffefc;
+
+border:2px dashed #cbd5e1;
+
+border-radius:20px;
+
+padding:25px;
+
+min-height:180px;
+
+line-height:2;
+
+}
+
+/* =========================================
+PAYSLIP
+========================================= */
+
+.payslip{
+
+background:white;
+
+border-radius:24px;
+
+overflow:hidden;
+
+box-shadow:var(--shadow);
+
+margin-top:25px;
+
+border:2px solid #dbeafe;
+
+}
+
+.payslip-header{
+
+background:linear-gradient(
+90deg,
+#2563eb,
+#60a5fa);
+
+color:white;
+
+padding:25px;
+
+text-align:center;
+
+}
+
+.payslip-header h3{
+
+font-size:1.8rem;
+
+margin-bottom:8px;
+
+}
+
+.payslip-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+.payslip-table td{
+
+padding:18px 24px;
+
+border-bottom:1px solid #e5e7eb;
+
+}
+
+.payslip-table tr:nth-child(even){
+
+background:#f8fbff;
+
+}
+
+.net-row{
+
+background:#dcfce7 !important;
+
+font-size:1.15rem;
+
+}
+
+/* =========================================
+PAYROLL FLOW
+========================================= */
+
+.flow{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:18px;
+
+margin:40px auto;
+
+max-width:350px;
+
+}
+
+.flow-box{
+
+width:100%;
+
+background:#eff6ff;
+
+padding:18px;
+
+border-radius:18px;
+
+text-align:center;
+
+font-weight:700;
+
+border:1px solid var(--border);
+
+box-shadow:var(--shadow);
+
+}
+
+.arrow{
+
+font-size:2rem;
+
+color:#2563eb;
+
+}
+
+.flow-text{
+
+text-align:center;
+
+margin-top:20px;
+
+color:var(--muted);
+
+}
+
+/* =========================================
+VOCAB TAGS
+========================================= */
+
+.goal-tags span:hover,
+.collocations span:hover{
+
+background:#2563eb;
+
+color:white;
+
+cursor:default;
+
+transition:.25s;
+
+}
+
+/* =========================================
+TABLES
+========================================= */
+
+table{
+
+width:100%;
+
+}
+
+td{
+
+font-size:1rem;
+
+}
+
+/* =========================================
+HORIZONTAL RULE
+========================================= */
+
+hr{
+
+border:none;
+
+height:1px;
+
+background:#dbeafe;
+
+margin:35px 0;
+
+}
+
+/* =========================================
+ROLEPLAY
+========================================= */
+
+.roleplay-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:24px;
+
+margin-top:30px;
+
+}
+
+.roleplay-card{
+
+background:white;
+
+border-radius:24px;
+
+padding:28px;
+
+border:1px solid var(--border);
+
+box-shadow:var(--shadow);
+
+transition:.3s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.roleplay-card::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:0;
+
+width:6px;
+height:100%;
+
+background:linear-gradient(
+180deg,
+#2563eb,
+#60a5fa);
+
+}
+
+.roleplay-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:var(--shadow-hover);
+
+}
+
+.roleplay-card h3{
+
+color:#1e3a8a;
+
+margin-bottom:15px;
+
+font-size:1.4rem;
+
+}
+
+.roleplay-card ul{
+
+margin-top:15px;
+
+padding-left:20px;
+
+}
+
+.roleplay-card li{
+
+margin-bottom:10px;
+
+}
+
+/* =========================================
+IELTS
+========================================= */
+
+.section ul{
+
+padding-left:22px;
+
+margin-top:18px;
+
+}
+
+.section li{
+
+margin-bottom:12px;
+
+line-height:1.8;
+
+}
+
+.section ol{
+
+padding-left:24px;
+
+margin-top:20px;
+
+}
+
+.section ol li{
+
+margin-bottom:14px;
+
+}
+
+/* =========================================
+HOMEWORK
+========================================= */
+
+.homework{
+
+background:#fff7ed;
+
+border-left:8px solid var(--orange);
+
+padding:30px;
+
+border-radius:22px;
+
+margin-top:25px;
+
+}
+
+.homework h3{
+
+margin-bottom:15px;
+
+color:var(--orange);
+
+}
+
+/* =========================================
+REFLECTION
+========================================= */
+
+.reflection{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:20px;
+
+margin-top:25px;
+
+}
+
+.reflection-card{
+
+background:#f8fbff;
+
+border:1px solid var(--border);
+
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+transition:.25s;
+
+}
+
+.reflection-card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.reflection-card h3{
+
+font-size:2rem;
+
+margin-bottom:12px;
+
+}
+
+/* =========================================
+LESSON COMPLETE
+========================================= */
+
+.complete{
+
+text-align:center;
+
+background:
+
+linear-gradient(
+135deg,
+#16a34a,
+#22c55e);
+
+color:white;
+
+}
+
+.complete h2{
+
+color:white;
+
+margin-bottom:20px;
+
+font-size:2.4rem;
+
+}
+
+.complete ul{
+
+display:inline-block;
+
+text-align:left;
+
+margin-top:20px;
+
+}
+
+.complete li{
+
+font-size:1.1rem;
+
+margin-bottom:12px;
+
+}
+
+/* =========================================
+LISTS
+========================================= */
+
+ul{
+
+padding-left:20px;
+
+}
+
+li{
+
+margin-bottom:10px;
+
+}
+
+/* =========================================
+LINKS
+========================================= */
+
+a{
+
+transition:.25s;
+
+}
+
+a:hover{
+
+opacity:.9;
+
+}
+
+/* =========================================
+ANIMATIONS
+========================================= */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.hero,
+.section{
+
+animation:fadeUp .6s ease;
+
+}
+
+.vocab-card,
+.question-card,
+.roleplay-card,
+.hero-card,
+.mission{
+
+animation:fadeUp .5s ease;
+
+}
+
+/* =========================================
+SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#eef5ff;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#60a5fa;
+
+border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#2563eb;
+
+}
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media (max-width:900px){
+
+.hero{
+
+padding:40px;
+
+}
+
+.section{
+
+padding:30px;
+
+}
+
+.hero-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+.vocab-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+.question-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+.roleplay-grid{
+
+grid-template-columns:
+1fr;
+
+}
+
+}
+
+@media (max-width:700px){
+
+.hero{
+
+padding:30px 24px;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:2.3rem;
+
+}
+
+.hero-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.mission-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.vocab-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.question-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.notes{
+
+grid-template-columns:1fr;
+
+}
+
+.flow{
+
+max-width:100%;
+
+}
+
+.button-row{
+
+flex-direction:column;
+
+}
+
+.btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.section{
+
+padding:24px;
+
+}
+
+.payslip-table td{
+
+padding:14px;
+
+font-size:.95rem;
+
+}
+
+iframe{
+
+border-radius:16px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+body{
+
+font-size:15px;
+
+}
+
+.hero h1{
+
+font-size:2rem;
+
+}
+
+.section h2{
+
+font-size:1.6rem;
+
+}
+
+.vocab-card img{
+
+height:160px;
+
+}
+
+.lesson-number{
+
+font-size:.9rem;
+
+}
+
+.goal-tags span{
+
+font-size:.8rem;
+
+}
+
+.collocations span{
+
+font-size:.75rem;
+
+}
+
+}
+
+/* =========================================
+END
+========================================= */
+
+.research-task{
+    background:#fff;
+    border:2px solid #dbeafe;
+    border-radius:18px;
+    padding:24px;
+    margin:25px 0;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+.research-task h3{
+    margin-top:0;
+    color:#1e40af;
+}
+
+.research-task details{
+    margin-top:18px;
+    background:#eff6ff;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.research-task summary{
+    padding:14px 18px;
+    cursor:pointer;
+    font-weight:700;
+    color:#2563eb;
+    list-style:none;
+}
+
+.research-task summary::-webkit-details-marker{
+    display:none;
+}
+
+.research-task summary::after{
+    content:" ▼";
+    float:right;
+}
+
+.research-task details[open] summary::after{
+    content:" ▲";
+}
+
+.research-task details p{
+    padding:0 18px 18px;
+    margin:0;
+    line-height:1.8;
+}
+
+/* ==========================================
+   IELTS SECTION
+========================================== */
+
+.ielts-section{
+    margin-top:60px;
+    background:#ffffff;
+    border-radius:24px;
+    padding:40px;
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
+    border:1px solid #dfe9f7;
+}
+
+.ielts-section h2{
+    margin-top:0;
+    margin-bottom:35px;
+    color:#0f3d91;
+    font-size:2rem;
+    text-align:center;
+}
+
+.ielts-part{
+    margin-bottom:45px;
+    padding:30px;
+    background:#f8fbff;
+    border:1px solid #dce8f7;
+    border-radius:20px;
+}
+
+.ielts-part:last-child{
+    margin-bottom:0;
+}
+
+.ielts-part h3{
+    margin:0;
+    color:#174ea6;
+    font-size:1.5rem;
+}
+
+.part-time{
+    margin:8px 0 25px;
+    color:#6b7280;
+    font-style:italic;
+    font-size:.95rem;
+}
+
+/* ==========================================
+   DETAILS BOXES
+========================================== */
+
+.answer-template,
+.sample-question{
+    background:#ffffff;
+    border:1px solid #d8e6fa;
+    border-radius:16px;
+    margin:18px 0;
+    overflow:hidden;
+}
+
+.answer-template summary,
+.sample-question summary{
+    cursor:pointer;
+    padding:18px 22px;
+    font-weight:700;
+    color:#1d4ed8;
+    list-style:none;
+    transition:.25s;
+}
+
+.answer-template summary:hover,
+.sample-question summary:hover{
+    background:#eef5ff;
+}
+
+.answer-template p,
+.answer-template ul,
+.sample-question p,
+.sample-question ul{
+    padding:0 22px 20px;
+    line-height:1.8;
+    color:#475569;
+}
+
+.answer-template ul,
+.sample-question ul{
+    margin-top:0;
+}
+
+/* ==========================================
+   QUESTION LIST
+========================================== */
+
+.ielts-part ul{
+    margin:0;
+    padding-left:20px;
+}
+
+.ielts-part li{
+    margin-bottom:15px;
+}
+
+/* ==========================================
+   CUE CARD
+========================================== */
+
+.cue-card{
+    background:white;
+    border-left:6px solid #2563eb;
+    border-radius:18px;
+    padding:25px;
+    margin:25px 0;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+
+.cue-card h4{
+    margin-top:0;
+    color:#1e40af;
+}
+
+.cue-card ul{
+    margin-top:15px;
+}
+
+/* ==========================================
+   STUDENT NOTES
+========================================== */
+
+.note-input-wrap{
+    margin:25px 0;
+}
+
+.note-input-wrap label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:700;
+    color:#1e3a8a;
+}
+
+.student-notes{
+    width:100%;
+    min-height:170px;
+    resize:vertical;
+    padding:18px;
+    border-radius:16px;
+    border:1px solid #cfddee;
+    font-size:1rem;
+    font-family:inherit;
+    line-height:1.6;
+    background:white;
+    transition:.25s;
+    box-sizing:border-box;
+}
+
+.student-notes:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+}
+
+/* ==========================================
+   SAMPLE ANSWER
+========================================== */
+
+.sample-answer{
+    background:#eff8ff;
+    border-left:5px solid #3b82f6;
+    padding:20px;
+    border-radius:14px;
+    margin-top:20px;
+}
+
+.sample-answer h4{
+    margin-top:0;
+    color:#1e40af;
+}
+
+/* ==========================================
+   TEMPLATE BOX
+========================================== */
+
+.template-box{
+    background:#eef6ff;
+    border-left:5px solid #2563eb;
+    border-radius:14px;
+    padding:20px;
+    margin:20px 0;
+}
+
+.template-box h4{
+    margin-top:0;
+    color:#1e40af;
+}
+
+.template-box p{
+    margin-bottom:0;
+    line-height:1.8;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+.ielts-section{
+    padding:25px;
+}
+
+.ielts-part{
+    padding:22px;
+}
+
+.answer-template summary,
+.sample-question summary{
+    padding:16px;
+}
+
+.answer-template p,
+.answer-template ul,
+.sample-question p,
+.sample-question ul{
+    padding:0 16px 18px;
+}
+
+.student-notes{
+    min-height:140px;
+}
+
+}
