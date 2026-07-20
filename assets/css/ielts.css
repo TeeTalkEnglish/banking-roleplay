@@ -1,0 +1,218 @@
+/* ===================================================
+   IELTS SPEAKING SECTION
+=================================================== */
+
+.ielts-section{
+    background:#ffffff;
+    border-radius:22px;
+    padding:45px;
+    margin:40px 0;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.ielts-section h2{
+    color:#24B7BD;
+    margin-bottom:35px;
+}
+
+.ielts-part{
+    margin-bottom:50px;
+    padding-bottom:40px;
+    border-bottom:2px solid #edf2f5;
+}
+
+.ielts-part:last-child{
+    border-bottom:none;
+    margin-bottom:0;
+    padding-bottom:0;
+}
+
+.ielts-part h3{
+    color:#1f2937;
+    margin-bottom:8px;
+}
+
+.part-time{
+    color:#777;
+    font-style:italic;
+    margin-bottom:25px;
+}
+
+/* ==========================================
+   Answer Template
+========================================== */
+
+.answer-template{
+    margin:20px 0;
+    background:#f6fbfc;
+    border-left:5px solid #24B7BD;
+    border-radius:15px;
+    padding:18px 22px;
+}
+
+.answer-template summary{
+    cursor:pointer;
+    font-weight:700;
+    color:#24B7BD;
+    font-size:1rem;
+}
+
+.answer-template p{
+    margin-top:15px;
+    line-height:1.8;
+}
+
+/* ==========================================
+   Sample Questions
+========================================== */
+
+.sample-question{
+    background:#fafafa;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+    margin:15px 0;
+    padding:18px 22px;
+}
+
+.sample-question summary{
+    cursor:pointer;
+    font-weight:600;
+    color:#333;
+}
+
+.sample-question p{
+    margin-top:15px;
+    line-height:1.8;
+}
+
+.sample-question ul{
+    margin-top:15px;
+    padding-left:22px;
+}
+
+.sample-question li{
+    margin-bottom:8px;
+}
+
+/* ==========================================
+   Lists
+========================================== */
+
+.ielts-part ul{
+    margin-top:20px;
+    padding-left:20px;
+}
+
+.ielts-part li{
+    margin-bottom:18px;
+}
+
+/* ==========================================
+   Student Notes
+========================================== */
+
+.note-input-wrap{
+    margin:25px 0;
+}
+
+.note-input-wrap label{
+    display:block;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.student-notes{
+    width:100%;
+    min-height:180px;
+    padding:18px;
+    border:1px solid #d7dde3;
+    border-radius:15px;
+    font-size:16px;
+    line-height:1.7;
+    font-family:inherit;
+    resize:vertical;
+    transition:.2s;
+}
+
+.student-notes:focus{
+    outline:none;
+    border-color:#24B7BD;
+    box-shadow:0 0 0 3px rgba(36,183,189,.15);
+}
+
+/* ==========================================
+   Cue Card
+========================================== */
+
+.cue-card{
+    background:#f8fcfd;
+    border-left:6px solid #24B7BD;
+    border-radius:15px;
+    padding:25px;
+    margin:20px 0;
+}
+
+.cue-card h4{
+    margin-bottom:15px;
+    color:#24B7BD;
+}
+
+.cue-card ul{
+    margin-top:12px;
+}
+
+/* ==========================================
+   IELTS Tip Box
+========================================== */
+
+.ielts-tip{
+    background:#fff8e6;
+    border-left:6px solid #f6b93b;
+    border-radius:15px;
+    padding:20px;
+    margin:25px 0;
+}
+
+.ielts-tip strong{
+    display:block;
+    margin-bottom:8px;
+}
+
+/* ==========================================
+   Speaking Timer
+========================================== */
+
+.speaking-time{
+    display:inline-block;
+    background:#24B7BD;
+    color:white;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:.85rem;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media (max-width:768px){
+
+    .ielts-section{
+        padding:28px;
+    }
+
+    .sample-question{
+        padding:16px;
+    }
+
+    .answer-template{
+        padding:16px;
+    }
+
+    .student-notes{
+        min-height:150px;
+    }
+
+}

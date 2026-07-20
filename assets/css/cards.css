@@ -1,0 +1,515 @@
+/* =====================================================
+   TeeTalk English
+   Cards CSS
+   Version 1.0
+===================================================== */
+
+/* ==========================================
+   BASE CARD
+========================================== */
+
+.card{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:24px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================
+   HERO CARD
+========================================== */
+
+.hero-card{
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:center;
+
+    transition:var(--transition);
+
+}
+
+.hero-card:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(255,255,255,.22);
+
+}
+
+.hero-card h3{
+
+    color:white;
+
+    margin-bottom:10px;
+
+}
+
+.hero-card p{
+
+    color:white;
+
+    margin:0;
+
+}
+
+/* ==========================================
+   QUESTION CARD
+========================================== */
+
+.question-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.question-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.question-card h3{
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+
+}
+
+/* ==========================================
+   MISSION CARD
+========================================== */
+
+.mission{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.mission:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow);
+
+}
+
+.mission span{
+
+    font-size:2.5rem;
+
+    display:block;
+
+    margin-bottom:15px;
+
+}
+
+.mission h3{
+
+    color:var(--primary);
+
+}
+
+/* ==========================================
+   GOAL CARD
+========================================== */
+
+.goal-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    text-align:center;
+
+    border-top:5px solid var(--primary);
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.goal-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================
+   TIP CARD
+========================================== */
+
+.tip-card{
+
+    background:#f8fbfc;
+
+    border-left:5px solid var(--primary);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    transition:var(--transition);
+
+}
+
+.tip-card:hover{
+
+    transform:translateY(-4px);
+
+    background:white;
+
+}
+
+.tip-card h3{
+
+    color:var(--primary);
+
+}
+
+/* ==========================================
+   STORY CARD
+========================================== */
+
+.story-card{
+
+    background:#fffdf4;
+
+    border-left:6px solid #f59e0b;
+
+    border-radius:18px;
+
+    padding:25px;
+
+}
+
+/* ==========================================
+   INFO CARD
+========================================== */
+
+.info-card{
+
+    background:#eef9ff;
+
+    border-left:6px solid #3b82f6;
+
+    border-radius:18px;
+
+    padding:22px;
+
+}
+
+/* ==========================================
+   SUCCESS CARD
+========================================== */
+
+.success-card{
+
+    background:#edfdf5;
+
+    border-left:6px solid #22c55e;
+
+    border-radius:18px;
+
+    padding:22px;
+
+}
+
+/* ==========================================
+   WARNING CARD
+========================================== */
+
+.warning-card{
+
+    background:#fff8e8;
+
+    border-left:6px solid #f59e0b;
+
+    border-radius:18px;
+
+    padding:22px;
+
+}
+
+/* ==========================================
+   DANGER CARD
+========================================== */
+
+.danger-card{
+
+    background:#fff1f2;
+
+    border-left:6px solid #ef4444;
+
+    border-radius:18px;
+
+    padding:22px;
+
+}
+
+/* ==========================================
+   SCENARIO CARD
+========================================== */
+
+.scenario-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition);
+
+}
+
+.scenario-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.scenario-card img{
+
+    width:100%;
+
+    height:200px;
+
+    object-fit:cover;
+
+}
+
+.scenario-card-content{
+
+    padding:24px;
+
+}
+
+/* ==========================================
+   LESSON CARD
+========================================== */
+
+.lesson-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.lesson-card-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:var(--primary-light);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:2rem;
+
+    flex-shrink:0;
+
+}
+
+/* ==========================================
+   ACHIEVEMENT CARD
+========================================== */
+
+.achievement-card{
+
+    background:linear-gradient(135deg,#24B7BD,#18a6ad);
+
+    color:white;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    text-align:center;
+
+}
+
+.achievement-card h3{
+
+    color:white;
+
+}
+
+.achievement-card p{
+
+    color:white;
+
+}
+
+/* ==========================================
+   REFLECTION CARD
+========================================== */
+
+.reflection-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    min-height:180px;
+
+    border:2px dashed #d6dce2;
+
+}
+
+/* ==========================================
+   HOMEWORK CARD
+========================================== */
+
+.homework-card{
+
+    background:#f9fafb;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    border-left:6px solid var(--primary);
+
+}
+
+/* ==========================================
+   IMAGE CARD
+========================================== */
+
+.image-card{
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:white;
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.image-card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+}
+
+.image-card-body{
+
+    padding:20px;
+
+}
+
+/* ==========================================
+   HOVER SCALE
+========================================== */
+
+.hover-scale{
+
+    transition:var(--transition);
+
+}
+
+.hover-scale:hover{
+
+    transform:scale(1.03);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:768px){
+
+    .lesson-card{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+}

@@ -1,0 +1,428 @@
+/* ==========================================
+   RESEARCH.CSS
+   Research Challenge Components
+========================================== */
+
+/* ==========================================
+   Main Research Section
+========================================== */
+
+.research-section{
+
+    margin-top:3rem;
+
+}
+
+/* ==========================================
+   Challenge Box
+========================================== */
+
+.challenge-box{
+
+    background:#f8fcff;
+
+    border:2px solid #d8eef4;
+
+    border-radius:20px;
+
+    padding:2rem;
+
+    margin-top:2rem;
+
+}
+
+.challenge-box h3{
+
+    color:var(--primary-color);
+
+    margin-bottom:1rem;
+
+}
+
+.challenge-box p{
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+   Research Task
+========================================== */
+
+.research-task{
+
+    background:#ffffff;
+
+    border-left:6px solid var(--primary-color);
+
+    border-radius:16px;
+
+    padding:1.5rem;
+
+    margin:1.5rem 0;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+
+    transition:.3s;
+
+}
+
+.research-task:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.10);
+
+}
+
+/* ==========================================
+   Task Number
+========================================== */
+
+.research-task h3{
+
+    color:var(--primary-color);
+
+    margin-bottom:.75rem;
+
+    font-size:1.25rem;
+
+}
+
+/* ==========================================
+   Instructions
+========================================== */
+
+.research-task p{
+
+    margin-bottom:1rem;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+   Search Keywords
+========================================== */
+
+.search-keyword{
+
+    display:inline-block;
+
+    background:#e6f9fa;
+
+    color:#0f766e;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    margin:.3rem;
+
+}
+
+/* ==========================================
+   Hint Box
+========================================== */
+
+.hint-box{
+
+    background:#fffbea;
+
+    border-left:5px solid #facc15;
+
+    padding:1rem;
+
+    border-radius:12px;
+
+    margin-top:1rem;
+
+}
+
+/* ==========================================
+   Correct Answer
+========================================== */
+
+.answer-box{
+
+    background:#ecfdf5;
+
+    border-left:5px solid #22c55e;
+
+    padding:1rem;
+
+    border-radius:12px;
+
+    margin-top:1rem;
+
+}
+
+/* ==========================================
+   Details
+========================================== */
+
+.research-task details{
+
+    margin-top:1rem;
+
+    background:#f8fafc;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+.research-task summary{
+
+    cursor:pointer;
+
+    padding:1rem;
+
+    font-weight:700;
+
+    list-style:none;
+
+    transition:.25s;
+
+}
+
+.research-task summary:hover{
+
+    background:#eef8fb;
+
+}
+
+.research-task details[open] summary{
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+.research-task details p{
+
+    padding:1rem;
+
+}
+
+/* ==========================================
+   Website Card
+========================================== */
+
+.website-card{
+
+    background:#ffffff;
+
+    border:2px dashed var(--primary-color);
+
+    border-radius:16px;
+
+    padding:1.5rem;
+
+    margin-top:1.5rem;
+
+}
+
+.website-card h4{
+
+    margin-bottom:.5rem;
+
+}
+
+.website-card code{
+
+    background:#f3f4f6;
+
+    padding:4px 8px;
+
+    border-radius:6px;
+
+}
+
+/* ==========================================
+   Search Steps
+========================================== */
+
+.search-steps{
+
+    margin-top:1rem;
+
+    padding-left:1.5rem;
+
+}
+
+.search-steps li{
+
+    margin-bottom:.8rem;
+
+}
+
+/* ==========================================
+   Mission Card
+========================================== */
+
+.research-mission{
+
+    background:linear-gradient(
+        135deg,
+        #24B7BD,
+        #1d9aa0
+    );
+
+    color:white;
+
+    padding:2rem;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    margin-bottom:2rem;
+
+}
+
+.research-mission h2{
+
+    color:white;
+
+}
+
+.research-mission p{
+
+    opacity:.95;
+
+}
+
+/* ==========================================
+   Checklist
+========================================== */
+
+.checklist{
+
+    list-style:none;
+
+    margin-top:1.5rem;
+
+    padding:0;
+
+}
+
+.checklist li{
+
+    background:white;
+
+    margin-bottom:12px;
+
+    padding:15px 18px;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+
+}
+
+.checklist li::before{
+
+    content:"☐ ";
+
+    font-weight:bold;
+
+    color:var(--primary-color);
+
+}
+
+/* ==========================================
+   Research Complete
+========================================== */
+
+.research-complete{
+
+    background:#ecfdf5;
+
+    border:2px solid #22c55e;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    padding:2rem;
+
+    margin-top:2rem;
+
+}
+
+.research-complete h3{
+
+    color:#15803d;
+
+}
+
+/* ==========================================
+   Official Website Badge
+========================================== */
+
+.official-site{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   Search Prompt
+========================================== */
+
+.google-search{
+
+    background:#f3f4f6;
+
+    border-radius:10px;
+
+    padding:14px;
+
+    font-family:monospace;
+
+    margin-top:1rem;
+
+    overflow-x:auto;
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media(max-width:768px){
+
+.challenge-box{
+
+padding:1.25rem;
+
+}
+
+.research-task{
+
+padding:1.2rem;
+
+}
+
+.research-mission{
+
+padding:1.5rem;
+
+}
+
+}

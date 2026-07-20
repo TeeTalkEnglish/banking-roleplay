@@ -1792,3 +1792,49 @@ END
 }
 
 }
+
+.quiz-item details {
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.quiz-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 18px 22px;
+    font-weight: 700;
+    font-size: 1rem;
+    background: #f8fbff;
+    transition: background 0.2s ease;
+}
+
+.quiz-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.quiz-item summary::after {
+    content: "＋";
+    float: right;
+    font-size: 1.2rem;
+    color: #2563eb;
+}
+
+.quiz-item details[open] summary::after {
+    content: "−";
+}
+
+.quiz-item summary:hover {
+    background: #eef6ff;
+}
+
+.quiz-item details p,
+.quiz-item details ul {
+    padding: 18px 22px;
+    margin: 0;
+}
+
+.quiz-item details ul {
+    padding-top: 0;
+}

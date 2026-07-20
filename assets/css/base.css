@@ -1,0 +1,380 @@
+/* =====================================================
+   TeeTalk English
+   Base CSS
+   Version 1.0
+===================================================== */
+
+/* ===============================
+   RESET
+================================ */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ===============================
+   ROOT VARIABLES
+================================ */
+
+:root{
+
+    --primary:#24B7BD;
+    --primary-dark:#1b9ea3;
+    --primary-light:#e9f9fa;
+
+    --secondary:#4f46e5;
+
+    --success:#22c55e;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+
+    --text:#2d3748;
+    --text-light:#64748b;
+
+    --background:#f5f8fb;
+
+    --white:#ffffff;
+
+    --border:#e5e7eb;
+
+    --shadow-sm:0 4px 12px rgba(0,0,0,.05);
+    --shadow:0 8px 24px rgba(0,0,0,.08);
+    --shadow-lg:0 15px 40px rgba(0,0,0,.12);
+
+    --radius-sm:10px;
+    --radius:18px;
+    --radius-lg:24px;
+
+    --transition:.25s ease;
+
+}
+
+/* ===============================
+   BODY
+================================ */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    line-height:1.7;
+
+    font-size:16px;
+
+    -webkit-font-smoothing:antialiased;
+
+}
+
+/* ===============================
+   CONTAINER
+================================ */
+
+.container{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+    padding:40px 0 80px;
+
+}
+
+/* ===============================
+   TYPOGRAPHY
+================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+    color:#1f2937;
+
+    line-height:1.3;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+h1{
+
+    font-size:2.8rem;
+
+}
+
+h2{
+
+    font-size:2rem;
+
+}
+
+h3{
+
+    font-size:1.35rem;
+
+}
+
+h4{
+
+    font-size:1.1rem;
+
+}
+
+p{
+
+    margin-bottom:15px;
+
+    color:var(--text);
+
+}
+
+small{
+
+    color:var(--text-light);
+
+}
+
+/* ===============================
+   LINKS
+================================ */
+
+a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    transition:var(--transition);
+
+}
+
+a:hover{
+
+    color:var(--primary-dark);
+
+}
+
+/* ===============================
+   LISTS
+================================ */
+
+ul,
+ol{
+
+    padding-left:25px;
+
+    margin:15px 0;
+
+}
+
+li{
+
+    margin-bottom:8px;
+
+}
+
+/* ===============================
+   IMAGES
+================================ */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/* ===============================
+   BUTTON RESET
+================================ */
+
+button{
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+    border:none;
+
+    transition:var(--transition);
+
+}
+
+/* ===============================
+   FORM ELEMENTS
+================================ */
+
+input,
+textarea,
+select{
+
+    font-family:inherit;
+
+    font-size:16px;
+
+}
+
+/* ===============================
+   HORIZONTAL RULE
+================================ */
+
+hr{
+
+    border:none;
+
+    height:1px;
+
+    background:var(--border);
+
+    margin:35px 0;
+
+}
+
+/* ===============================
+   BLOCKQUOTE
+================================ */
+
+blockquote{
+
+    background:var(--primary-light);
+
+    border-left:6px solid var(--primary);
+
+    padding:20px;
+
+    border-radius:var(--radius-sm);
+
+    margin:25px 0;
+
+    font-style:italic;
+
+}
+
+/* ===============================
+   CODE
+================================ */
+
+code{
+
+    background:#eef2f7;
+
+    padding:2px 6px;
+
+    border-radius:6px;
+
+    font-size:.95rem;
+
+}
+
+/* ===============================
+   TEXT SELECTION
+================================ */
+
+::selection{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* ===============================
+   SCROLLBAR
+================================ */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf2f7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-dark);
+
+}
+
+/* ===============================
+   FOCUS
+================================ */
+
+:focus-visible{
+
+    outline:3px solid rgba(36,183,189,.3);
+
+    outline-offset:3px;
+
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width:768px){
+
+    body{
+
+        font-size:15px;
+
+    }
+
+    .container{
+
+        width:94%;
+
+        padding:25px 0 60px;
+
+    }
+
+    h1{
+
+        font-size:2.2rem;
+
+    }
+
+    h2{
+
+        font-size:1.7rem;
+
+    }
+
+    h3{
+
+        font-size:1.25rem;
+
+    }
+
+}

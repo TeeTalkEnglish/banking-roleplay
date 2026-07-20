@@ -1,0 +1,431 @@
+/* ==========================================
+   VOCABULARY.CSS
+   Shared vocabulary components
+========================================== */
+
+/* ==========================================
+   Vocabulary Grid
+========================================== */
+
+.vocab-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(280px,1fr));
+
+    gap:2rem;
+
+    margin-top:2rem;
+
+}
+
+/* ==========================================
+   Vocabulary Card
+========================================== */
+
+.vocab-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.vocab-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================
+   Vocabulary Image
+========================================== */
+
+.vocab-card img{
+
+    width:100%;
+
+    height:190px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+/* ==========================================
+   Vocabulary Content
+========================================== */
+
+.vocab-card h3{
+
+    margin:1rem;
+
+    font-size:1.35rem;
+
+    color:var(--primary-color);
+
+}
+
+.vocab-card p{
+
+    margin:0 1rem 1rem;
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+   IPA
+========================================== */
+
+.ipa{
+
+    color:#0f766e;
+
+    font-weight:700;
+
+    font-size:1rem;
+
+}
+
+/* ==========================================
+   Meaning
+========================================== */
+
+.meaning{
+
+    color:#374151;
+
+}
+
+/* ==========================================
+   Example Sentence
+========================================== */
+
+.example{
+
+    background:#f8fafc;
+
+    border-left:5px solid var(--primary-color);
+
+    padding:12px 16px;
+
+    margin:1rem;
+
+    border-radius:10px;
+
+    font-style:italic;
+
+}
+
+/* ==========================================
+   Vietnamese Meaning
+========================================== */
+
+.translation{
+
+    background:#eefdfd;
+
+    color:#0f766e;
+
+    padding:10px;
+
+    margin:1rem;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   Collocations
+========================================== */
+
+.collocations{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    padding:0 1rem 1.2rem;
+
+}
+
+.collocations span{
+
+    background:#e6f9fa;
+
+    color:#0f766e;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   Heard In Video Badge
+========================================== */
+
+.heard-badge{
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    background:#ef4444;
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:.8rem;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   Difficulty Badge
+========================================== */
+
+.level-badge{
+
+    position:absolute;
+
+    left:15px;
+
+    top:15px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:6px 12px;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   Vocabulary Category
+========================================== */
+
+.vocab-category{
+
+    margin:4rem 0 2rem;
+
+    text-align:center;
+
+}
+
+.vocab-category h2{
+
+    font-size:2rem;
+
+    color:var(--primary-color);
+
+}
+
+.vocab-category p{
+
+    max-width:700px;
+
+    margin:1rem auto;
+
+}
+
+/* ==========================================
+   Vocabulary Table
+========================================== */
+
+.vocab-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:2rem;
+
+}
+
+.vocab-table th{
+
+    background:var(--primary-color);
+
+    color:#fff;
+
+    padding:15px;
+
+}
+
+.vocab-table td{
+
+    padding:14px;
+
+    border-bottom:1px solid #e5e7eb;
+
+}
+
+.vocab-table tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+/* ==========================================
+   Mini Vocabulary Chips
+========================================== */
+
+.word-chip{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    background:#ecfeff;
+
+    color:#0f766e;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+    margin:5px;
+
+}
+
+/* ==========================================
+   Pronunciation Button
+========================================== */
+
+.pronounce-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#24B7BD;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.pronounce-btn:hover{
+
+    background:#15979d;
+
+}
+
+/* ==========================================
+   Vocabulary Quiz Box
+========================================== */
+
+.vocab-quiz{
+
+    background:#fff8e7;
+
+    border-left:6px solid #f59e0b;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    margin-top:2rem;
+
+}
+
+/* ==========================================
+   Remember Box
+========================================== */
+
+.remember-box{
+
+    background:#ecfdf5;
+
+    border-left:6px solid #22c55e;
+
+    padding:20px;
+
+    border-radius:14px;
+
+    margin-top:2rem;
+
+}
+
+.remember-box h3{
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media(max-width:768px){
+
+.vocab-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.vocab-card img{
+
+height:200px;
+
+}
+
+.vocab-card h3{
+
+font-size:1.2rem;
+
+}
+
+.collocations{
+
+gap:8px;
+
+}
+
+}

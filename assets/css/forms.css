@@ -1,0 +1,583 @@
+/* ==========================================
+   COMPONENTS.CSS
+   Shared UI Components
+========================================== */
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero{
+
+    background:linear-gradient(135deg,#24B7BD,#1A8E93);
+
+    color:#fff;
+
+    border-radius:24px;
+
+    padding:3rem 2rem;
+
+    text-align:center;
+
+    margin-bottom:3rem;
+
+}
+
+.hero h1{
+
+    font-size:2.5rem;
+
+    margin-bottom:1rem;
+
+}
+
+.hero p{
+
+    max-width:800px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+}
+
+/* ==========================================
+   LESSON NUMBER
+========================================== */
+
+.lesson-number{
+
+    display:inline-block;
+
+    background:white;
+
+    color:#24B7BD;
+
+    font-weight:700;
+
+    padding:10px 20px;
+
+    border-radius:999px;
+
+    margin-bottom:1.5rem;
+
+}
+
+/* ==========================================
+   HERO GRID
+========================================== */
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+
+    margin-top:2rem;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn{
+
+    display:inline-block;
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+.btn-primary{
+
+    background:#24B7BD;
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    background:#169aa1;
+
+}
+
+.btn-secondary{
+
+    background:#eef7f8;
+
+    color:#24B7BD;
+
+}
+
+.btn-secondary:hover{
+
+    background:#d8f0f2;
+
+}
+
+/* ==========================================
+   BUTTON ROW
+========================================== */
+
+.button-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:3rem;
+
+}
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.badge{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    background:#24B7BD;
+
+    color:white;
+
+}
+
+/* ==========================================
+   TAGS
+========================================== */
+
+.goal-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:1rem;
+
+}
+
+.goal-tags span{
+
+    background:#eefdfd;
+
+    color:#0f766e;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   VIDEO
+========================================== */
+
+.video-wrapper{
+
+    position:relative;
+
+    width:100%;
+
+    padding-bottom:56.25%;
+
+    margin-top:2rem;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.video-wrapper iframe{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    border:none;
+
+}
+
+/* ==========================================
+   BLOCKQUOTE
+========================================== */
+
+blockquote{
+
+    background:#eefdfd;
+
+    border-left:6px solid #24B7BD;
+
+    padding:20px;
+
+    margin:1.5rem 0;
+
+    font-style:italic;
+
+    border-radius:12px;
+
+}
+
+/* ==========================================
+   FLOW
+========================================== */
+
+.flow{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:2rem 0;
+
+}
+
+.flow-box{
+
+    background:#24B7BD;
+
+    color:white;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    font-weight:700;
+
+}
+
+.arrow{
+
+    font-size:1.8rem;
+
+}
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.timeline{
+
+    border-left:4px solid #24B7BD;
+
+    padding-left:25px;
+
+    margin:2rem 0;
+
+}
+
+.timeline-item{
+
+    margin-bottom:2rem;
+
+    position:relative;
+
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:#24B7BD;
+
+    position:absolute;
+
+    left:-34px;
+
+    top:5px;
+
+}
+
+/* ==========================================
+   ALERT BOXES
+========================================== */
+
+.info-box,
+.tip-box,
+.warning-box,
+.success-box{
+
+    padding:20px;
+
+    border-radius:16px;
+
+    margin:2rem 0;
+
+}
+
+.info-box{
+
+    background:#eef8ff;
+
+    border-left:6px solid #2563eb;
+
+}
+
+.tip-box{
+
+    background:#ecfeff;
+
+    border-left:6px solid #06b6d4;
+
+}
+
+.warning-box{
+
+    background:#fffbeb;
+
+    border-left:6px solid #f59e0b;
+
+}
+
+.success-box{
+
+    background:#ecfdf5;
+
+    border-left:6px solid #22c55e;
+
+}
+
+/* ==========================================
+   STORY BOX
+========================================== */
+
+.story{
+
+    background:#ffffff;
+
+    padding:2rem;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================
+   CHALLENGE BOX
+========================================== */
+
+.challenge-box{
+
+    background:#f8fcff;
+
+    border:2px dashed #24B7BD;
+
+    border-radius:18px;
+
+    padding:2rem;
+
+}
+
+/* ==========================================
+   COMPLETE
+========================================== */
+
+.complete{
+
+    background:linear-gradient(135deg,#22c55e,#16a34a);
+
+    color:white;
+
+    text-align:center;
+
+    border-radius:24px;
+
+    padding:3rem;
+
+}
+
+.complete h2{
+
+    color:white;
+
+}
+
+/* ==========================================
+   DETAILS
+========================================== */
+
+details{
+
+    background:#f8fafc;
+
+    border-radius:12px;
+
+    margin-top:1rem;
+
+    overflow:hidden;
+
+}
+
+summary{
+
+    cursor:pointer;
+
+    padding:15px;
+
+    font-weight:700;
+
+}
+
+details p{
+
+    padding:0 15px 15px;
+
+}
+
+/* ==========================================
+   NOTES
+========================================== */
+
+.notes{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:20px;
+
+}
+
+.note{
+
+    background:white;
+
+    border:2px dashed #cbd5e1;
+
+    border-radius:16px;
+
+    padding:20px;
+
+    min-height:180px;
+
+}
+
+/* ==========================================
+   CHECKLIST
+========================================== */
+
+.checklist{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.checklist li{
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:12px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+
+}
+
+.checklist li::before{
+
+    content:"☐ ";
+
+    color:#24B7BD;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.hero{
+
+padding:2rem 1.25rem;
+
+}
+
+.hero h1{
+
+font-size:2rem;
+
+}
+
+.button-row{
+
+flex-direction:column;
+
+}
+
+.btn{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.flow{
+
+flex-direction:column;
+
+}
+
+.arrow{
+
+transform:rotate(90deg);
+
+}
+
+}

@@ -1,0 +1,365 @@
+/* ==========================================
+   TABLE.CSS
+   TeeTalk English Shared Tables
+========================================== */
+
+/* ---------- Base Table ---------- */
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin:25px 0;
+
+    background:#ffffff;
+
+    border-radius:16px;
+    overflow:hidden;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+
+}
+
+/* ---------- Header ---------- */
+
+thead{
+
+    background:#24B7BD;
+    color:white;
+
+}
+
+th{
+
+    padding:16px;
+    text-align:left;
+
+    font-size:0.95rem;
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+}
+
+/* ---------- Cells ---------- */
+
+td{
+
+    padding:16px;
+
+    border-bottom:1px solid #e5e7eb;
+
+    vertical-align:top;
+
+    line-height:1.6;
+
+}
+
+tbody tr:last-child td{
+
+    border-bottom:none;
+
+}
+
+tbody tr:hover{
+
+    background:#f8fcfd;
+
+}
+
+/* ==========================================
+   Vocabulary Table
+========================================== */
+
+.vocab-table th{
+
+    background:#24B7BD;
+
+}
+
+.vocab-table td:first-child{
+
+    width:170px;
+    font-weight:700;
+
+}
+
+/* ==========================================
+   Payslip Table
+========================================== */
+
+.payslip{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    margin-top:25px;
+
+}
+
+.payslip-header{
+
+    text-align:center;
+    margin-bottom:25px;
+
+}
+
+.payslip-header h3{
+
+    color:#24B7BD;
+    margin-bottom:8px;
+
+}
+
+.payslip-table{
+
+    width:100%;
+
+}
+
+.payslip-table td{
+
+    padding:14px 18px;
+
+}
+
+.payslip-table tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+.net-row{
+
+    background:#dff7f8 !important;
+
+    font-size:1.05rem;
+    font-weight:700;
+
+}
+
+/* ==========================================
+   Worksheet Table
+========================================== */
+
+.worksheet{
+
+    width:100%;
+
+}
+
+.worksheet th{
+
+    background:#0f172a;
+    color:white;
+
+}
+
+.worksheet td{
+
+    min-height:55px;
+
+}
+
+/* ==========================================
+   Comparison Table
+========================================== */
+
+.comparison-table th{
+
+    background:#2563eb;
+
+}
+
+.comparison-table td{
+
+    text-align:center;
+
+}
+
+.comparison-table td:first-child{
+
+    text-align:left;
+    font-weight:700;
+
+}
+
+/* ==========================================
+   Research Table
+========================================== */
+
+.research-table th{
+
+    background:#16a34a;
+
+}
+
+.research-table td{
+
+    background:white;
+
+}
+
+/* ==========================================
+   Grammar Table
+========================================== */
+
+.grammar-table th{
+
+    background:#7c3aed;
+
+}
+
+.grammar-table td:first-child{
+
+    width:220px;
+    font-weight:700;
+
+}
+
+/* ==========================================
+   Pronunciation Table
+========================================== */
+
+.pronunciation-table th{
+
+    background:#f97316;
+
+}
+
+.pronunciation-table .ipa{
+
+    font-family:serif;
+    font-size:1.1rem;
+    color:#0f172a;
+
+}
+
+/* ==========================================
+   Score Table
+========================================== */
+
+.score-table th{
+
+    background:#f59e0b;
+
+}
+
+.score-table td{
+
+    text-align:center;
+
+}
+
+.score-table td:first-child{
+
+    text-align:left;
+
+}
+
+/* ==========================================
+   Responsive Table Wrapper
+========================================== */
+
+.table-responsive{
+
+    overflow-x:auto;
+    width:100%;
+
+    margin:25px 0;
+
+}
+
+.table-responsive table{
+
+    min-width:700px;
+
+}
+
+/* ==========================================
+   Zebra Rows
+========================================== */
+
+.zebra tbody tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+/* ==========================================
+   Highlight Row
+========================================== */
+
+.highlight-row{
+
+    background:#ecfeff !important;
+
+    font-weight:700;
+
+}
+
+/* ==========================================
+   Status Badges
+========================================== */
+
+.table-badge{
+
+    display:inline-block;
+
+    padding:5px 12px;
+
+    border-radius:999px;
+
+    font-size:.8rem;
+    font-weight:700;
+
+}
+
+.badge-good{
+
+    background:#dcfce7;
+    color:#166534;
+
+}
+
+.badge-warning{
+
+    background:#fef3c7;
+    color:#92400e;
+
+}
+
+.badge-danger{
+
+    background:#fee2e2;
+    color:#991b1b;
+
+}
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media(max-width:768px){
+
+th,
+td{
+
+padding:12px;
+
+font-size:.9rem;
+
+}
+
+.payslip{
+
+padding:18px;
+
+}
+
+}

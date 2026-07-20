@@ -1,0 +1,399 @@
+/* ==========================================
+   ANIMATION.CSS
+   Shared animations for every scenario
+========================================== */
+
+/* ------------------------------
+   Fade In
+------------------------------ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ------------------------------
+   Slide Up
+------------------------------ */
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ------------------------------
+   Slide Left
+------------------------------ */
+
+@keyframes slideLeft {
+
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+/* ------------------------------
+   Slide Right
+------------------------------ */
+
+@keyframes slideRight {
+
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+/* ------------------------------
+   Scale In
+------------------------------ */
+
+@keyframes scaleIn {
+
+    from {
+        opacity: 0;
+        transform: scale(.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+/* ------------------------------
+   Float
+------------------------------ */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+/* ------------------------------
+   Pulse
+------------------------------ */
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/* ------------------------------
+   Bounce
+------------------------------ */
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+
+}
+
+/* ------------------------------
+   Glow
+------------------------------ */
+
+@keyframes glow {
+
+    0% {
+        box-shadow: 0 0 0 rgba(36,183,189,0);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(36,183,189,.35);
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(36,183,189,0);
+    }
+
+}
+
+/* ------------------------------
+   Gradient Move
+------------------------------ */
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: left;
+    }
+
+    100% {
+        background-position: right;
+    }
+
+}
+
+/* ==========================================
+   Animation Utility Classes
+========================================== */
+
+.fade-in{
+    animation:fadeIn .8s ease forwards;
+}
+
+.slide-up{
+    animation:slideUp .7s ease forwards;
+}
+
+.slide-left{
+    animation:slideLeft .7s ease forwards;
+}
+
+.slide-right{
+    animation:slideRight .7s ease forwards;
+}
+
+.scale-in{
+    animation:scaleIn .5s ease forwards;
+}
+
+.float{
+    animation:float 4s ease-in-out infinite;
+}
+
+.pulse{
+    animation:pulse 2s infinite;
+}
+
+.bounce{
+    animation:bounce 2s infinite;
+}
+
+.glow{
+    animation:glow 2.5s infinite;
+}
+
+/* ==========================================
+   Hover Effects
+========================================== */
+
+.hover-lift{
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+.hover-lift:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.12);
+
+}
+
+.hover-scale{
+
+    transition:transform .25s;
+
+}
+
+.hover-scale:hover{
+
+    transform:scale(1.03);
+
+}
+
+.hover-rotate{
+
+    transition:transform .3s;
+
+}
+
+.hover-rotate:hover{
+
+    transform:rotate(-2deg);
+
+}
+
+/* ==========================================
+   Button Animation
+========================================== */
+
+.btn{
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 20px rgba(36,183,189,.25);
+
+}
+
+.btn:active{
+
+    transform:scale(.97);
+
+}
+
+/* ==========================================
+   Card Animation
+========================================== */
+
+.card,
+.hero-card,
+.vocab-card,
+.question-card,
+.quiz-item,
+.research-task,
+.mission{
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+
+}
+
+.card:hover,
+.hero-card:hover,
+.vocab-card:hover,
+.question-card:hover,
+.quiz-item:hover,
+.research-task:hover,
+.mission:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================
+   Details Animation
+========================================== */
+
+details{
+
+    transition:.3s;
+
+}
+
+details[open]{
+
+    animation:fadeIn .4s ease;
+
+}
+
+/* ==========================================
+   Image Animation
+========================================== */
+
+img{
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+
+}
+
+img:hover{
+
+    transform:scale(1.04);
+
+    filter:brightness(1.05);
+
+}
+
+/* ==========================================
+   Section Entrance
+========================================== */
+
+.section{
+
+    animation:
+        slideUp .8s ease;
+
+}
+
+/* ==========================================
+   Reduced Motion Support
+========================================== */
+
+@media (prefers-reduced-motion: reduce){
+
+*{
+
+animation:none !important;
+
+transition:none !important;
+
+scroll-behavior:auto;
+
+}
+
+}
