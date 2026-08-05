@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Scenario 8 | Buying Your First Home in Australia</title>
 <link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/shared.css">
 <link rel="stylesheet" href="../assets/css/layout.css">
 <link rel="stylesheet" href="../assets/css/cards.css">
 <link rel="stylesheet" href="../assets/css/components.css">
@@ -168,38 +169,7 @@
 </div>
 </section>
 
-<section class="section">
-<h2>Property Websites and Mortgage Brokers</h2>
-<p>Property websites help you search for homes. Mortgage brokers help you search for loans.</p>
-<div class="question-grid">
-<div class="question-card">
-<h3>Property Websites</h3>
-<p>Examples: <a href="https://www.realestate.com.au/" target="_blank" rel="noopener">Realestate.com.au</a> and <a href="https://www.domain.com.au/" target="_blank" rel="noopener">Domain</a>.</p>
-<ul>
-<li>Show house prices</li>
-<li>Show photos</li>
-<li>Compare locations</li>
-<li>Cannot approve loans</li>
-<li>Cannot recommend lenders</li>
-</ul>
-</div>
-<div class="question-card">
-<h3>Mortgage Broker</h3>
-<ul>
-<li>Finds suitable lenders</li>
-<li>Compares many banks</li>
-<li>Explains mortgage options</li>
-<li>Helps with paperwork</li>
-<li>Assists until settlement</li>
-<li>Usually free for buyers</li>
-</ul>
-</div>
-</div>
-<div class="challenge-box">
-<h3>Why Mortgage Brokers Help Migrants</h3>
-<p>Migrants may have temporary visas, overtime income or complex lending policies. A broker can match the buyer with a more suitable lender and may help avoid too many credit checks.</p>
-</div>
-</section>
+
 
 <section class="section">
 <h2>Find Your Future Home</h2>
@@ -341,15 +311,27 @@
 <p>Use this simple estimate before checking a bank or government calculator.</p>
 <div class="two-column">
 <div class="challenge-box">
-<label for="mortgage-house-price"><strong>House price</strong></label>
-<input id="mortgage-house-price" data-mortgage-calculator type="number" min="0" value="520000">
-<label for="mortgage-deposit"><strong>Deposit</strong></label>
-<input id="mortgage-deposit" data-mortgage-calculator type="number" min="0" value="52000">
-<label for="mortgage-interest-rate"><strong>Interest rate (%)</strong></label>
-<input id="mortgage-interest-rate" data-mortgage-calculator type="number" min="0" step="0.01" value="6.25">
-<label for="mortgage-loan-years"><strong>Loan years</strong></label>
-<input id="mortgage-loan-years" data-mortgage-calculator type="number" min="1" value="30">
+<div class="form-group">
+    <label for="mortgage-house-price"><strong>House price</strong></label>
+    <input id="mortgage-house-price" type="number" value="520000">
 </div>
+
+<div class="form-group">
+    <label for="mortgage-deposit"><strong>Deposit</strong></label>
+    <input id="mortgage-deposit" type="number" value="52000">
+</div>
+
+<div class="form-group">
+    <label for="mortgage-interest-rate"><strong>Interest rate (%)</strong></label>
+    <input id="mortgage-interest-rate" data-mortgage-calculator type="number" min="0" step="0.01" value="6.25">
+</div>
+
+<div class="form-group">
+    <label for="mortgage-loan-years"><strong>Loan years</strong></label>
+    <input id="mortgage-loan-years" data-mortgage-calculator type="number" min="1" value="30">
+</div>
+</div>
+
 <div class="payslip">
 <table class="worksheet">
 <tr><th>Result</th><th>Amount</th></tr>
@@ -365,40 +347,61 @@
 </section>
 
 <section class="section">
-<h2>Useful Questions</h2>
-<p>Translate first. Then click the Vietnamese sentence to check the English.</p>
-<div class="question-grid">
-<div class="question-card"><details><summary>T&ocirc;i mu&#7889;n mua c&#259;n nh&agrave; &#273;&#7847;u ti&ecirc;n.</summary><p>I'd like to buy my first home.</p></details></div>
-<div class="question-card"><details><summary>T&ocirc;i mu&#7889;n vay mua nh&agrave;.</summary><p>I'd like to apply for a home loan.</p></details></div>
-<div class="question-card"><details><summary>L&atilde;i su&#7845;t hi&#7879;n t&#7841;i l&agrave; bao nhi&ecirc;u?</summary><p>What's the current interest rate?</p></details></div>
-<div class="question-card"><details><summary>T&ocirc;i c&#7847;n &#273;&#7863;t c&#7885;c bao nhi&ecirc;u?</summary><p>How much deposit do I need?</p></details></div>
-<div class="question-card"><details><summary>T&ocirc;i c&oacute; &#273;&#7911; &#273;i&#7873;u ki&#7879;n vay kh&ocirc;ng?</summary><p>Am I eligible for a mortgage?</p></details></div>
-</div>
-</section>
-
-<section class="section">
 <h2>Speaking Roleplays</h2>
-<p>Use the useful questions above during each roleplay.</p>
-<div class="challenge-box">
-<h3>Focused Roleplay - Meat Processing Worker Meets a Mortgage Broker</h3>
-<p><strong>Student:</strong> Meat processing worker who wants to buy her first house.</p>
-<p><strong>Teacher:</strong> Mortgage broker.</p>
-<ul>
-<li>How much can I borrow?</li>
-<li>How much deposit do I need?</li>
-<li>Which loan is better?</li>
-<li>What is an offset account?</li>
-<li>What is the comparison rate?</li>
-<li>Should I choose fixed or variable?</li>
-</ul>
+<p>Read the Vietnamese question first. Try to say it in English before opening the answer.</p>
+
+<div class="question-card">
+<h3>Roleplay 1 - Mortgage Broker</h3>
+
+<p><strong>You:</strong> First home buyer</p>
+<p><strong>Teacher:</strong> Mortgage Broker</p>
+
+<details>
+<summary>Tôi muốn mua căn nhà đầu tiên.</summary>
+<p>I'd like to buy my first home.</p>
+</details>
+
+<details>
+<summary>Tôi muốn vay mua nhà.</summary>
+<p>I'd like to apply for a home loan.</p>
+</details>
+
+<details>
+<summary>Tôi có thể vay tối đa bao nhiêu?</summary>
+<p>How much can I borrow?</p>
+</details>
+
+<details>
+<summary>Tôi cần đặt cọc bao nhiêu?</summary>
+<p>How much deposit do I need?</p>
+</details>
+
+<details>
+<summary>Lãi suất hiện tại là bao nhiêu?</summary>
+<p>What's the current interest rate?</p>
+</details>
+
+<details>
+<summary>Tôi có đủ điều kiện vay không?</summary>
+<p>Am I eligible for a home loan?</p>
+</details>
+
+<details>
+<summary>Tôi nên chọn lãi suất cố định hay thả nổi?</summary>
+<p>Should I choose a fixed or variable interest rate?</p>
+</details>
+
+<details>
+<summary>Offset account là gì?</summary>
+<p>What is an offset account?</p>
+</details>
+
+<details>
+<summary>Comparison rate là gì?</summary>
+<p>What is the comparison rate?</p>
+</details>
+
 </div>
-<div class="question-grid">
-<div class="question-card"><h3>Roleplay 1 - Mortgage Broker</h3><p><strong>You:</strong> First home buyer</p><p><strong>Teacher:</strong> Mortgage broker</p><ul><li>Ask about borrowing capacity.</li><li>Ask about fixed and variable rates.</li><li>Explain your income and deposit.</li></ul></div>
-<div class="question-card"><h3>Roleplay 2 - Bank Home Loan Officer</h3><p><strong>You:</strong> Customer</p><p><strong>Teacher:</strong> Bank officer</p><ul><li>Ask how to apply for a home loan.</li><li>Ask about documents.</li><li>Ask about monthly repayments.</li></ul></div>
-<div class="question-card"><h3>Roleplay 3 - Real Estate Agent</h3><p><strong>You:</strong> Buyer</p><p><strong>Teacher:</strong> Agent</p><ul><li>Ask about price.</li><li>Ask about bedrooms and bathrooms.</li><li>Ask when inspections are available.</li></ul></div>
-<div class="question-card"><h3>Roleplay 4 - House Inspection</h3><p><strong>You:</strong> Buyer at inspection</p><p><strong>Teacher:</strong> Agent</p><ul><li>Ask about the property condition.</li><li>Ask about settlement.</li><li>Ask why the owner is selling.</li></ul></div>
-</div>
-</section>
 
 <section class="section">
 <h2>IELTS Speaking Part 1</h2>
@@ -412,8 +415,8 @@
 <h2>IELTS Speaking Part 2</h2>
 <div class="challenge-box"><h3>Cue Card</h3><p>Describe a home you would like to buy in the future.</p><ul><li>Where it would be</li><li>What it would look like</li><li>How you would save for it</li><li>Why you would choose it</li></ul></div>
 <div class="challenge-box"><h3>Answer Template</h3><p>I'd like to talk about __________. It would be located in __________. I would choose it because __________. To save for it, I would __________. I think this home would __________.</p></div>
-<details><summary>Sample Answer</summary><p>I'd like to buy a three-bedroom house in a regional city such as Wagga Wagga. It would be close to my workplace and not too expensive. To save for it, I would make a budget and put money into my savings account every payday. I think this home would give me stability in Australia.</p></details>
 <div class="notes"><div class="note"><strong>Student Notes</strong><br><br>Location: ____________________<br><br>Price: ____________________<br><br>Why I like it: ____________________</div></div>
+<details><summary>Sample Answer</summary><p>I'd like to buy a three-bedroom house in a regional city such as Wagga Wagga. It would be close to my workplace and not too expensive. To save for it, I would make a budget and put money into my savings account every payday. I think this home would give me stability in Australia.</p></details>
 </section>
 
 <section class="section">
